@@ -304,6 +304,6 @@ class __TwigTemplate_4857f9ed061f4acd4dc9649603a6c3abf3fb390b67cf88b1e38d5af4d51
 {% endblock %}
 </body>
 </html>
-", "base.html.twig", "C:\\wamp64\\www\\sym\\inayah\\templates\\base.html.twig");
+", "base.html.twig", "C:\\xampp\\htdocs\\inayah\\templates\\base.html.twig");
     }
 }

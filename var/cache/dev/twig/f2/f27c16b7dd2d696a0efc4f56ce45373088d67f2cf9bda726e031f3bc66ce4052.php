@@ -140,8 +140,9 @@ class __TwigTemplate_ef4d590fb1f15d76a03c4963c6d95170a2f87f08d65cfa6568e1a64b0a7
             <span class=\"arr-right\"><i class=\"fa fa-angle-right\"></i></span>
         </div>
         <div class=\"texture\"></div>
-        <div class=\"diag-bg\"></div>
-    </section>
+";
+        // line 62
+        echo "    </section>
     <!-- Hero End -->
     <!-- Call To Action Start -->
     <section class=\"cta\" data-aos=\"fade-up\" data-aos-delay=\"0\">
@@ -593,7 +594,7 @@ class __TwigTemplate_ef4d590fb1f15d76a03c4963c6d95170a2f87f08d65cfa6568e1a64b0a7
 
     public function getDebugInfo()
     {
-        return array (  545 => 449,  539 => 446,  533 => 443,  527 => 440,  521 => 437,  90 => 8,  80 => 7,  69 => 4,  59 => 3,  36 => 1,);
+        return array (  546 => 449,  540 => 446,  534 => 443,  528 => 440,  522 => 437,  145 => 62,  90 => 8,  80 => 7,  69 => 4,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -658,7 +659,7 @@ class __TwigTemplate_ef4d590fb1f15d76a03c4963c6d95170a2f87f08d65cfa6568e1a64b0a7
             <span class=\"arr-right\"><i class=\"fa fa-angle-right\"></i></span>
         </div>
         <div class=\"texture\"></div>
-        <div class=\"diag-bg\"></div>
+{#        <div class=\"diag-bg\"></div>#}
     </section>
     <!-- Hero End -->
     <!-- Call To Action Start -->
@@ -1077,6 +1078,6 @@ class __TwigTemplate_ef4d590fb1f15d76a03c4963c6d95170a2f87f08d65cfa6568e1a64b0a7
 
 {% endblock %}
 
-", "default/index.html.twig", "C:\\wamp64\\www\\sym\\inayah\\templates\\default\\index.html.twig");
+", "default/index.html.twig", "C:\\xampp\\htdocs\\inayah\\templates\\default\\index.html.twig");
     }
 }

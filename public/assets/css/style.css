@@ -25,7 +25,7 @@
     1 - Header
 ------------------------------------*/
 header {
-  background-color: rgba(26, 10, 56, 0.53);
+  background-color: rgba(0, 0, 0, 0.60);
   color: #fff;
   z-index: 1000;
 }
@@ -49,13 +49,13 @@ header::after {
   text-transform: uppercase;
 }
 
-.contact {
-  font-size: 12px;
-}
+/*.contact {*/
+/*  font-size: 12px;*/
+/*}*/
 
-.tel {
-  margin-right: 30px;
-}
+/*.tel {*/
+/*  margin-right: 30px;*/
+/*}*/
 
 .contact i {
   color: #ee1515;
@@ -114,6 +114,7 @@ header::after {
 
 .navbar-brand img {
   width: 135px;
+  max-width: 135px;
 }
 
 .navbar-collapse .search-form input[type="text"] {
@@ -129,7 +130,7 @@ header::after {
 }
 
 .navbar-collapse .nav-link {
-  font-size: 1.125rem;
+  font-size: 1.3rem;
   transition: all 0.2s ease-in-out;
 }
 
@@ -164,7 +165,7 @@ form button.btn-primary:hover {
     1 - Hero
 ------------------------------------*/
 .hero {
-  background: url("../images/hero-bg.jpg") no-repeat center;
+  background: url("../images/main.png") no-repeat center;
   background-size: cover;
   overflow: hidden;
   position: relative;
@@ -752,11 +753,11 @@ footer {
     1 - Footer Widgets
 ------------------------------------*/
 .footer-widgets {
-  padding: 100px 0;
+  padding: 10px 0;
 }
 
 .footer-widgets .col-md-6 .single-widget:not(:first-child) .widget-tiltle {
-  margin: 40px 0 30px;
+  margin: 30px 0 30px;
 }
 
 .single-widget {

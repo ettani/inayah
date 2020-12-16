@@ -260,7 +260,7 @@ class __TwigTemplate_88840f6b3d049cc569d7b5a66ae2985368066a424856eb7d9860a80161d
                         <a href=\"https://symfony.com/doc/";
             // line 83
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 83, $this->source); })()), "symfonyversion", [], "any", false, false, false, 83), "html", null, true);
-            echo "/index.html.twig\" rel=\"help\">
+            echo "/index.html\" rel=\"help\">
                             Read Symfony ";
             // line 84
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 84, $this->source); })()), "symfonyversion", [], "any", false, false, false, 84), "html", null, true);
@@ -659,7 +659,7 @@ class __TwigTemplate_88840f6b3d049cc569d7b5a66ae2985368066a424856eb7d9860a80161d
                 <div class=\"sf-toolbar-info-piece\">
                     <b>Resources</b>
                     <span>
-                        <a href=\"https://symfony.com/doc/{{ collector.symfonyversion }}/index.html.twig\" rel=\"help\">
+                        <a href=\"https://symfony.com/doc/{{ collector.symfonyversion }}/index.html\" rel=\"help\">
                             Read Symfony {{ collector.symfonyversion }} Docs
                         </a>
                     </span>
@@ -803,6 +803,6 @@ class __TwigTemplate_88840f6b3d049cc569d7b5a66ae2985368066a424856eb7d9860a80161d
         </table>
     {% endif %}
 {% endblock %}
-", "@WebProfiler/Collector/config.html.twig", "C:\\wamp64\\www\\sym\\inayah\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\config.html.twig");
+", "@WebProfiler/Collector/config.html.twig", "C:\\xampp\\htdocs\\inayah\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\config.html.twig");
     }
 }
