@@ -18,3 +18,4 @@ class DefaultController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstr
     }
 
 }
+
