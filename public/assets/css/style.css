@@ -160,6 +160,20 @@ form button.btn-primary:hover {
   background-color: #fff;
   color: #ee1515;
 }
+.form-control
+{
+  border: 1px solid black !important;
+  color: black !important;
+}
+
+.top{
+  margin-top: 250px !important;
+  margin-bottom: 100px !important;
+}
+
+.top0{
+  top: 0 !important;
+}
 
 /*-----------------------------------
     1 - Hero

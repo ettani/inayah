@@ -4,9 +4,10 @@
 namespace App\Controller;
 
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class DefaultController extends \Symfony\Bundle\FrameworkBundle\Controller\AbstractController
+class DefaultController extends AbstractController
 {
     /**
      * Page Accueil
