@@ -3,38 +3,68 @@
 {% block title %}ADMINISTRATION {% endblock %}
 {% block body %}
 
-            <div class="container top">
-            <div class="row">
-                <div class="col-12 col-md-11">
-                    <table class="table table-bordered display" id="table_id">
-                        <thead>
+    {# LISTE DES DEMANDEURS #}
+    <div class="container top">
+        <div class="row">
+            <div class="col-12 col-md-11">
+                <h1> Liste des demandeurs</h1>
+                <table class="table table-bordered display" id="table_id">
+                <thead>
+                    <td class="text-center align-middle"> Prenom</td>
+                    <td class="text-center align-middle"> Nom</td>
+                    <td class="text-center align-middle"> Adresse</td>
+                    <td class="text-center align-middle"> Code postal</td>
+                    <td class="text-center align-middle"> Ville</td>
+                    <td class="text-center align-middle"> Email</td>
+                    <td class="text-center align-middle"> Telephone</td>
+                    <td class="text-center align-middle"> Description</td>
+                </thead>
+                <tbody>
+                {% for user in demandeurs %}
+                    <tr>
+                        <td> {{ user.firstname }} </td>
+                        <td> {{ user.lastname }} </td>
+                        <td> {{ user.adress }} </td>
+                        <td> {{ user.cp }} </td>
+                        <td> {{ user.city }} </td>
+                        <td> {{ user.email }} </td>
+                        <td> {{ user.tel }} </td>
+                        <td> {{ user.description }} </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </div>
+        {# LISTE DES BENEVOLES #}
+            <div class="col-12 col-md-11">
+                <h1> Liste des bénévoles</h1>
+                <table class="table table-bordered display" id="table_id">
+                    <thead>
                         <td class="text-center align-middle"> Prenom</td>
                         <td class="text-center align-middle"> Nom</td>
                         <td class="text-center align-middle"> Adresse</td>
                         <td class="text-center align-middle"> Code postal</td>
-                        <td class="text-center align-middle"> Ville </td>
-                        <td class="text-center align-middle"> Email </td>
-                        <td class="text-center align-middle"> Telephone </td>
-                        <td class="text-center align-middle"> Description </td>
-
-                        </thead>
-                        <tbody>
-                            {% for user in user %}
-                                <tr>
-                                    <td> {{user.firstname }} </td>
-                                    <td> {{user.lastname }} </td>
-                                    <td> {{user.adress }} </td>
-                                    <td> {{user.cp }} </td>
-                                    <td> {{user.city }} </td>
-                                    <td> {{user.email }} </td>
-                                    <td> {{user.tel }} </td>
-                                    <td> {{user.description }} </td>
-
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
+                        <td class="text-center align-middle"> Ville</td>
+                        <td class="text-center align-middle"> Email</td>
+                        <td class="text-center align-middle"> Telephone</td>
+                        <td class="text-center align-middle"> Description</td>
+                    </thead>
+                    <tbody>
+                    {% for user in benevoles %}
+                        <tr>
+                        <td> {{ user.firstname }} </td>
+                        <td> {{ user.lastname }} </td>
+                        <td> {{ user.adress }} </td>
+                        <td> {{ user.cp }} </td>
+                        <td> {{ user.city }} </td>
+                        <td> {{ user.email }} </td>
+                        <td> {{ user.tel }} </td>
+                        <td> {{ user.description }} </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </div>
+    </div>
 {% endblock %}

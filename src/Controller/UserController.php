@@ -48,7 +48,7 @@ class UserController extends AbstractController
 
 
             #Redirection vers accueil
-            return $this->redirectToRoute('default_index');
+            return $this->redirectToRoute('app_login');
 
         }
 
