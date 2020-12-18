@@ -49,6 +49,28 @@
                 </ul>
 
             </div>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
+                        {% if is_granted('ROLE_ADMIN') %}
+
+                            <li class="nav-item"><a class="nav-link" href="{{ path('post_create') }}">Rédiger un Article</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Administration</a></li>
+                        {% endif %}
+                        {% else %}
+                            <li class="nav-item"> <a class="nav-link" href="{{ path('user_create') }}">Inscription</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ path('app_login') }}">Connexion</a></li>
+
+
+                    {% endif %}
+
+                </ul>
+
+            </div>
+
+
+
         </nav>
     </div>
 </header>

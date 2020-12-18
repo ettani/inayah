@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ post.title }}
+{% endblock %}
+
+{% block body %}
+
+    <div class="p-3 mx-auto text-center" >
+        <h1 class="display-4" style="margin-top: 190px;" >{{ post.title }}</h1>
+    </div>
+
+    <div class="py-5 bg-light mt-3">
+        <div class="container">
+            <div class="jumbotron">
+                <div class="row">
+                    <div class="col-12">
+                        {% for label, messages in app.flashes %}
+                            {% for message in messages %}
+                                <div class="alert alert-{{ label }}">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <img class="img-fluid" src="{{ asset('uploads/images/' ~ post.image) }}" alt="{{ post.title }}">
+                            <a class="btn btn-warning btn-block mt-2"
+                               href="{{ path('post_update', { 'id' : post.id }) }}">
+                                Modifier cet Article
+                            </a>
+                            <a class="btn btn-danger btn-block mt-2"
+                               href="{{ path('post_delete', { 'id' : post.id }) }}">
+                                Supprimer cet Article
+                            </a>
+                    </div>
+                    <div class="col">
+                        {{ post.content | raw }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
