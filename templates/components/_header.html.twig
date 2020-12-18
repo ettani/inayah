@@ -30,14 +30,17 @@
                     <li class="nav-item"><a class="nav-link" href="#">Accueil</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Agir</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Demande d'aide</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Faire un don</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://www.helloasso.com/associations/association-inayah/formulaires/2?fbclid=IwAR1lpUqMy1tKNt636OkD3_wddfvKpDGpR6Ouy5et34zM2Hxguhvg6a5lhqQ">Faire un don</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Mon compte</a></li>
+
+
                 </ul>
 
             </div>
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav">
+
+
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
 
                         {% if is_granted('ROLE_ADMIN') %}
@@ -45,13 +48,13 @@
                             <li class="nav-item"><a class="nav-link" href="{{ path('post_create') }}">Rédiger un Article</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">Administration</a></li>
                         {% endif %}
-                        {% else %}
-                            <li class="nav-item"> <a class="nav-link" href="{{ path('user_create') }}">Inscription</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ path('app_login') }}">Connexion</a></li>
 
-
+                        {% if is_granted('ROLE_USER') %}
+                            <li class="nav-item"><a class="nav-link" href="#">Mon compte</a></li>
+                        {% endif %}
                     {% endif %}
-
+                    <a class="nav-link" href="#">Inscription</a>
+                    <a class="nav-link" href="#">Connexion</a>
                 </ul>
 
             </div>
