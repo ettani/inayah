@@ -50,7 +50,7 @@ class UserController extends AbstractController
             $this->addFlash('success', 'Felicitation votre inscription a été prise en compte ');
 
             #Redirection vers accueil
-            return $this->redirectToRoute('default_index');
+            return $this->redirectToRoute('app_login');
 
         }
 
