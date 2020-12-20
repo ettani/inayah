@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -35,7 +36,7 @@ class UserType extends AbstractType
             ->add('city', TextType::class, [
                 'label' => 'Ville'
             ])
-            ->add('cp', IntegerType::class, [
+            ->add('cp', TextType::class, [
                 'label' => 'Code Postale'
             ])
             ->add('email', EmailType::class, [
@@ -53,7 +54,7 @@ class UserType extends AbstractType
                     'Demandeur' => 'ROLE_DEMANDEUR',
                 ],
             ])
-            ->add('tel', IntegerType::class, [
+            ->add('tel', TelType::class, [
                 'label' => 'Téléphone'
             ])
             ->add('description', TextareaType::class, [

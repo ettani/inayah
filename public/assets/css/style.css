@@ -174,6 +174,9 @@ form button.btn-primary:hover {
 .top0{
   top: 0 !important;
 }
+.form-error-message{
+  color:red !important;
+}
 
 /*-----------------------------------
     1 - Hero
