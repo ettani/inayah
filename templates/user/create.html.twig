@@ -2,11 +2,11 @@
 
 {% block title %}Inscrption{% endblock %}
 
-{% block javascripts%}
+{% block javascripts %}
     {{ parent() }}
     <script src="https://cdn.ckeditor.com/ckeditor5/23.1.0/classic/ckeditor.js"></script>
     <script>
-        ClassicEditor.create( document.querySelector( '#form_content' ) );
+        ClassicEditor.create(document.querySelector('#form_content'));
     </script>
 
 {% endblock %}
@@ -14,22 +14,20 @@
 
 {% block body %}
 
-            {# FORMULAIRE D'INSCRIPTION#}
-    <div class="row">
-        <div class="col-md-6 mx-auto top">
-            <div class="p-3 mx-auto text-center">
-                <h1 class="">Inscription</h1>
-            </div>
+    {# FORMULAIRE D'INSCRIPTION #}
+    <div class="col-md-6 mx-auto top">
+        <div class="p-3 mx-auto text-center">
+            <h1 class="">Inscription</h1>
         </div>
 
-    <div class="py-5 bg-light">
-        <div class="">
-            <div class="row">
-                <div class="col-md-10  mx-auto">
-                    {{ form(form, {attr: {novalidate: 'novalidate'}}) }}
+        <div class="py-5 bg-light">
+            <div class="">
+                <div class="row">
+                    <div class="col-md-10  mx-auto">
+                        {{ form(form, {attr: {novalidate: 'novalidate'}}) }}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 {% endblock %}
