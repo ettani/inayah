@@ -44,10 +44,8 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <div class="navbar-nav ml-auto">
-
                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                             <a class="nav-link" href="{{ path('app_logout') }}">Deconnexion</a>
-
                             {% if is_granted('ROLE_ADMIN') %}
                                 <a class="nav-link" href="{{ path('post_create') }}">Rédiger un Article</a>
                             {% endif %}
@@ -58,9 +56,7 @@
 {#                            <li class="nav-item"><a class="nav-link" href="{{ path('user-create') }}">Demande d'aide</a></li>#}
                             <li class="nav-item"><a class="nav-link" href="{{ path('user-create') }}">Inscription</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ path('app_login') }}">Connexion</a></li>
-
                         {% endif %}
-
                     </div>
                 </ul>
             </div>
