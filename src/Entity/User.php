@@ -4,10 +4,17 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @UniqueEntity(
+ *     fields={"email"},
+ *     errorPath="email",
+ *     message="Ce compte existe déja"
+ * )
  */
 class User implements UserInterface
 {
@@ -20,6 +27,9 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\Length(max="180", maxMessage="Attention pas plus de 180 caractères.")
+     * @Assert\Email(message="L'adresse email '{{ value }}' n'est pas valide.")
+     * @Assert\NotBlank (message="N'oubliez pas votre email")
      */
     private $email;
 
@@ -31,41 +41,53 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\NotBlank (message="Noubliez pas votre mot de passe")
+     * @Assert\NotCompromisedPassword(message="Attention votre mot de passe n'est pas sécuriser")
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=80)
+     * @Assert\NotBlank (message="Veuillez inscrire votre nom.")
      */
     private $lastname;
 
     /**
      * @ORM\Column(type="string", length=80)
+     * @Assert\NotBlank(message="Veuillez inscrire votre prénom.")
+     * @Assert\Length(max="80", maxMessage="Attention pas plus de 80 caractères.")
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank (message="Veuillez inscrire une adresse.")
      */
     private $adress;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=5)
+     * @Assert\Length(min="5", max="5", maxMessage="Attention pas plus de 5 caractères.")
+     * @Assert\Regex(pattern="/^[0-9]{5}$/", message="Veuillez inscrire votre code Postale ex:78250")
+     * @Assert\NotBlank (message="Veuillez entrer votre code postale.")
      */
     private $cp;
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank (message="Veuillez entrer votre ville.")
      */
     private $city;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=10)
+     * @Assert\Regex(pattern="/^(0)[0-9]{9}$/", message="Veuillez inscrire votre numero de téléphone ex:0102030405")
      */
     private $tel;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(message="Veuillez entrer la raison de votre inscription.")
      */
     private $description;
 
@@ -118,12 +140,12 @@ class User implements UserInterface
     /**
      * @see UserInterface
      */
-    public function getPassword(): string
+    public function getPassword()
     {
-        return (string) $this->password;
+        return $this->password;
     }
 
-    public function setPassword(string $password): self
+    public function setPassword($password): self
     {
         $this->password = $password;
 
@@ -183,12 +205,12 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getCp(): ?int
+    public function getCp(): ?string
     {
         return $this->cp;
     }
 
-    public function setCp(int $cp): self
+    public function setCp(string $cp): self
     {
         $this->cp = $cp;
 
@@ -207,12 +229,12 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getTel(): ?int
+    public function getTel(): ?string
     {
         return $this->tel;
     }
 
-    public function setTel(int $tel): self
+    public function setTel(string $tel): self
     {
         $this->tel = $tel;
 

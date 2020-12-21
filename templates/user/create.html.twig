@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Inscrption{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://cdn.ckeditor.com/ckeditor5/23.1.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor.create(document.querySelector('#form_content'));
+    </script>
+{% endblock %}
+
+
+{% block body %}
+    {# FORMULAIRE D'INSCRIPTION #}
+    <div class="row">
+        <div class="col-md-6 mx-auto top">
+            <div class=" mx-auto text-center">
+                <h1 class="">Inscription</h1>
+            </div>
+        </div>
+    </div>
+    <div class="py-3 bg-light">
+        <div class="row">
+            <div class="col-md-6  mx-auto">
+                {{ form(form, {attr: {novalidate: 'novalidate'}}) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
