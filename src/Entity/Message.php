@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\MessageRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=MessageRepository::class)
@@ -19,16 +20,21 @@ class Message
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank(message="Veuillez Inscrire votre nom complet.")
+     * @Assert\Length(max="100", maxMessage="Attention pas plus de 100 caractères.")
      */
     private $fullname;
 
     /**
      * @ORM\Column(type="string", length=60)
+     * @Assert\NotBlank(message="Veuillez Inscrire votre email.")
+     * @Assert\Email(message="L'adresse email '{{ value }}' n'est pas valide.")
      */
     private $email;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(message="Veuillez entrer un message.")
      */
     private $description;
 
