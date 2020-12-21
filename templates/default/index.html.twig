@@ -111,7 +111,7 @@
                 </div>
                 <div class="col-md-6" data-aos="fade-left" data-aos-delay="400" data-aos-duration="800">
                     <div class="featured-img">
-                        <img class="featured-big" style="width: 450px; height: 450px" src="assets/images/grande1.jpg" alt="grande">
+                        <img class="featured-big" style="width: 450px; height: 450px; object-fit: cover;" src="assets/images/grande1.jpg" alt="grande">
                         <img class="featured-small" style="width: 300px" src="assets/images/image1.jpg" alt="petite">
                     </div>
                 </div>
@@ -121,16 +121,17 @@
     <!-- Featured End -->
 
     <!--Blog-->
+
     <div class="py-5 bg-light">
         <div class="container" >
             <div class="row">
                 {% for post in posts  %}
                     <div class="col-md-4 mt-4">
-                        <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+                        <div class="card text-white bg-light mb-3" style="max-width: 20rem;">
 
                             <div class="card-body">
                                 <img class="img-fluid" style="height: 300px; width: 300px" src="{{ asset('uploads/images/' ~ post.image) }}" alt="{{ post.title }}">
-                                <h4 class="card-title">{{ post.title }}</h4>
+                                <h4 class="card-title" style="color: #0a0a0a">{{ post.title }}</h4>
                                 <a class="btn btn-block btn-primary" href="{{ path('default_post', {
                                     'id' : post.id,
                                     'title' :post.title
