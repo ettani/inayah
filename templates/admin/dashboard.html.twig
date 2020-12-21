@@ -6,9 +6,10 @@
     {# LISTE DES DEMANDEURS #}
     <div class="container top">
         <div class="row">
-            <div class="col-12 col-md-11">
+            <div class="col-md-12">
                 <h1> Liste des demandeurs</h1>
-                <table class="table table-bordered display" id="">
+                <table class="table table-bordered display" id="myTable">
+
                 <thead>
                     <td class="text-center align-middle"> Prenom</td>
                     <td class="text-center align-middle"> Nom</td>
@@ -18,6 +19,8 @@
                     <td class="text-center align-middle"> Email</td>
                     <td class="text-center align-middle"> Telephone</td>
                     <td class="text-center align-middle"> Description</td>
+                    <td class="text-center align-middle"> Modifier</td>
+                    <td class="text-center align-middle"> Supprimer</td>
                 </thead>
                 <tbody>
                 {% for user in demandeurs %}
@@ -30,15 +33,24 @@
                         <td> {{ user.email }} </td>
                         <td> {{ user.tel }} </td>
                         <td> {{ user.description }} </td>
+                        <td> <a class="btn btn-danger btn-block"
+                                href="{{ path('user-update', { 'id' : user.id }) }}">
+                                <i class="far fa-edit"></i>
+                            </a></td>
+                        <td> <a class="btn btn-danger btn-block"
+                                href="{{ path('user_delete', { 'id' : user.id }) }}">
+                                <i class="far fa-trash-alt"></i>
+                            </a>  </td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
-            </div>
-        {# LISTE DES BENEVOLES #}
-            <div class="col-12 col-md-11">
+         </div>
+{#        #}{# LISTE DES BENEVOLES #}
+            <div class="col-md-12">
                 <h1> Liste des bénévoles</h1>
-                <table class="table table-bordered display" id="">
+                <table class="table table-bordered display" id="myTable2">
+
                     <thead>
                         <td class="text-center align-middle"> Prenom</td>
                         <td class="text-center align-middle"> Nom</td>
@@ -48,6 +60,8 @@
                         <td class="text-center align-middle"> Email</td>
                         <td class="text-center align-middle"> Telephone</td>
                         <td class="text-center align-middle"> Description</td>
+                        <td class="text-center align-middle"> Modifier</td>
+                        <td class="text-center align-middle"> Supprimer</td>
                     </thead>
                     <tbody>
                     {% for user in benevoles %}
@@ -60,11 +74,45 @@
                         <td> {{ user.email }} </td>
                         <td> {{ user.tel }} </td>
                         <td> {{ user.description }} </td>
+                        <td> <a class="btn btn-danger mt-2"
+                                href="{{ path('user-update', { 'id' : user.id }) }}">
+                                <i class="far fa-edit"></i>
+                            </a></td>
+                        <td> <a class="btn btn-danger btn-block mt-2"
+                            href="{{ path('user_delete', { 'id' : user.id }) }}">
+                                <i class="far fa-trash-alt"></i>
+                            </a>  </td>
                     </tr>
                     {% endfor %}
                     </tbody>
                 </table>
             </div>
         </div>
+
+{#LISTE DES MESSAGES RECU #}
+    <div class="col-md-12">
+        <h1> Message recu</h1>
+        <table class="table table-bordered display" id="myTable3">
+            <thead>
+            <td class="text-center align-middle"> Nom complet</td>
+            <td class="text-center align-middle"> email</td>
+            <td class="text-center align-middle"> description</td>
+            <td class="text-center align-middle"> date de reception</td>
+            </thead>
+            <tbody>
+            {% for message in messages %}
+                <tr>
+                    <td> {{ message.fullname }} </td>
+                    <td> {{ message.email }} </td>
+                    <td> {{ message.description }} </td>
+                    <td> {{ message.date | date('d/m/Y') }} </td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
     </div>
+    </div>
+
+
 {% endblock %}
