@@ -21,26 +21,18 @@
 12 - Footer Widgets
 13 - Foot Note
 --------------------------------------------------------------------*/
-
-.top{
-  margin-top: 250px;
-}
-
-.top0{
-  top: 0;
-}
-
 /*-----------------------------------
     1 - Header
 ------------------------------------*/
 header {
-  background-color: rgba(26, 10, 56, 0.53);
+  background-color: rgba(0, 0, 0, 0.60);
   color: #fff;
   z-index: 1000;
 }
 
 header a {
   color: #fff;
+
 }
 
 header::after {
@@ -56,15 +48,18 @@ header::after {
 .nav-link {
   font-family: "Rajdhani", sans-serif;
   text-transform: uppercase;
+  font-size: 20px !important;
+  width: max-content !important;
+
 }
 
-.contact {
-  font-size: 12px;
-}
+/*.contact {*/
+/*  font-size: 12px;*/
+/*}*/
 
-.tel {
-  margin-right: 30px;
-}
+/*.tel {*/
+/*  margin-right: 30px;*/
+/*}*/
 
 .contact i {
   color: #ee1515;
@@ -123,6 +118,7 @@ header::after {
 
 .navbar-brand img {
   width: 135px;
+  max-width: 135px;
 }
 
 .navbar-collapse .search-form input[type="text"] {
@@ -138,7 +134,7 @@ header::after {
 }
 
 .navbar-collapse .nav-link {
-  font-size: 1.125rem;
+  font-size: 1.3rem;
   transition: all 0.2s ease-in-out;
 }
 
@@ -174,11 +170,13 @@ form button.btn-primary:hover {
   color: black !important;
 }
 
+.top{
+  margin-top: 250px !important;
+  margin-bottom: 100px !important;
+}
+
 .top0{
   top: 0 !important;
-}
-.form-error-message{
-  color:red !important;
 }
 
 /*-----------------------------------
@@ -188,8 +186,8 @@ form button.btn-primary:hover {
   margin-top: 260px !important;
 }
 
-.top-footer{
-  margin-top: 100px !important;
+.top0{
+  top: 0 !important;
 }
 
 .hero {
@@ -219,14 +217,14 @@ form button.btn-primary:hover {
   text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.56);
   text-transform: uppercase;
   -webkit-transform: matrix(0.93128, 0, 0, 0.93128, 0, 0);
-          transform: matrix(0.93128, 0, 0, 0.93128, 0, 0);
+  transform: matrix(0.93128, 0, 0, 0.93128, 0, 0);
   font-weight: bold;
 }
 
 .hero .slide-content p {
   color: #170936;
   -webkit-transform: matrix(0.93128, 0, 0, 0.93128, 0, 0);
-          transform: matrix(0.93128, 0, 0, 0.93128, 0, 0);
+  transform: matrix(0.93128, 0, 0, 0.93128, 0, 0);
   padding: 35px 0 35px 30px;
   background-color: rgba(255, 255, 255, 0.51);
   border-top-right-radius: 100px;
@@ -251,7 +249,7 @@ form button.btn-primary:hover {
   position: absolute;
   top: 85%;
   -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   z-index: 9;
 }
 
@@ -268,7 +266,7 @@ form button.btn-primary:hover {
   width: 100%;
   height: 100%;
   -webkit-clip-path: polygon(0 0, 100% 100%, 100% 0);
-          clip-path: polygon(0 0, 100% 100%, 100% 0);
+  clip-path: polygon(0 0, 100% 100%, 100% 0);
   background-color: rgba(240, 0, 255, 0.1);
   position: absolute;
   top: 0;
@@ -528,8 +526,8 @@ form button.btn-primary:hover {
 .trust ul {
   color: #fff;
   -webkit-column-count: 2;
-     -moz-column-count: 2;
-          column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
 }
 
 .trust li {
@@ -539,7 +537,7 @@ form button.btn-primary:hover {
 .trust .gallery img {
   width: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   height: 100%;
 }
 
@@ -556,7 +554,7 @@ form button.btn-primary:hover {
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   opacity: 0;
   z-index: 2;
 }
@@ -629,16 +627,13 @@ form button.btn-primary:hover {
   color: #9d9d9d;
   padding-bottom: 30px;
   margin-bottom: 32px;
+  border-bottom: 2px solid #2f2f2f;
   transition: all 0.2s ease-in-out;
 }
 
 .single-pricing .price {
   font-size: 2rem;
-  margin: 35px 0;
-  width: 300px;
-  border: 0;
-  border-radius: 5px;
-  text-align: center;
+  margin-bottom: 8px;
 }
 
 .single-pricing p {
@@ -670,7 +665,7 @@ form button.btn-primary:hover {
 
 .single-pricing:hover .desc {
   color: #fff;
-
+  border-bottom: 2px solid rgba(245, 245, 245, 0.322);
 }
 
 .single-pricing:hover svg {
@@ -706,7 +701,7 @@ form button.btn-primary:hover {
 
 .testimonials .test-img img {
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   width: 100%;
   height: 90px;
 }
@@ -784,11 +779,11 @@ footer {
     1 - Footer Widgets
 ------------------------------------*/
 .footer-widgets {
-  padding: 100px 0;
+  padding: 10px 0;
 }
 
 .footer-widgets .col-md-6 .single-widget:not(:first-child) .widget-tiltle {
-  margin: 40px 0 30px;
+  margin: 30px 0 30px;
 }
 
 .single-widget {
@@ -842,7 +837,7 @@ span {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .recent-post-widget a {
