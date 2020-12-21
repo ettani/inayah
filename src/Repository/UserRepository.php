@@ -42,6 +42,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             ->andWhere('u.roles LIKE :role')
             ->setParameter('role', "%$role%")
             ->orderBy('u.id', 'ASC')
+            //->setMaxResults(6)
             ->getQuery()
             ->getResult();
     }
