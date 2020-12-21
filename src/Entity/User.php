@@ -4,10 +4,17 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @UniqueEntity(
+ *     fields={"email"},
+ *     errorPath="email",
+ *     message="Ce compte existe déja"
+ * )
  */
 class User implements UserInterface
 {
@@ -20,6 +27,9 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\Length(max="180", maxMessage="Attention pas plus de 180 caractères.")
+     *  @Assert\Email(message="Veuillez saisir un contenu .")
+     * @Assert\NotBlank (message="N'oubliez pas votre email")
      */
     private $email;
 
@@ -31,6 +41,8 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\NotBlank (message="Noubliez pas votre mot de passe")
+     * @Assert\NotCompromisedPassword(message="Attention votre mot de passe n'est pas sécuriser")
      */
     private $password;
 
@@ -41,6 +53,8 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=80)
+     * @Assert\NotBlank(message="Veuillez Inscrire votre nom.")
+     * @Assert\Length(max="80", maxMessage="Attention pas plus de 80 caractères.")
      */
     private $firstname;
 
@@ -118,12 +132,12 @@ class User implements UserInterface
     /**
      * @see UserInterface
      */
-    public function getPassword(): string
+    public function getPassword()
     {
-        return (string) $this->password;
+        return $this->password;
     }
 
-    public function setPassword(string $password): self
+    public function setPassword($password): self
     {
         $this->password = $password;
 
