@@ -21,26 +21,6 @@
 12 - Footer Widgets
 13 - Foot Note
 --------------------------------------------------------------------*/
-
-
-
-
-/*-----------------------------------
-    0-1 - Agir
-------------------------------------*/
-#don{
-  font-size: 2rem;
-  margin: 35px 0;
-  width: 300px;
-  border: 0;
-  border-radius: 5px;
-  text-align: center;
-}
-
-
-
-
-
 /*-----------------------------------
     1 - Header
 ------------------------------------*/
@@ -48,12 +28,6 @@ header {
   background-color: rgba(0, 0, 0, 0.60);
   color: #fff;
   z-index: 1000;
-}
-
-.header-logo{
-  width: 100%;
-  height: 205px;
-  object-fit: cover;
 }
 
 header a {
@@ -437,22 +411,17 @@ form button.btn-primary:hover {
 }
 
 .featured-big {
-  /*position: absolute;*/
+  position: absolute;
   bottom: 0;
-  right: 70px;
-  width: 410px;
-  height: 540px;
-  object-fit: cover;
+  right: 0;
 }
 
 .featured-small {
   position: absolute;
-  bottom: 57px;
+  bottom: 0;
   left: 0;
   padding: 25px 25px 0 0;
   background-color: #fff;
-  width: 200px;
-  height: 200px;
 }
 
 /*-----------------------------------
