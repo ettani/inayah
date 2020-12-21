@@ -66,4 +66,14 @@ class MessageController extends AbstractController
         return $this->redirectToRoute('default_index');
     }
 
+//    public function message(): Response
+//    {
+//        $message= $this->getDoctrine()
+//            ->getRepository(Message::class)
+//            ->findAll();
+//        return $this->render("page/message.html.twig", [
+//            'message' => $message
+//        ]);
+//    }
+
 }

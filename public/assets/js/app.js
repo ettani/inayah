@@ -8,4 +8,17 @@ $(document).ready(function() {
       $('#reduc').text($(this).val()*66/100);
       $('#donTotal').text($(this).val()*34/100);
     });
+
+
+
 });
+
+
+$(document).ready( function () {
+    $('#myTable').DataTable()
+    $('#myTable2').DataTable()
+    $('#myTable3').DataTable()
+
+} );
+
+
