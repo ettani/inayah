@@ -8,25 +8,22 @@
     <script>
         ClassicEditor.create(document.querySelector('#form_content'));
     </script>
-
 {% endblock %}
 
 
 {% block body %}
-
     {# FORMULAIRE D'INSCRIPTION #}
-    <div class="col-md-6 mx-auto top">
-        <div class="p-3 mx-auto text-center">
-            <h1 class="">Inscription</h1>
+    <div class="row">
+        <div class="col-md-6 mx-auto top">
+            <div class=" mx-auto text-center">
+                <h1 class="">Inscription</h1>
+            </div>
         </div>
-
-        <div class="py-5 bg-light">
-            <div class="">
-                <div class="row">
-                    <div class="col-md-10  mx-auto">
-                        {{ form(form, {attr: {novalidate: 'novalidate'}}) }}
-                    </div>
-                </div>
+    </div>
+    <div class="py-3 bg-light">
+        <div class="row">
+            <div class="col-md-6  mx-auto">
+                {{ form(form, {attr: {novalidate: 'novalidate'}}) }}
             </div>
         </div>
     </div>

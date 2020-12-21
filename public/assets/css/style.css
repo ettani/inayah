@@ -21,11 +21,20 @@
 12 - Footer Widgets
 13 - Foot Note
 --------------------------------------------------------------------*/
+
+.top{
+  margin-top: 250px;
+}
+
+.top0{
+  top: 0;
+}
+
 /*-----------------------------------
     1 - Header
 ------------------------------------*/
 header {
-  background-color: rgba(0, 0, 0, 0.60);
+  background-color: rgba(26, 10, 56, 0.53);
   color: #fff;
   z-index: 1000;
 }
@@ -49,13 +58,13 @@ header::after {
   text-transform: uppercase;
 }
 
-/*.contact {*/
-/*  font-size: 12px;*/
-/*}*/
+.contact {
+  font-size: 12px;
+}
 
-/*.tel {*/
-/*  margin-right: 30px;*/
-/*}*/
+.tel {
+  margin-right: 30px;
+}
 
 .contact i {
   color: #ee1515;
@@ -114,7 +123,6 @@ header::after {
 
 .navbar-brand img {
   width: 135px;
-  max-width: 135px;
 }
 
 .navbar-collapse .search-form input[type="text"] {
@@ -130,7 +138,7 @@ header::after {
 }
 
 .navbar-collapse .nav-link {
-  font-size: 1.3rem;
+  font-size: 1.125rem;
   transition: all 0.2s ease-in-out;
 }
 
@@ -166,11 +174,6 @@ form button.btn-primary:hover {
   color: black !important;
 }
 
-.top{
-  margin-top: 250px !important;
-  margin-bottom: 100px !important;
-}
-
 .top0{
   top: 0 !important;
 }
@@ -185,8 +188,8 @@ form button.btn-primary:hover {
   margin-top: 260px !important;
 }
 
-.top0{
-  top: 0 !important;
+.top-footer{
+  margin-top: 100px !important;
 }
 
 .hero {
@@ -626,13 +629,16 @@ form button.btn-primary:hover {
   color: #9d9d9d;
   padding-bottom: 30px;
   margin-bottom: 32px;
-  border-bottom: 2px solid #2f2f2f;
   transition: all 0.2s ease-in-out;
 }
 
 .single-pricing .price {
   font-size: 2rem;
-  margin-bottom: 8px;
+  margin: 35px 0;
+  width: 300px;
+  border: 0;
+  border-radius: 5px;
+  text-align: center;
 }
 
 .single-pricing p {
@@ -664,7 +670,7 @@ form button.btn-primary:hover {
 
 .single-pricing:hover .desc {
   color: #fff;
-  border-bottom: 2px solid rgba(245, 245, 245, 0.322);
+
 }
 
 .single-pricing:hover svg {
@@ -778,11 +784,11 @@ footer {
     1 - Footer Widgets
 ------------------------------------*/
 .footer-widgets {
-  padding: 10px 0;
+  padding: 100px 0;
 }
 
 .footer-widgets .col-md-6 .single-widget:not(:first-child) .widget-tiltle {
-  margin: 30px 0 30px;
+  margin: 40px 0 30px;
 }
 
 .single-widget {
