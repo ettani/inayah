@@ -9,3 +9,4 @@ $(document).ready(function() {
       $('#donTotal').text($(this).val()*34/100);
     });
 });
+
