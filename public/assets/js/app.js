@@ -9,11 +9,8 @@ $(document).ready(function() {
       $('#donTotal').text($(this).val()*34/100);
     });
 
-
-
-    $('#myTable').DataTable()
-    $('#myTable2').DataTable()
-    $('#myTable3').DataTable()
-
+      $('#myTable').DataTable()
+          $('#myTable2').DataTable()
+          $('#myTable3').DataTable()
 
 });
