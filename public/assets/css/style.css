@@ -166,11 +166,6 @@ form button.btn-primary:hover {
   color: black !important;
 }
 
-.top{
-  margin-top: 250px !important;
-  margin-bottom: 100px !important;
-}
-
 .top0{
   top: 0 !important;
 }
@@ -182,8 +177,8 @@ form button.btn-primary:hover {
   margin-top: 260px !important;
 }
 
-.top0{
-  top: 0 !important;
+.top-footer{
+  margin-top: 100px !important;
 }
 
 .hero {

@@ -36,7 +36,6 @@ class DefaultController extends AbstractController
     /**
      * Page / Action Article
      * Afficher le contenu d'un article
-     * ex. http://localhost:8000/politique/covid-19-une-troisieme-vague_1.html
      * @Route("/{title}_{id}.html", name="default_post", methods={"GET"})
      * @param Post $post
      * @return Response
