@@ -13,28 +13,25 @@
 
 
 {% block body %}
-
+    <img class="header-logo mb-5" src="{{ asset('assets/images/header.png') }}"alt="logo-header">
     {# {{ dump(posts) }}
     {# -- .p-3.mx-auto.text-center>h1.diplay-4 -- #}
-    <div class="row">
-        <div class="col-md-6 mx-auto top">
+    <div class="row mt-5">
+        <div class="col-md-6 mx-auto">
             <div class="p-3 mx-auto text-center">
                 <h1 class=""> Contactez-nous</h1>
             </div>
-
-            <div class="py-5 bg-light">
-                <div class="">
-                    <div class="row">
-                        <div class="col-md-10  mx-auto">
-                            {{ form(form, {attr: {novalidate: 'novalidate'}}) }}
-                        </div>
+            <div class="py-5 mb-5 bg-light">
+                <div class="row">
+                    <div class="col-md-10  mx-auto">
+                        {{ form(form, {attr: {novalidate: 'novalidate'}}) }}
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="row mx-auto mb-md-5">
-        <div class=" adress col-md-6"><img src="{{ asset('assets/images/logooo.png') }}"alt="logo" style="width: 70px" >
+        <div class="adress col-md-6"><img src="{{ asset('assets/images/logooo.png') }}"alt="logo" style="width: 70px" >
             <p><strong>Association Inayah</strong><br>
                 20 Rue Etienne Laurent,<br> 91740 Pussay</p>
         </div>
@@ -43,6 +40,5 @@
                     width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
                     tabindex="0"></iframe>
         </div>
-
     </div>
 {% endblock %}

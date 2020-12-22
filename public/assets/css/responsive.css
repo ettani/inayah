@@ -25,13 +25,10 @@
     Medium devices (tablets, 768px and up)
 ------------------------------------*/
 @media (min-width: 768px) {
-  .navbar-brand img {
-    width: 100px;
-  }
   .navbar-expand-md .navbar-nav .nav-link {
     padding: 8px 10px;
   }
-  .navbar-expand-md .navbar-nav .nav-item {
+  .navbar-expand-md .navbar-nav {
     margin-right: 12px;
   }
   .navbar-collapse .nav-link {
@@ -144,7 +141,7 @@
   .navbar-expand-md .navbar-nav .nav-link {
     padding: 8px 13px;
   }
-  .navbar-expand-md .navbar-nav .nav-item {
+  .navbar-expand-md .navbar-nav {
     margin-right: 22px;
   }
   .hero .slide-content {

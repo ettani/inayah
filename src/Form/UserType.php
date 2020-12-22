@@ -31,13 +31,13 @@ class UserType extends AbstractType
                 'label' => 'Nom'
             ])
             ->add('adress', TextType::class, [
-                'label' => 'adresse'
+                'label' => 'Adresse'
             ])
             ->add('city', TextType::class, [
                 'label' => 'Ville'
             ])
             ->add('cp', TextType::class, [
-                'label' => 'Code Postale'
+                'label' => 'Code Postal'
             ])
             ->add('email', EmailType::class, [
                 'label' => 'Adresse Email'
