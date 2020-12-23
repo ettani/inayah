@@ -9,8 +9,10 @@
             <div class="col-md-12">
                 <h1> Liste des demandeurs</h1>
                 <table class="table table-bordered display" id="myTable">
+
                 <thead>
                     <td class="text-center align-middle"> Prénom</td>
+
                     <td class="text-center align-middle"> Nom</td>
                     <td class="text-center align-middle"> Adresse</td>
                     <td class="text-center align-middle"> Code postal</td>
@@ -20,6 +22,7 @@
                     <td class="text-center align-middle"> Description</td>
                     <td class="text-center align-middle"> Modifier</td>
                     <td class="text-center align-middle"> Supprimer</td>
+
                 </thead>
                 <tbody>
                 {% for user in demandeurs %}
@@ -44,12 +47,14 @@
             </table>
          </div>
 {#        #}{# LISTE DES BENEVOLES #}
+
             <div class="col-md-12">
                 <h1> Liste des bénévoles</h1>
 
                 <table class="table table-bordered display" id="myTable2">
 
                     <thead>
+
                     <td class="text-center align-middle"> Prénom</td>
                     <td class="text-center align-middle"> Nom</td>
                     <td class="text-center align-middle"> Adresse</td>
@@ -60,10 +65,13 @@
                     <td class="text-center align-middle"> Description</td>
                     <td class="text-center align-middle"> Modifier</td>
                     <td class="text-center align-middle"> Supprimer</td>
+                    <td class="text-center align-middle"> Telecharger la fiche</td>
+
                     </thead>
                     <tbody>
                     {% for user in benevoles %}
                         <tr>
+
                         <td> {{ user.firstname }} </td>
                         <td> {{ user.lastname }} </td>
                         <td> {{ user.adress }} </td>
@@ -93,6 +101,7 @@
                 <td class="text-center align-middle"> Nom complet</td>
                 <td class="text-center align-middle"> email</td>
                 <td class="text-center align-middle"> description</td>
+
                 <td class="text-center align-middle"> date de récéption</td>
                 <td class="text-center align-middle"> Supprimer</td>
                 </thead>
@@ -103,6 +112,7 @@
                         <td> {{ message.email }} </td>
                         <td> {{ message.description }} </td>
                         <td> {{ message.date | date('d/m/Y') }} </td>
+
                         <td><a class="btn btn-danger btn-block mt-2"
                                href="{{ path('message_delete', { 'id' : message.id }) }}">
                                 <i class="far fa-trash-alt"></i>
