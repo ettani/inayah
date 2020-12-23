@@ -3,7 +3,7 @@
 {% block title %}Politique confidentialite{% endblock %}
 
 {% block body %}
-    <img class="header-logo mb-5" src="{{ asset('assets/images/header.png') }}"alt="logo-header">
+    <img class="header-logo mb-5" src="{{ asset('uploads/images/' ~ identity.headerpic) }}"alt="logo-header">
     <div class="p-3 mx-auto text-center mt-5">
         <h1 class="display-4">Politique de confidentialité</h1>
     </div>
@@ -17,14 +17,14 @@
             </h2>
             <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
                  data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">INAYAH, en sa qualité de responsable de traitement, s’engage à
+                <div class="accordion-body">{{ identity.name }}, en sa qualité de responsable de traitement, s’engage à
                     traiter et protéger vos données personnelles collectées conformément aux dispositions de la Loi
                     n°78-17 du 6 janvier 1978 relative à l’informatique, aux fichiers et aux libertés dite loi «
                     Informatique et Libertés », et au Règlement européen du 25 mai 2018 sur la protection des données («
                     RGPD »). Cet engagement vaut pour l’ensemble des données personnelles qu'elle collecte via ce site
                     et/ou au travers de tout support numérique ou papier.<br><br>
 
-                    Plus particulièrement, INAYAH s’engage à respecter les principes suivants :<br><br>
+                    Plus particulièrement, {{ identity.name }} s’engage à respecter les principes suivants :<br><br>
 
                     -Vos données personnelles sont traitées de manière licite, loyale et transparente (licéité, loyauté,
                     transparence) ;<br>
@@ -120,8 +120,8 @@
             <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive"
                  data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body"> L’accès à vos données personnelles
-                    est limité aux services d’INAYAH et aux tiers mandatés par INAYAH pour mener à bien le
-                    traitement. Ces tiers sont scrupuleusement sélectionnés par INAYAH et contractuellement tenus
+                    est limité aux services d’{{ identity.name }} et aux tiers mandatés par {{ identity.name }} pour mener à bien le
+                    traitement. Ces tiers sont scrupuleusement sélectionnés par {{ identity.name }} et contractuellement tenus
                     de garantir des conditions de sécurité et de protection de vos données à caractère personnel telles
                     que prévues par la réglementation française et européenne.<br><br>
 
@@ -139,7 +139,7 @@
             </h2>
             <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix"
                  data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body"> INAYAH ainsi que les tiers mandatés par INAYAH, susceptibles
+                <div class="accordion-body"> {{ identity.name }} ainsi que les tiers mandatés par {{ identity.name }}, susceptibles
                     de collecter ou traiter vos données, s’engagent à garantir la sécurité, la confidentialité et
                     l’intégrité de vos données personnelles. Ainsi, nous mettons en œuvre des mesures techniques,
                     physiques et organisationnelles nécessaires pour prévenir, dans la mesure du possible, toute
@@ -156,7 +156,7 @@
             </h2>
             <div id="flush-collapseSeven" class="accordion-collapse collapse" aria-labelledby="flush-headingSeven"
                  data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body"> Le site web d’INAYAH peuvent être amenés à inscrire et utiliser
+                <div class="accordion-body"> Le site web d’{{ identity.name }} peuvent être amenés à inscrire et utiliser
                     des « cookies ». Un cookie est un petit fichier texte ou un ensemble de données qu’un site web peut
                     envoyer ou sauvegarder sur votre ordinateur lorsque vous le visitez. Plus spécifiquement, il s’agit
                     de chaînes de caractères déposées sur le disque dur de votre ordinateur. Le cookie n’a pour but que
@@ -220,9 +220,10 @@
                     Ces droits s’exercent auprès de notre Service Relations Donateurs par email ou par courrier à
                     l’adresse suivante :<br><br>
 
-                    INAYAH
-                    20 Rue Etienne Laurent
-                    91740 Pussay
+                    {{ identity.name }}
+                    {{ identity.adress }}
+                    {{ identity.cp }}
+                    {{ identity.city }}
 
                     Toute demande d’exercice de vos droits doit être accompagnée d’une copie d'une pièce d'identité en
                     cours de validité sauf si les éléments communiqués dans le cadre de votre demande permettent de vous
@@ -232,7 +233,7 @@
                     Elle peut être saisie en ligne : www.cnil.fr/fr/plaintes/internet ou par courrier au 3 place de
                     Fontenoy, TSA80715-77334.
 
-                    Sauf opposition de votre part, INAYAH est susceptible de partager les données relatives à ses
+                    Sauf opposition de votre part, {{ identity.name }} est susceptible de partager les données relatives à ses
                     donateurs avec d’autres organismes du secteur caritatif.
                 </div>
             </div>

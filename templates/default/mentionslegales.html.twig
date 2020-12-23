@@ -3,29 +3,43 @@
 {% block title %}Mentions légales{% endblock %}
 
 {% block body %}
-    <img class="header-logo mb-5" src="{{ asset('assets/images/header.png') }}"alt="logo-header">
+    <img class="header-logo mb-5" src="{{ asset('uploads/images/' ~ identity.headerpic) }}" alt="logo-header">
     <div class="p-1 mt-5 mx-auto text-center col-10">
         <h1 class="display-4">Mentions légales</h1>
         <p>EDITEUR<br><br>
-            20 Rue Etienne Laurent
-            91740 Pussay- FRANCE
-            Tél. +33 6 26 51 67 80
-            E-mail : associationinayah@gmail.com
+            {{ identity.adress }}
+            {{ identity.cp }} {{ identity.city }} - FRANCE
+            Tél. {{ identity.tel }}
+            E-mail : {{ identity.email }}
         </p><br>
         <p>LA PROTECTION DE VOS DONNÉES PERSONNELLES <br><br>
 
-            Les informations recueillies sur ce formulaire sont enregistrées dans un fichier informatisé par Association inayah  et destinées à la Direction de la communication et de la collecte et aux tiers mandatés par INAYAH à des fins de gestion interne, pour vous informer, répondre à vos demandes ou faire appel à votre générosité.
-            Ces données peuvent faire l’objet d’un transfert à des tiers au sein de l’Union Européenne. Dans le cadre d’un transfert vers un pays hors Union Européenne, des règles assurant la protection et la sécurité de ces données ont été mises en place. Le détail de ces règles et des informations relatives au transfert est disponible sur simple demande adressée à associationinayah@gmail.com
+            Les informations recueillies sur ce formulaire sont enregistrées dans un fichier informatisé
+            par {{ identity.name }} et destinées à la Direction de la communication et de la collecte et aux tiers
+            mandatés par {{ identity.name }} à des fins de gestion interne, pour vous informer, répondre à vos demandes
+            ou faire appel à votre générosité.
+            Ces données peuvent faire l’objet d’un transfert à des tiers au sein de l’Union Européenne. Dans le cadre
+            d’un transfert vers un pays hors Union Européenne, des règles assurant la protection et la sécurité de ces
+            données ont été mises en place. Le détail de ces règles et des informations relatives au transfert est
+            disponible sur simple demande adressée à {{ identity.email }}
             Elles sont conservées pendant la durée strictement nécessaire à la réalisation des finalités précitées.
-            Conformément à la loi « informatique et libertés » et au Règlement Général de Protection des Données (RGPD), vous pouvez vous opposer à l’utilisation de vos données à caractère personnel sur simple demande auprès du service des relations donateurs de INAYAH par email à l’adresse associationinayah@gmail.com.
-            Vous pouvez également introduire une réclamation auprès de notre Délégué à la protection des données à l’adresse suivante associationinayah@gmail.com ou auprès de la CNIL.
-            Vous bénéficiez d’un droit d’accès à vos données pour leur rectification, limitation, portabilité ou effacement, en contactant le service des relations donateurs.
+            Conformément à la loi « informatique et libertés » et au Règlement Général de Protection des Données (RGPD),
+            vous pouvez vous opposer à l’utilisation de vos données à caractère personnel sur simple demande auprès du
+            service des relations donateurs de {{ identity.name }} par email à l’adresse {{ identity.email }}.
+            Vous pouvez également introduire une réclamation auprès de notre Délégué à la protection des données à
+            l’adresse suivante {{ identity.email }} ou auprès de la CNIL.
+            Vous bénéficiez d’un droit d’accès à vos données pour leur rectification, limitation, portabilité ou
+            effacement, en contactant le service des relations donateurs.
         </p><br>
         <p>DÉCHARGE DE RESPONSABILITÉ<br><br>
 
-            Alors que nous avons effectué toutes les démarches pour nous assurer de la fiabilité des informations contenues sur ce site internet, Association INAYAH ne peut encourir aucune responsabilité du fait d'erreurs, d'omissions, ou pour les résultats qui pourraient être obtenus par l'usage de ces informations.
-            Association INAYAH n'est tenu que d'une obligation de moyens concernant les informations qu'elle met à disposition des personnes qui accèdent à son site internet.
-            Par ailleurs, l'usage de liens hypertextes peut conduire votre consultation de notre site vers d'autres serveurs, serveurs sur lesquels Association INAYAH n'a aucun contrôle.
+            Alors que nous avons effectué toutes les démarches pour nous assurer de la fiabilité des informations
+            contenues sur ce site internet, {{ identity.name }} ne peut encourir aucune responsabilité du fait d'erreurs,
+            d'omissions, ou pour les résultats qui pourraient être obtenus par l'usage de ces informations.
+            Association INAYAH n'est tenu que d'une obligation de moyens concernant les informations qu'elle met à
+            disposition des personnes qui accèdent à son site internet.
+            Par ailleurs, l'usage de liens hypertextes peut conduire votre consultation de notre site vers d'autres
+            serveurs, serveurs sur lesquels Association {{ identity.name }} n'a aucun contrôle.
         </p><br>
         <p>PRESTATAIRE D’HÉBERGEMENT :<br><br>
             CE SITE INTERNET EST HÉBERGÉ PAR 1&1 IONOS

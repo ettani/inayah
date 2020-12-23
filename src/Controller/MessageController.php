@@ -42,17 +42,18 @@ class MessageController extends AbstractController
             $em->flush();
 
             $mail = $message->getEmail();
+            $mailMessage = $message->getDescription();
 
             $email = (new Email())
-                ->from($mail)
-                ->to('ettani.hakim@live.fr')
+                ->to($mail)
+                ->from('ettani.hakim@live.fr')
                 //->cc('cc@example.com')
                 //->bcc('bcc@example.com')
                 //->replyTo('fabien@example.com')
                 //->priority(Email::PRIORITY_HIGH)
                 ->subject('Time for Symfony Mailer!')
                 ->text('Sending emails is fun again! Yes again')
-                ->html('<p>See Twig integration for better HTML integration!</p>');
+                ->html('<p>Nous avons bien reçu votre message!</p><br><p>Message : </p>' . $mailMessage);
 
             $mailer->send($email);
 
