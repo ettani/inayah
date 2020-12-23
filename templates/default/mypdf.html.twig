@@ -1,0 +1,30 @@
+{% extends 'basepdf.html.twig' %}
+
+{% block body %}
+    <style>
+
+
+        header {
+        }
+
+        .margin {
+            margin-top: 20px;
+        }
+        /*li{*/
+        /*    list-style-type: none;*/
+        /*}*/
+    </style>
+
+    <h1>Fiche {{ user.firstname }} {{ user.lastname }}</h1>
+
+    <p class="margin"><strong> Prénom :</strong> {{ user.firstname }}  </p>
+    <p class="margin"><strong>Nom :</strong> {{ user.lastname }}  </p>
+    <p class="margin"><strong>Adresse :</strong> {{ user.adress }}  </p>
+    <p class="margin"><strong>Code postal :</strong> {{ user.cp }}  </p>
+    <p class="margin"><strong>Ville :</strong> {{ user.city }}  </p>
+    <p class="margin"><strong>Email :</strong> {{ user.email }}  </p>
+    <p class="margin"><strong>Téléphone :</strong> {{ user.tel }}  </p>
+    <p class="margin"><strong>Motif de la demande :</strong></p>
+    <p> {{ user.description }}</p>
+{% endblock %}
+

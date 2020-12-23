@@ -108,6 +108,25 @@ class User implements UserInterface
         return $this;
     }
 
+// GENERER UN LIEN PDF
+
+//    /**
+//     * @ORM\Column(type="string")
+//     */
+//    private $brochureFilename;
+//
+//    public function getBrochureFilename()
+//    {
+//        return $this->brochureFilename;
+//    }
+//
+//    public function setBrochureFilename($brochureFilename): User
+//    {
+//        $this->brochureFilename = $brochureFilename;
+//
+//        return $this;
+//    }
+
     /**
      * A visual identifier that represents this user.
      *
@@ -252,4 +271,5 @@ class User implements UserInterface
 
         return $this;
     }
+
 }

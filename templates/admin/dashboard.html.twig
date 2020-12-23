@@ -10,7 +10,7 @@
                 <h1> Liste des demandeurs</h1>
                 <table class="table table-bordered display" id="myTable">
 
-                <thead>
+                    <thead>
                     <td class="text-center align-middle"> Prenom</td>
                     <td class="text-center align-middle"> Nom</td>
                     <td class="text-center align-middle"> Adresse</td>
@@ -21,97 +21,115 @@
                     <td class="text-center align-middle"> Description</td>
                     <td class="text-center align-middle"> Modifier</td>
                     <td class="text-center align-middle"> Supprimer</td>
-                </thead>
-                <tbody>
-                {% for user in demandeurs %}
-                    <tr>
-                        <td> {{ user.firstname }} </td>
-                        <td> {{ user.lastname }} </td>
-                        <td> {{ user.adress }} </td>
-                        <td> {{ user.cp }} </td>
-                        <td> {{ user.city }} </td>
-                        <td> {{ user.email }} </td>
-                        <td> {{ user.tel }} </td>
-                        <td> {{ user.description }} </td>
-                        <td> <a class="btn btn-danger btn-block"
-                                href="{{ path('user-update', { 'id' : user.id }) }}">
-                                <i class="far fa-edit"></i>
-                            </a></td>
-                        <td> <a class="btn btn-danger btn-block"
-                                href="{{ path('user_delete', { 'id' : user.id }) }}">
-                                <i class="far fa-trash-alt"></i>
-                            </a>  </td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-         </div>
-{#        #}{# LISTE DES BENEVOLES #}
+                    <td class="text-center align-middle"> Telecharger la fiche</td>
+
+                    </thead>
+                    <tbody>
+                    {% for user in demandeurs %}
+                        <tr>
+                            <td> {{ user.firstname }} </td>
+                            <td> {{ user.lastname }} </td>
+                            <td> {{ user.adress }} </td>
+                            <td> {{ user.cp }} </td>
+                            <td> {{ user.city }} </td>
+                            <td> {{ user.email }} </td>
+                            <td> {{ user.tel }} </td>
+                            <td> {{ user.description }} </td>
+                            <td><a class="btn btn-danger btn-block"
+                                   href="{{ path('user-update', { 'id' : user.id }) }}">
+                                    <i class="far fa-edit"></i>
+                                </a></td>
+                            <td><a class="btn btn-danger btn-block"
+                                   href="{{ path('user_delete', { 'id' : user.id }) }}">
+                                    <i class="far fa-trash-alt"></i>
+                                </a></td>
+                            <td>
+                                <a class="btn btn-danger btn-block mt-2"
+                                   href="{{ path('user_load', { 'id' : user.id }) }}">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {# #}{# LISTE DES BENEVOLES #}
             <div class="col-md-12">
                 <h1> Liste des bénévoles</h1>
                 <table class="table table-bordered display" id="myTable2">
 
                     <thead>
-                        <td class="text-center align-middle"> Prenom</td>
-                        <td class="text-center align-middle"> Nom</td>
-                        <td class="text-center align-middle"> Adresse</td>
-                        <td class="text-center align-middle"> Code postal</td>
-                        <td class="text-center align-middle"> Ville</td>
-                        <td class="text-center align-middle"> Email</td>
-                        <td class="text-center align-middle"> Telephone</td>
-                        <td class="text-center align-middle"> Description</td>
-                        <td class="text-center align-middle"> Modifier</td>
-                        <td class="text-center align-middle"> Supprimer</td>
+                    <td class="text-center align-middle"> Prenom</td>
+                    <td class="text-center align-middle"> Nom</td>
+                    <td class="text-center align-middle"> Adresse</td>
+                    <td class="text-center align-middle"> Code postal</td>
+                    <td class="text-center align-middle"> Ville</td>
+                    <td class="text-center align-middle"> Email</td>
+                    <td class="text-center align-middle"> Telephone</td>
+                    <td class="text-center align-middle"> Description</td>
+                    <td class="text-center align-middle"> Modifier</td>
+                    <td class="text-center align-middle"> Supprimer</td>
+                    <td class="text-center align-middle"> Telecharger la fiche</td>
                     </thead>
                     <tbody>
                     {% for user in benevoles %}
                         <tr>
-                        <td> {{ user.firstname }} </td>
-                        <td> {{ user.lastname }} </td>
-                        <td> {{ user.adress }} </td>
-                        <td> {{ user.cp }} </td>
-                        <td> {{ user.city }} </td>
-                        <td> {{ user.email }} </td>
-                        <td> {{ user.tel }} </td>
-                        <td> {{ user.description }} </td>
-                        <td> <a class="btn btn-danger mt-2"
-                                href="{{ path('user-update', { 'id' : user.id }) }}">
-                                <i class="far fa-edit"></i>
-                            </a></td>
-                        <td> <a class="btn btn-danger btn-block mt-2"
-                            href="{{ path('user_delete', { 'id' : user.id }) }}">
-                                <i class="far fa-trash-alt"></i>
-                            </a>  </td>
-                    </tr>
+                            <td> {{ user.firstname }} </td>
+                            <td> {{ user.lastname }} </td>
+                            <td> {{ user.adress }} </td>
+                            <td> {{ user.cp }} </td>
+                            <td> {{ user.city }} </td>
+                            <td> {{ user.email }} </td>
+                            <td> {{ user.tel }} </td>
+                            <td> {{ user.description }} </td>
+                            <td><a class="btn btn-danger mt-2"
+                                   href="{{ path('user-update', { 'id' : user.id }) }}">
+                                    <i class="far fa-edit"></i>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="btn btn-danger btn-block mt-2"
+                                   href="{{ path('user_delete', { 'id' : user.id }) }}">
+                                    <i class="far fa-trash-alt"></i>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="btn btn-danger btn-block mt-2"
+                                   href="{{ path('user_load', { 'id' : user.id }) }}">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                            </td>
+                        </tr>
                     {% endfor %}
                     </tbody>
                 </table>
             </div>
         </div>
 
-{#LISTE DES MESSAGES RECU #}
-    <div class="col-md-12">
-        <h1> Message recu</h1>
-        <table class="table table-bordered display" id="myTable3">
-            <thead>
-            <td class="text-center align-middle"> Nom complet</td>
-            <td class="text-center align-middle"> email</td>
-            <td class="text-center align-middle"> description</td>
-            <td class="text-center align-middle"> date de reception</td>
-            </thead>
-            <tbody>
-            {% for message in messages %}
-                <tr>
-                    <td> {{ message.fullname }} </td>
-                    <td> {{ message.email }} </td>
-                    <td> {{ message.description }} </td>
-                    <td> {{ message.date | date('d/m/Y') }} </td>
+        {# LISTE DES MESSAGES RECU #}
+        <div class="col-md-12">
+            <h1> Message recu</h1>
+            <table class="table table-bordered display" id="myTable3">
+                <thead>
+                <td class="text-center align-middle"> Nom complet</td>
+                <td class="text-center align-middle"> email</td>
+                <td class="text-center align-middle"> description</td>
+                <td class="text-center align-middle"> date de reception</td>
+                </thead>
+                <tbody>
+                {% for message in messages %}
+                    <tr>
+                        <td> {{ message.fullname }} </td>
+                        <td> {{ message.email }} </td>
+                        <td> {{ message.description }} </td>
+                        <td> {{ message.date | date('d/m/Y') }} </td>
 
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    </div>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 
 
