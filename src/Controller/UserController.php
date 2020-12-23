@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -66,6 +67,7 @@ class UserController extends AbstractController
      * Update User
      * @Route("/admin/user/{id}/update", name="user-update", methods={"GET|POST"})
      * ex. http://localhost:8000/admin/user/12/update
+     * @IsGranted("ROLE_ADMIN")
      * @param User $user
      * @param Request $request
      * @param UserPasswordEncoderInterface $encoder
@@ -109,6 +111,7 @@ class UserController extends AbstractController
      * Supprimer un User
      * @Route("/admin/user/{id}/delete", name="user_delete", methods={"GET"})
      * ex. http://localhost:8000/admin/user/7/delete
+     * @IsGranted("ROLE_ADMIN")
      * @param User $user
      * @return RedirectResponse
      */

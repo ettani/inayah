@@ -26,6 +26,7 @@ class PostController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
      * Mettre à jour un Article
      * @Route("/{id}/update", name="post_update", methods={"GET|POST"})
      * ex. http://localhost:8000/dashboard/post/1/update
+     * @IsGranted("ROLE_ADMIN")
      * @param Post $post
      * @param Request $request
      * @param SluggerInterface $slugger
@@ -97,6 +98,7 @@ class PostController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
      * Créer un Article
      * @Route("/create", name="post_create", methods={"GET|POST"})
      * ex. http://localhost:8000/dashboard/post/create
+     * @IsGranted("ROLE_ADMIN")
      * @param Request $request : Contient la requète de l'utilisateur et ses données.
      * @param SluggerInterface $slugger
      * @return Response
