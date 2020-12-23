@@ -34,7 +34,7 @@
 #don{
   font-size: 2rem;
   margin: 35px 0;
-  width: 300px;
+  width: 200px;
   border: 0;
   border-radius: 5px;
   text-align: center;
@@ -55,7 +55,7 @@ header {
 
 .header-logo{
   width: 100%;
-  height: 205px;
+  height: 165px;
   object-fit: cover;
 }
 
@@ -148,6 +148,7 @@ header::after {
 .navbar-brand img {
   width: 135px;
   max-width: 135px;
+  max-height: 135px;
 }
 
 .navbar-collapse .search-form input[type="text"] {
@@ -195,29 +196,24 @@ form button.btn-primary:hover {
 }
 .form-control
 {
-  border: 1px solid black !important;
+  border: 1px solid #aeaeae !important;
   color: black !important;
-}
-
-.top{
-  margin-top: 250px !important;
-  margin-bottom: 100px !important;
+  background: #FFF;
+  border-radius: 3px 20px 3px 20px;
 }
 
 .top0{
   top: 0 !important;
 }
 
+body{
+  overflow-x: hidden;
+}
 /*-----------------------------------
     1 - Hero
 ------------------------------------*/
-.top{
-  margin-top: 260px !important;
-}
 
-.top0{
-  top: 0 !important;
-}
+
 
 .hero {
   background: url("../images/solidaires.jpg") no-repeat center;
@@ -443,19 +439,20 @@ form button.btn-primary:hover {
   /*position: absolute;*/
   bottom: 0;
   right: 70px;
-  width: 410px;
+  width: 100%;
   height: 540px;
   object-fit: cover;
 }
 
 .featured-small {
   position: absolute;
-  bottom: 57px;
+  top: 340px;
   left: 0;
   padding: 25px 25px 0 0;
-  background-color: #fff;
+  background-color: #fafafa;
   width: 200px;
   height: 200px;
+  object-fit: cover;
 }
 
 /*-----------------------------------

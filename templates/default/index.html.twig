@@ -1,8 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block title %}
-    Accueil
-{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
 
@@ -22,27 +20,21 @@
                         <div class="swiper-wrapper">
                             <div class="swiper-slide slide-content d-flex align-items-center">
                                 <div class="single-slide">
-                                    <h1 data-aos="fade-right" data-aos-delay="200">Devenez bénévole à nos côtés
-                                    </h1>
-                                    <p data-aos="fade-right" data-aos-delay="600">Vous avez entre 6 et 99 ans et vous souhaitez vous engager bénévolement à nos côtés?
-                                        <br> Rejoignez notre réseau de  bénévoles qui mettent chaque jour leur talent, leurs compétences, leurs idées ou leur temps libre au service de la cause.
-                                    </p>
-                                    <a data-aos="fade-right" data-aos-delay="900" href="#" class="btn btn-primary">Devenir bénévole</a>
-
+                                    <h1 data-aos="fade-right" data-aos-delay="200">Devenez bénévole à nos côtés</h1>
+                                    <p data-aos="fade-right" data-aos-delay="600">Vous avez entre 6 et 99 ans et vous souhaitez vous engager bénévolement à nos côtés?<br>
+                                        Rejoignez notre réseau de  bénévoles qui mettent chaque jour leur talent, leurs compétences, leurs idées ou leur temps libre au service de la cause.</p>
+                                    <a data-aos="fade-right" data-aos-delay="900" href="{{ path('agir_agir') }}" class="btn btn-primary">Devenir bénévole</a>
                                 </div>
                             </div>
                             <div class="swiper-slide slide-content d-flex align-items-center">
                                 <div class="single-slide">
-                                    <h1 data-aos="fade-right" data-aos-delay="200">Faites un don<br>
-                                    </h1>
-                                    <p data-aos="fade-right" data-aos-delay="600">Devenez un acteur de nos actions<br> Nous avons besoin de vos dons pour faire fonctionner l'association, votre générosité est vitale pour que nous puissions agir.
-                                    </p>
-
-                                    <a data-aos="fade-right" data-aos-delay="900" href="https://www.helloasso.com/associations/association-inayah/formulaires/2?fbclid=IwAR0KD_yaJ0BcMPF7-0WgZ54DtKOsF28cKMWG3u-vHddcx1V4g3iRq9yYEDg" class="btn btn-primary">Je veux faire un don!</a>
+                                    <h1 data-aos="fade-right" data-aos-delay="200">Faites un don<br></h1>
+                                    <p data-aos="fade-right" data-aos-delay="600">Devenez un acteur de nos actions<br>
+                                        Nous avons besoin de vos dons pour faire fonctionner l'association, votre générosité est vitale pour que nous puissions agir.</p>
+                                    <a data-aos="fade-right" data-aos-delay="900" href="https://www.helloasso.com/associations/association-inayah" class="btn btn-primary">Je veux faire un don!</a>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -64,7 +56,7 @@
             </div>
             <div class="container" style="margin-bottom: 150px">
                 <div class="row">
-                    <div class="col-sm-6 col-lg-4">
+                    <div class="col-sm-12 col-lg-4">
                         <div class="media" data-aos="fade-up" data-aos-delay="200" data-aos-duration="400">
                             <img class="mr-4" style="width: 50px;" src="assets/images/utensils-solid.svg" alt="action">
                             <div class="media-body">
@@ -73,7 +65,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-lg-4">
+                    <div class="col-sm-12 col-lg-4">
                         <div class="media" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
                             <img class="mr-4" style="width: 50px;" src="assets/images/shopping-bag-solid.svg" alt="actions">
                             <div class="media-body">
@@ -82,7 +74,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-lg-4">
+                    <div class="col-sm-12 col-lg-4">
                         <div class="media" data-aos="fade-up" data-aos-delay="600" data-aos-duration="800">
                             <img class="mr-4" style="width: 70px;" src="assets/images/tshirt-solid.svg" alt="actions">
                             <div class="media-body">
@@ -91,7 +83,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -106,13 +97,13 @@
                         <h6 class="title-primary">INAYAH</h6>
                         <h1 class="title-blue">Le coeur en action.</h1>
                     </div>
-                    <p>Association inayah est une organisation à but non lucrative nous venons en aide aux femmes en précarité femmes isolées , les orphelins. <br> <br> Nous leurs venons en aides en leur apportant des colis alimentaire mensuel, en effectuant des collectes alimentaires et de vêtements.</p>
-
+                    <p>Association inayah est une organisation à but non lucrative nous venons en aide aux femmes en précarité femmes isolées , les orphelins.<br><br>
+                        Nous leurs venons en aides en leur apportant des colis alimentaire mensuel, en effectuant des collectes alimentaires et de vêtements.</p>
                 </div>
                 <div class="col-md-6" data-aos="fade-left" data-aos-delay="400" data-aos-duration="800">
                     <div class="featured-img">
-                        <img class="featured-big" style="width: 450px; height: 450px; object-fit: cover;" src="assets/images/grande1.jpg" alt="grande">
-                        <img class="featured-small" style="width: 300px" src="assets/images/image1.jpg" alt="petite">
+                        <img class="featured-big img-fluid" src="{{ asset("assets/images/grande1.jpg") }}" alt="grande">
+                        <img class="featured-small img-fluid" src="{{ asset("assets/images/image1.jpg") }}" alt="petite">
                     </div>
                 </div>
             </div>
@@ -122,15 +113,14 @@
 
     <!--Blog-->
 
-    <div class="py-5 bg-light">
+    <div class="py-5 bg-light mx-auto col-sm-12 ">
         <div class="container" >
             <div class="row">
                 {% for post in posts  %}
                     <div class="col-md-4 mt-4">
-                        <div class="card text-white bg-light mb-3" style="max-width: 20rem;">
-
-                            <div class="card-body">
-                                <img class="img-fluid" style="height: 300px; width: 300px" src="{{ asset('uploads/images/' ~ post.image) }}" alt="{{ post.title }}">
+                        <div class="card text-white bg-light mb-3 mx-auto col-md-12 col-lg-12" style="max-width: 20rem;">
+                            <div class="card-body mx-auto">
+                                <img class="img-fluid " style="height: 300px; width: 300px; object-fit: cover" src="{{ asset('uploads/images/' ~ post.image) }}" alt="{{ post.title }}">
                                 <h4 class="card-title" style="color: #0a0a0a">{{ post.title }}</h4>
                                 <a class="btn btn-block btn-primary" href="{{ path('default_post', {
                                     'id' : post.id,
@@ -146,9 +136,6 @@
 
     <!--end blog-->
 
-
-
-
     <!-- Call To Action 2 Start -->
     <section class="cta cta2" data-aos="fade-up" data-aos-delay="0">
         <div class="container">
@@ -158,7 +145,7 @@
                     <p style="margin-left: 20px;">Nos actions dépendent de vos dons, participez à nos actions en participant financièrement.</p>
                 </div>
                 <div class="subscribe-btn" data-aos="fade-left" data-aos-delay="400" data-aos-offset="0">
-                    <a href="https://www.helloasso.com/associations/association-inayah/formulaires/2?fbclid=IwAR0KD_yaJ0BcMPF7-0WgZ54DtKOsF28cKMWG3u-vHddcx1V4g3iRq9yYEDg" class="btn btn-primary">Je veux faire un don !</a>
+                    <a href="https://www.helloasso.com/associations/association-inayah" class="btn btn-primary">Je veux faire un don !</a>
                 </div>
             </div>
         </div>
@@ -166,8 +153,6 @@
     <!-- Call To Action 2 End -->
     <!-- Footer Start -->
 
-
     </body>
 
 {% endblock %}
-

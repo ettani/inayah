@@ -2,16 +2,17 @@
 
 {% block title %}ADMINISTRATION {% endblock %}
 {% block body %}
-
+    <img class="header-logo mb-5" src="{{ asset('uploads/images/' ~ identity.headerpic) }}"alt="logo-header">
     {# LISTE DES DEMANDEURS #}
-    <div class="container top">
+    <div class="container mt-5">
         <div class="row">
             <div class="col-md-12">
                 <h1> Liste des demandeurs</h1>
                 <table class="table table-bordered display" id="myTable">
 
-                    <thead>
-                    <td class="text-center align-middle"> Prenom</td>
+                <thead>
+                    <td class="text-center align-middle"> Prénom</td>
+
                     <td class="text-center align-middle"> Nom</td>
                     <td class="text-center align-middle"> Adresse</td>
                     <td class="text-center align-middle"> Code postal</td>
@@ -21,46 +22,40 @@
                     <td class="text-center align-middle"> Description</td>
                     <td class="text-center align-middle"> Modifier</td>
                     <td class="text-center align-middle"> Supprimer</td>
-                    <td class="text-center align-middle"> Telecharger la fiche</td>
 
-                    </thead>
-                    <tbody>
-                    {% for user in demandeurs %}
-                        <tr>
-                            <td> {{ user.firstname }} </td>
-                            <td> {{ user.lastname }} </td>
-                            <td> {{ user.adress }} </td>
-                            <td> {{ user.cp }} </td>
-                            <td> {{ user.city }} </td>
-                            <td> {{ user.email }} </td>
-                            <td> {{ user.tel }} </td>
-                            <td> {{ user.description }} </td>
-                            <td><a class="btn btn-danger btn-block"
-                                   href="{{ path('user-update', { 'id' : user.id }) }}">
-                                    <i class="far fa-edit"></i>
-                                </a></td>
-                            <td><a class="btn btn-danger btn-block"
-                                   href="{{ path('user_delete', { 'id' : user.id }) }}">
-                                    <i class="far fa-trash-alt"></i>
-                                </a></td>
-                            <td>
-                                <a class="btn btn-danger btn-block mt-2"
-                                   href="{{ path('user_load', { 'id' : user.id }) }}">
-                                    <i class="fas fa-download"></i>
-                                </a>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-            {# #}{# LISTE DES BENEVOLES #}
+                </thead>
+                <tbody>
+                {% for user in demandeurs %}
+                    <tr>
+                        <td> {{ user.firstname }} </td>
+                        <td> {{ user.lastname }} </td>
+                        <td> {{ user.adress }} </td>
+                        <td> {{ user.cp }} </td>
+                        <td> {{ user.city }} </td>
+                        <td> {{ user.email }} </td>
+                        <td> {{ user.tel }} </td>
+                        <td> {{ user.description }} </td>
+                        <td><a class="btn btn-danger btn-block"
+                               href="{{ path('user-update', { 'id' : user.id }) }}">
+                                <i class="far fa-edit"></i></a></td>
+                        <td><a class="btn btn-danger btn-block"
+                                href="{{ path('user_delete', { 'id' : user.id }) }}">
+                                <i class="far fa-trash-alt"></i></a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+         </div>
+{#        #}{# LISTE DES BENEVOLES #}
+
             <div class="col-md-12">
                 <h1> Liste des bénévoles</h1>
+
                 <table class="table table-bordered display" id="myTable2">
 
                     <thead>
-                    <td class="text-center align-middle"> Prenom</td>
+
+                    <td class="text-center align-middle"> Prénom</td>
                     <td class="text-center align-middle"> Nom</td>
                     <td class="text-center align-middle"> Adresse</td>
                     <td class="text-center align-middle"> Code postal</td>
@@ -71,36 +66,27 @@
                     <td class="text-center align-middle"> Modifier</td>
                     <td class="text-center align-middle"> Supprimer</td>
                     <td class="text-center align-middle"> Telecharger la fiche</td>
+
                     </thead>
                     <tbody>
                     {% for user in benevoles %}
                         <tr>
-                            <td> {{ user.firstname }} </td>
-                            <td> {{ user.lastname }} </td>
-                            <td> {{ user.adress }} </td>
-                            <td> {{ user.cp }} </td>
-                            <td> {{ user.city }} </td>
-                            <td> {{ user.email }} </td>
-                            <td> {{ user.tel }} </td>
-                            <td> {{ user.description }} </td>
-                            <td><a class="btn btn-danger mt-2"
-                                   href="{{ path('user-update', { 'id' : user.id }) }}">
-                                    <i class="far fa-edit"></i>
-                                </a>
-                            </td>
-                            <td>
-                                <a class="btn btn-danger btn-block mt-2"
-                                   href="{{ path('user_delete', { 'id' : user.id }) }}">
-                                    <i class="far fa-trash-alt"></i>
-                                </a>
-                            </td>
-                            <td>
-                                <a class="btn btn-danger btn-block mt-2"
-                                   href="{{ path('user_load', { 'id' : user.id }) }}">
-                                    <i class="fas fa-download"></i>
-                                </a>
-                            </td>
-                        </tr>
+
+                        <td> {{ user.firstname }} </td>
+                        <td> {{ user.lastname }} </td>
+                        <td> {{ user.adress }} </td>
+                        <td> {{ user.cp }} </td>
+                        <td> {{ user.city }} </td>
+                        <td> {{ user.email }} </td>
+                        <td> {{ user.tel }} </td>
+                        <td> {{ user.description }} </td>
+                        <td> <a class="btn btn-danger mt-2"
+                                href="{{ path('user-update', { 'id' : user.id }) }}">
+                                <i class="far fa-edit"></i></a></td>
+                        <td><a class="btn btn-danger btn-block mt-2"
+                            href="{{ path('user_delete', { 'id' : user.id }) }}">
+                                <i class="far fa-trash-alt"></i></a></td>
+                    </tr>
                     {% endfor %}
                     </tbody>
                 </table>
@@ -115,7 +101,9 @@
                 <td class="text-center align-middle"> Nom complet</td>
                 <td class="text-center align-middle"> email</td>
                 <td class="text-center align-middle"> description</td>
-                <td class="text-center align-middle"> date de reception</td>
+
+                <td class="text-center align-middle"> date de récéption</td>
+                <td class="text-center align-middle"> Supprimer</td>
                 </thead>
                 <tbody>
                 {% for message in messages %}
@@ -125,6 +113,47 @@
                         <td> {{ message.description }} </td>
                         <td> {{ message.date | date('d/m/Y') }} </td>
 
+                        <td><a class="btn btn-danger btn-block mt-2"
+                               href="{{ path('message_delete', { 'id' : message.id }) }}">
+                                <i class="far fa-trash-alt"></i>
+                            </a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+
+        {# LISTE DES ARTICLES #}
+        <div class="col-md-12">
+            <h1> Articles Publiés</h1>
+            <table class="table table-bordered display" id="myTable4">
+                <thead>
+                <td class="text-center align-middle"> Titre</td>
+                <td class="text-center align-middle"> Contenu</td>
+                <td class="text-center align-middle"> Image</td>
+                <td class="text-center align-middle"> Date</td>
+                <td class="text-center align-middle"> Modifier</td>
+                <td class="text-center align-middle"> Supprimer</td>
+
+
+                </thead>
+                <tbody>
+                {% for post in posts %}
+                    <tr>
+                        <td> {{ post.title }} </td>
+                        <td> {{ post.content | raw }} </td>
+                        <td><img style="width:100px" class="img-fluid" src="{{ asset('uploads/images/' ~ post.image) }}"
+                                 alt="{{ post.title }}"></td>
+                        <td> {{ post.createdAt | date('d/m/Y') }} </td>
+                        <td><a class="btn btn-danger btn-block mt-2"
+                               href="{{ path('post_update', { 'id' : post.id }) }}">
+                                <i class="far fa-edit"></i>
+                            </a></td>
+                        <td><a class="btn btn-danger btn-block mt-2"
+                               href="{{ path('post_delete', { 'id' : post.id }) }}">
+                                <i class="far fa-trash-alt"></i>
+                            </a></td>
                     </tr>
                 {% endfor %}
                 </tbody>

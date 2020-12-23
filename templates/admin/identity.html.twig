@@ -1,0 +1,58 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Modification des informations du propriétaire du site{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://cdn.ckeditor.com/ckeditor5/23.1.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor.create( document.querySelector( '#form_content' ) );
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"
+            integrity="sha512-8QFTrG0oeOiyWo/VM9Y8kgxdlCryqhIxVeRpWSezdRRAvarxVtwLnGroJgnVW9/XBRduxO/z1GblzPrMQoeuew=="
+            crossorigin="anonymous"></script>
+
+    <script>
+        $('.dropify').dropify({
+            messages: {
+                default: 'Glissez-déposez un fichier ici ou cliquez',
+                replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                remove:  'Supprimer',
+                error:   'Désolé; le fichier est trop volumineux'
+            }
+        });
+    </script>
+
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css"
+          integrity="sha512-EZSUkJWTjzDlspOoPSpUFR0o0Xy7jdzW//6qhUkoZ9c4StFkVsp9fbbd0O06p9ELS3H486m4wmrCELjza4JEog=="
+          crossorigin="anonymous" />
+
+    <style>
+        .custom-file-label { display: none; }
+        .dropify-wrapper .dropify-message p {
+            font-size: 15px;
+        }
+    </style>
+
+{% endblock %}
+
+{% block body  %}
+
+    <img class="header-logo mb-5" src="{{ asset('uploads/images/' ~ identity.headerpic) }}"alt="logo-header">
+    <div class="p-3 my-5 mx-auto text-center">
+        <h1 class="display-4">Modification des informations du propriétaire du site</h1>
+    </div>
+    <div class="py-5 bg-light">
+        <div class="container" >
+            <div class="row">
+                <div class="col">
+                    {{ form(form, {attr: {novalidate: 'novalidate'}}) }}
+                </div>
+            </div><!--fin row-->
+        </div><!--fin container-->
+    </div><!--fin bg light-->
+{% endblock %}
