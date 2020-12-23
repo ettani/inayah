@@ -50,16 +50,16 @@
                 <table class="table table-bordered display" id="myTable2">
 
                     <thead>
-                        <td class="text-center align-middle"> Prenom</td>
-                        <td class="text-center align-middle"> Nom</td>
-                        <td class="text-center align-middle"> Adresse</td>
-                        <td class="text-center align-middle"> Code postal</td>
-                        <td class="text-center align-middle"> Ville</td>
-                        <td class="text-center align-middle"> Email</td>
-                        <td class="text-center align-middle"> Telephone</td>
-                        <td class="text-center align-middle"> Description</td>
-                        <td class="text-center align-middle"> Modifier</td>
-                        <td class="text-center align-middle"> Supprimer</td>
+                    <td class="text-center align-middle"> Prénom</td>
+                    <td class="text-center align-middle"> Nom</td>
+                    <td class="text-center align-middle"> Adresse</td>
+                    <td class="text-center align-middle"> Code postal</td>
+                    <td class="text-center align-middle"> Ville</td>
+                    <td class="text-center align-middle"> Email</td>
+                    <td class="text-center align-middle"> Telephone</td>
+                    <td class="text-center align-middle"> Description</td>
+                    <td class="text-center align-middle"> Modifier</td>
+                    <td class="text-center align-middle"> Supprimer</td>
                     </thead>
                     <tbody>
                     {% for user in benevoles %}
@@ -85,29 +85,70 @@
             </div>
         </div>
 
-{#LISTE DES MESSAGES RECU #}
-    <div class="col-md-12">
-        <h1> Message recu</h1>
-        <table class="table table-bordered display" id="myTable3">
-            <thead>
-            <td class="text-center align-middle"> Nom complet</td>
-            <td class="text-center align-middle"> email</td>
-            <td class="text-center align-middle"> description</td>
-            <td class="text-center align-middle"> date de réception</td>
-            </thead>
-            <tbody>
-            {% for message in messages %}
-                <tr>
-                    <td> {{ message.fullname }} </td>
-                    <td> {{ message.email }} </td>
-                    <td> {{ message.description }} </td>
-                    <td> {{ message.date | date('d/m/Y') }} </td>
+        {# LISTE DES MESSAGES RECU #}
+        <div class="col-md-12">
+            <h1> Message recu</h1>
+            <table class="table table-bordered display" id="myTable3">
+                <thead>
+                <td class="text-center align-middle"> Nom complet</td>
+                <td class="text-center align-middle"> email</td>
+                <td class="text-center align-middle"> description</td>
+                <td class="text-center align-middle"> date de récéption</td>
+                <td class="text-center align-middle"> Supprimer</td>
+                </thead>
+                <tbody>
+                {% for message in messages %}
+                    <tr>
+                        <td> {{ message.fullname }} </td>
+                        <td> {{ message.email }} </td>
+                        <td> {{ message.description }} </td>
+                        <td> {{ message.date | date('d/m/Y') }} </td>
+                        <td><a class="btn btn-danger btn-block mt-2"
+                               href="{{ path('message_delete', { 'id' : message.id }) }}">
+                                <i class="far fa-trash-alt"></i>
+                            </a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
 
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    </div>
+
+        {# LISTE DES ARTICLES #}
+        <div class="col-md-12">
+            <h1> Articles Publiés</h1>
+            <table class="table table-bordered display" id="myTable4">
+                <thead>
+                <td class="text-center align-middle"> Titre</td>
+                <td class="text-center align-middle"> Contenu</td>
+                <td class="text-center align-middle"> Image</td>
+                <td class="text-center align-middle"> Date</td>
+                <td class="text-center align-middle"> Modifier</td>
+                <td class="text-center align-middle"> Supprimer</td>
+
+
+                </thead>
+                <tbody>
+                {% for post in posts %}
+                    <tr>
+                        <td> {{ post.title }} </td>
+                        <td> {{ post.content | raw }} </td>
+                        <td><img style="width:100px" class="img-fluid" src="{{ asset('uploads/images/' ~ post.image) }}"
+                                 alt="{{ post.title }}"></td>
+                        <td> {{ post.createdAt | date('d/m/Y') }} </td>
+                        <td><a class="btn btn-danger btn-block mt-2"
+                               href="{{ path('post_update', { 'id' : post.id }) }}">
+                                <i class="far fa-edit"></i>
+                            </a></td>
+                        <td><a class="btn btn-danger btn-block mt-2"
+                               href="{{ path('post_delete', { 'id' : post.id }) }}">
+                                <i class="far fa-trash-alt"></i>
+                            </a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 
 
