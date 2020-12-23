@@ -202,6 +202,9 @@ form button.btn-primary:hover {
   top: 0 !important;
 }
 
+body{
+  overflow-x: hidden;
+}
 /*-----------------------------------
     1 - Hero
 ------------------------------------*/

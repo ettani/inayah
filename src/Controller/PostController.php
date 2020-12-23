@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Entity\Post;
 use App\Form\PostType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -163,6 +164,7 @@ class PostController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
 
     /**
      * Supprimer un Article
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/{id}/delete", name="post_delete", methods={"GET"})
      * ex. http://localhost:8000/dashboard/post/1/delete
      * @param Post $post
