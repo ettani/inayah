@@ -12,5 +12,6 @@ $(document).ready(function() {
       $('#myTable').DataTable()
           $('#myTable2').DataTable()
           $('#myTable3').DataTable()
+          $('#myTable4').DataTable()
 
 });

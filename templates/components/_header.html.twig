@@ -18,38 +18,39 @@
 
                     <li class="nav-item"><a target="_blank" class="nav-link" href="https://www.helloasso.com/associations/association-inayah/formulaires/2">Faire un don</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ path('message-create') }}">Contact</a></li>
-                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
                         {% if is_granted('ROLE_ADMIN') %}
-                            <li class="nav-item"><a class="nav-link" href="{{ path('admin_dashboard') }}">Administration</a></li>
-                        {% endif %}
-                    {% else %}
-                        <li class="nav-item"><a class="nav-link" href="#">Mon compte</a></li>
-                    {% endif %}
-                </ul>
-            </div>
-            <div class="collapse navbar-collapse justify-content-end ml-5" id="navbarSupportedContent">
-                <ul class="navbar-nav">
-                    <div class="navbar-nav ml-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Administration</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="{{ path('admin_dashboard') }}">Administration</a></li>
+                                    <li><a class="dropdown-item" href="{{ path('post_create') }}">Rédiger un article</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="{{ path('app_logout') }}">Deconnexion</a></li>
+                                </ul>
+                            </li>
 
-                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                            <a class="nav-link" href="{{ path('app_logout') }}">Deconnexion</a>
-
-                            {% if is_granted('ROLE_ADMIN') %}
-                                <a class="nav-link" href="{{ path('post_create') }}">Rédiger un Article</a>
-                            {% endif %}
-                            {#                            {% if is_granted('ROLE_ADMIN') %}#}
-                            {#                                <a class="nav-link" href="#">Administration</a>#}
-                            {#                            {% endif %}#}
                         {% else %}
-                            {#                            <li class="nav-item"><a class="nav-link" href="{{ path('user-create') }}">Demande d'aide</a></li>#}
-                            <li class="nav-item"><a class="nav-link" href="{{ path('user-create') }}">Inscription</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ path('app_login') }}">Connexion</a></li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Demandeurs</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{ path('user-create') }}">Demande d'aide</a></li>
+                                <li><a class="dropdown-item" href="{{ path('user-create') }}">Inscription</a></li>
+                                <li><a class="dropdown-item" href="{{ path('app_login') }}">Connexion</a></li>
+                                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="{{ path('app_login') }}">Deconnexion</a></li>
+                                {% endif %}
+                            </ul>
+                        </li>
 
                         {% endif %}
 
-                    </div>
+
                 </ul>
             </div>
+
         </nav>
     </div>
 </header>
