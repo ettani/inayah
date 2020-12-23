@@ -28,6 +28,7 @@
                 <div class="row">
                     <div class="col">
                         <img class="img-fluid" src="{{ asset('uploads/images/' ~ post.image) }}" alt="{{ post.title }}">
+                        {% if is_granted('ROLE_ADMIN') %}
                             <a class="btn btn-warning btn-block mt-2"
                                href="{{ path('post_update', { 'id' : post.id }) }}">
                                 Modifier cet Article
@@ -36,6 +37,7 @@
                                href="{{ path('post_delete', { 'id' : post.id }) }}">
                                 Supprimer cet Article
                             </a>
+                        {% endif %}
                     </div>
                     <div class="col">
                         {{ post.content | raw }}

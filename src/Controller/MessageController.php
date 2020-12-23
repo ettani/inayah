@@ -7,6 +7,7 @@ use App\Entity\Message;
 
 
 use App\Form\MessageType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -54,6 +55,7 @@ class MessageController extends AbstractController
      * Supprimer un Message
      * @Route("/admin/message/{id}/delete", name="message_delete", methods={"GET"})
      * ex. http://localhost:8000/admin/message/7/delete
+     * @IsGranted("ROLE_ADMIN")
      * @param Message $message
      * @return RedirectResponse
      */
@@ -65,15 +67,5 @@ class MessageController extends AbstractController
         #redirection
         return $this->redirectToRoute('default_index');
     }
-
-//    public function message(): Response
-//    {
-//        $message= $this->getDoctrine()
-//            ->getRepository(Message::class)
-//            ->findAll();
-//        return $this->render("page/message.html.twig", [
-//            'message' => $message
-//        ]);
-//    }
 
 }

@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Entity\Post;
 use App\Form\PostType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -25,6 +26,7 @@ class PostController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
      * Mettre à jour un Article
      * @Route("/{id}/update", name="post_update", methods={"GET|POST"})
      * ex. http://localhost:8000/dashboard/post/1/update
+     * @IsGranted("ROLE_ADMIN")
      * @param Post $post
      * @param Request $request
      * @param SluggerInterface $slugger
@@ -96,6 +98,7 @@ class PostController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
      * Créer un Article
      * @Route("/create", name="post_create", methods={"GET|POST"})
      * ex. http://localhost:8000/dashboard/post/create
+     * @IsGranted("ROLE_ADMIN")
      * @param Request $request : Contient la requète de l'utilisateur et ses données.
      * @param SluggerInterface $slugger
      * @return Response
@@ -163,6 +166,7 @@ class PostController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
 
     /**
      * Supprimer un Article
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/{id}/delete", name="post_delete", methods={"GET"})
      * ex. http://localhost:8000/dashboard/post/1/delete
      * @param Post $post
