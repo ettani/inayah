@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} IDENTIFIEZ VOUS !!!!!!! {% endblock %}
+{% block title %} Login {% endblock %}
 
 {% block body %}
 
-    <img class="header-logo mb-5" src="{{ asset('assets/images/header.png') }}"alt="logo-header">
+    <img class="header-logo mb-5" src="{{ asset('uploads/images/' ~ identity.headerpic) }}"alt="logo-header">
 
     <div class="container mx-auto mt-5">
         <div class="row">
