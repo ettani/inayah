@@ -22,11 +22,68 @@
         </div>
     </div>
     <div class="py-3 bg-light">
+    <div class="container">
         <div class="row">
-            <div class="col-md-6  mx-auto">
-                {{ form(form, {attr: {novalidate: 'novalidate'}}) }}
+            <div class="col">
+                {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                <div class="row">
+                    <div class="col-md-5 mb-4">
+                        {{ form_label(form.lastname) }}
+                        {{ form_widget(form.lastname) }}
+                    </div>
+                    <div class="col-md-5 mb-4">
+                        {{ form_label(form.firstname) }}
+                        {{ form_widget(form.firstname) }}
+                    </div>
+                    <div class="col-md-2 mb-4 d-flex align-items-end">
+                        {{ form_label(form.roles) }}
+                        {{ form_widget(form.roles) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5 mb-4">
+                        {{ form_label(form.adress) }}
+                        {{ form_widget(form.adress) }}
+                    </div>
+                    <div class="col-md-5 mb-4">
+                        {{ form_label(form.city) }}
+                        {{ form_widget(form.city) }}
+                    </div>
+                    <div class="col-md-2 mb-4">
+                        {{ form_label(form.cp) }}
+                        {{ form_widget(form.cp) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5 mb-4">
+                        {{ form_label(form.email) }}
+                        {{ form_widget(form.email) }}
+                    </div>
+                    <div class="col-md-5 mb-4">
+                        {{ form_label(form.password) }}
+                        {{ form_widget(form.password) }}
+                    </div>
+                    <div class="col-md-2 mb-4">
+                        {{ form_label(form.tel) }}
+                        {{ form_widget(form.tel) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-4">
+                        {{ form_label(form.description) }}
+                        {{ form_widget(form.description) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-4 mx-auto">
+                        {{ form_label(form.submit) }}
+                        {{ form_widget(form.submit) }}
+                    </div>
+                </div>
             </div>
-        </div>
+            {{ form_end(form) }}
+        </div><!--fin row-->
+    </div>
     </div>
 
 
