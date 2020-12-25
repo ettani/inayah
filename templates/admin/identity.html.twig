@@ -11,7 +11,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"
             integrity="sha512-8QFTrG0oeOiyWo/VM9Y8kgxdlCryqhIxVeRpWSezdRRAvarxVtwLnGroJgnVW9/XBRduxO/z1GblzPrMQoeuew=="
             crossorigin="anonymous"></script>
-
     <script>
         $('.dropify').dropify({
             messages: {
@@ -41,18 +40,74 @@
 {% endblock %}
 
 {% block body  %}
-
-    <img class="header-logo mb-5" src="{{ asset('uploads/images/' ~ identity.headerpic) }}"alt="logo-header">
+{% dump identity %}
+<body>
+    <!-- Loader End -->
+    <img class="header-logo mb-5" src="{{ asset('uploads/images/' ~ identity.headerpic.filename) }}" alt="logo-header">
     <div class="p-3 my-5 mx-auto text-center">
         <h1 class="display-4">Modification des informations du propriétaire du site</h1>
     </div>
     <div class="py-5 bg-light">
-        <div class="container" >
+        <div class="container">
             <div class="row">
                 <div class="col">
-                    {{ form(form, {attr: {novalidate: 'novalidate'}}) }}
+                    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                    <div class="mb-4">
+                        {{ form_label(form.name) }}
+                        {{ form_errors(form.name) }}
+                        {{ form_widget(form.name) }}
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5 mb-4">
+                            {{ form_label(form.adress) }}
+                            {{ form_errors(form.adress) }}
+                            {{ form_widget(form.adress) }}
+                        </div>
+                        <div class="col-md-2 mb-4">
+                            {{ form_label(form.cp) }}
+                            {{ form_errors(form.cp) }}
+                            {{ form_widget(form.cp) }}
+                        </div>
+                        <div class="col-md-5 mb-4">
+                            {{ form_label(form.city) }}
+                            {{ form_errors(form.city) }}
+                            {{ form_widget(form.city) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            {{ form_label(form.email) }}
+                            {{ form_errors(form.email) }}
+                            {{ form_widget(form.email) }}
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            {{ form_label(form.tel) }}
+                            {{ form_errors(form.tel) }}
+                            {{ form_widget(form.tel) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            {{ form_label(form.logo) }}
+                            {{ form_errors(form.logo) }}
+                            {{ form_widget(form.logo) }}
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            {{ form_label(form.headerpic) }}
+                            {{ form_errors(form.headerpic) }}
+                            {{ form_widget(form.headerpic) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-4 mx-auto">
+                            {{ form_label(form.submit) }}
+                            {{ form_widget(form.submit) }}
+                        </div>
+                    </div>
+                    {{ form_end(form) }}
                 </div>
             </div><!--fin row-->
         </div><!--fin container-->
     </div><!--fin bg light-->
+</body>
 {% endblock %}
