@@ -3,11 +3,7 @@
     <div class="container">
 
         <nav class="navbar navbar-expand-md navbar-light">
-            {% if app.request.get('_route') is same as 'identity_update' %}
-            <a class="navbar-brand" href="{{ path('default_index') }}"><img src="{{ asset('uploads/images/' ~ identity.logo.filename) }}" alt="{{ identity.name }}"></a>
-            {% else %}
             <a class="navbar-brand" href="{{ path('default_index') }}"><img src="{{ asset('uploads/images/' ~ identity.logo) }}" alt="{{ identity.name }}"></a>
-            {% endif %}
             <div class="group d-flex align-items-center">
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -29,7 +25,6 @@
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="{{ path('admin_dashboard') }}">Administration</a></li>
                                     <li><a class="dropdown-item" href="{{ path('post_create') }}">Rédiger un article</a></li>
-                                    <li><a class="dropdown-item" href="{{ path('identity_update') }}">Configuration</a></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item" href="{{ path('app_logout') }}">Deconnexion</a></li>
                                 </ul>
@@ -38,8 +33,7 @@
                         {% else %}
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                               aria-expanded="false">Compte</a>
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Demandeurs</a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{{ path('user-create') }}">Demande d'aide</a></li>
                                 <li><a class="dropdown-item" href="{{ path('user-create') }}">Inscription</a></li>

@@ -8,8 +8,10 @@ $(document).ready(function() {
       $('#reduc').text($(this).val()*66/100);
       $('#donTotal').text($(this).val()*34/100);
     });
-    $('#myTable').DataTable();
-    $('#myTable2').DataTable();
-    $('#myTable3').DataTable();
-    $('#myTable4').DataTable();
+
+      $('#myTable').DataTable()
+          $('#myTable2').DataTable()
+          $('#myTable3').DataTable()
+          $('#myTable4').DataTable()
+
 });
