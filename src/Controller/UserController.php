@@ -80,11 +80,6 @@ class UserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $user->setPassword(
-                $encoder->encodePassword(
-                    $user, $user->getPassword()
-                )
-            );
             #Sauvegarde dans la BDD
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
@@ -99,7 +94,7 @@ class UserController extends AbstractController
 
         #return new Response("<p>TEST</p>");
         #Affichage du formulaire dans la vue
-        return $this->render('user/create.html.twig', [
+        return $this->render('user/update.html.twig', [
             'form' => $form->createView()
         ]);
     }
