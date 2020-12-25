@@ -56,7 +56,6 @@ class UserType extends AbstractType
                     'Demandeur' => 'ROLE_DEMANDEUR',
                 ],
             ])
-
             ->add('tel', TelType::class, [
                 'label' => 'Téléphone'
             ])
