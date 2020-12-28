@@ -22,11 +22,6 @@
 13 - Foot Note
 --------------------------------------------------------------------*/
 
-.pdf {
-  border: 1px solid black;
-  background-color: red;
-}
-
 
 /*-----------------------------------
     0-1 - Agir
@@ -217,7 +212,7 @@ body{
 
 
 .hero {
-  background: url("../images/solidaires.jpg") no-repeat center;
+  background: url("../images/1.jpg");
   background-size: cover;
   overflow: hidden;
   position: relative;
