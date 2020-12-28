@@ -8,6 +8,8 @@ use App\Entity\User;
 use App\Form\ResetPasswordType;
 use App\Form\UserType;
 use App\Form\UserUpdateType;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormError;
@@ -91,7 +93,7 @@ class UserController extends AbstractController
         }
 
         #Affichage du formulaire dans la vue
-        return $this->render('user/create.html.twig', [
+        return $this->render('user/update.html.twig', [
             'form' => $form->createView()
         ]);
     }
@@ -153,7 +155,51 @@ class UserController extends AbstractController
         return $this->render('user/updatePassword.html.twig', array(
             'form' => $form->createView(),
         ));
+    }
 
+    /**
+     * @Route("/admin/user/{id}/load", name="user_load", methods={"GET"})
+     */
+    public function pdf(User $user)
+    {
+
+
+
+        // Configure Dompdf according to your needs
+        $pdfOptions = new Options();
+        $pdfOptions->set('defaultFont', 'Arial');
+
+
+        // Instantiate Dompdf with our options
+        $dompdf = new Dompdf($pdfOptions);
+
+        $pdfOptions->setIsRemoteEnabled(true);
+
+
+
+        // Retrieve the HTML generated in our twig file
+        $html = $this->renderView('user/mypdf.html.twig', [
+            'user' => $user,
+                        'title' => "Welcome to our pdf test"
+
+        ]);
+
+        // Load HTML to Dompdf
+        $dompdf->loadHtml($html);
+
+        $dompdf->output();
+
+
+        // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
+        $dompdf->setPaper('A4', 'portrait');
+
+        // Render the HTML as PDF
+        $dompdf->render();
+
+        // Output the generated PDF to Browser (force download)
+        $dompdf->stream("mypdf.pdf", [
+            "Attachment" => true
+        ]);
     }
 }
 
