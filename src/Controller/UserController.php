@@ -5,9 +5,12 @@ namespace App\Controller;
 
 
 use App\Entity\User;
+use App\Form\ResetPasswordType;
 use App\Form\UserType;
+use App\Form\UserUpdateType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,13 +29,10 @@ class UserController extends AbstractController
      */
     public function create(Request $request, UserPasswordEncoderInterface $encoder)
     {
-        #$post = new Post();
         $user = new User();
-        #$user->setRoles(['ROLE_USER']);
 
 
-#Création du Formulaire
-
+        #Création du Formulaire
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
@@ -55,7 +55,6 @@ class UserController extends AbstractController
 
         }
 
-        #return new Response("<p>TEST</p>");
         #Affichage du formulaire dans la vue
         return $this->render('user/create.html.twig', [
             'form' => $form->createView()
@@ -75,16 +74,11 @@ class UserController extends AbstractController
      */
     public function update(User $user, Request $request, UserPasswordEncoderInterface $encoder)
     {
-        $form = $this->createForm(UserType::class, $user);
+        $form = $this->createForm(UserUpdateType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $user->setPassword(
-                $encoder->encodePassword(
-                    $user, $user->getPassword()
-                )
-            );
             #Sauvegarde dans la BDD
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
@@ -94,18 +88,13 @@ class UserController extends AbstractController
 
             #Redirection vers accueil
             return $this->redirectToRoute('default_index');
-
         }
 
-        #return new Response("<p>TEST</p>");
         #Affichage du formulaire dans la vue
         return $this->render('user/create.html.twig', [
             'form' => $form->createView()
         ]);
     }
-
-
-    # @IsGranted("ROLE_ADMIN") à ajouter aprés
 
     /**
      * Supprimer un User
@@ -122,6 +111,49 @@ class UserController extends AbstractController
 
         #redirection
         return $this->redirectToRoute('default_index');
+    }
+
+    /**
+     * Update User password
+     * @Route("/user/resetpassword", name="user-resetpassword", methods={"GET|POST"})
+     * @IsGranted("ROLE_USER")
+     * @param Request $request
+     * @param UserPasswordEncoderInterface $encoder
+     * @return RedirectResponse|Response
+     */
+    public function ResetPassword(Request $request, UserPasswordEncoderInterface $encoder)
+    {
+        $user = $this->getUser();
+        $form = $this->createForm(ResetPasswordType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $oldPassword = $request->request->get('post')['oldPassword'];
+            $newPassword = $request->request->get('post')['password']['first'];
+            if ($encoder->isPasswordValid($user, $oldPassword)) {
+
+                $user->setPassword(
+                    $encoder->encodePassword(
+                        $user, $newPassword
+                    )
+                );
+
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($user);
+                $em->flush();
+                $this->addFlash('success', 'Votre mot de passe à bien été changé !');
+                return $this->render('user/updatePassword.html.twig', array(
+                    'form' => $form->createView(),
+                ));
+            } else {
+                $form->addError(new FormError('Ancien mot de passe incorrect'));
+            }
+        }
+        return $this->render('user/updatePassword.html.twig', array(
+            'form' => $form->createView(),
+        ));
+
     }
 }
 
