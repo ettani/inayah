@@ -43,7 +43,7 @@ class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
             $user->setPassword(
-               $encoder->encodePassword(
+                $encoder->encodePassword(
                     $user, $user->getPassword()
                 )
             );
@@ -178,33 +178,33 @@ class UserController extends AbstractController
      */
     public function pdf(User $user)
     {
-
-
-
-        // Configure Dompdf according to your needs
         $pdfOptions = new Options();
         $pdfOptions->set('defaultFont', 'Arial');
-
+        $pdfOptions->set('isRemoteEnabled', true);
 
         // Instantiate Dompdf with our options
         $dompdf = new Dompdf($pdfOptions);
+        $dompdf->set_base_path("css");
+        $contxt = stream_context_create([
+            'ssl' => [
+                'verify_peer' => FALSE,
+                'verify_peer_name' => FALSE,
+                'allow_self_signed'=> TRUE
+            ]
+        ]);
+        $dompdf->setHttpContext($contxt);
 
-        $pdfOptions->setIsRemoteEnabled(true);
-
-
+//        $dompdf = unserialize($user->getPdf());
+        //dump($pdf);exit();
 
         // Retrieve the HTML generated in our twig file
         $html = $this->renderView('user/mypdf.html.twig', [
             'user' => $user,
-                        'title' => "Welcome to our pdf test"
-
+            'pdf' => $dompdf
         ]);
 
         // Load HTML to Dompdf
         $dompdf->loadHtml($html);
-
-        $dompdf->output();
-
 
         // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
         $dompdf->setPaper('A4', 'portrait');
@@ -212,9 +212,9 @@ class UserController extends AbstractController
         // Render the HTML as PDF
         $dompdf->render();
 
-        // Output the generated PDF to Browser (force download)
-        $dompdf->stream("mypdf.pdf", [
-            "Attachment" => true
+        // Output the generated PDF to Browser (inline view)
+        $dompdf->stream("devis.pdf", [
+            "Attachment" => false
         ]);
     }
 }
