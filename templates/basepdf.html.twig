@@ -1,67 +1,36 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 </head>
 <body>
 <!-- Header Start -->
-<header class="position-absolute w-100">
-    <div class="container">
+<div class="container saRace">
+    <a href="{{ path('default_index') }}"><img class="sorting_asc_disabled" src="{{ path('default_index') }}/public/assets/images/logo.png"  alt=""/>
+               </a>
+    <a href="{{ path('default_index') }}"></a>
 
-        <nav class="navbar navbar-expand-md navbar-light">
-            <a class="navbar-brand" href="{{ path('default_index') }}"><img src="{{ asset('assets/images/logooo.png') }}" ></a>
-            <div class="group d-flex align-items-center">
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation"><span
-                            class="navbar-toggler-icon"></span></button>
-            </div>
-            <div class="collapse navbar-collapse justify-content-end mr-5" id="navbarSupportedContent">
-                <ul class="navbar-nav">
-                    <a class="nav-link" href="{{ path('default_index') }}"></a>
-                    <a class="nav-link" href="{{ path('agir_agir') }}"></a>
+    <a href="{{ path('default_index') }}"></a>
+    <a href="{{ path('agir_agir') }}"></a>
 
-                    <a target="_blank" class="nav-link" href="https://www.helloasso.com/associations/association-inayah/formulaires/2">&nbsp;</a>
-                    <a class="nav-link" href="{{ path('message-create') }}">&nbsp;</a>
-
-                    {% if is_granted('ROLE_ADMIN') %}
-
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">&nbsp;</a>
-                            <ul class="dropdown-menu">
-                                <a class="dropdown-item" href="{{ path('admin_dashboard') }}">&nbsp;</a>
-                                <a class="dropdown-item" href="{{ path('post_create') }}">&nbsp;</a>
-                                <hr class="dropdown-divider">
-                                <a class="dropdown-item" href="{{ path('app_logout') }}">&nbsp;</a>
-                            </ul>
+    <a href="https://www.helloasso.com/associations/association-inayah/formulaires/2">&nbsp;</a>
+    <a href="{{ path('message-create') }}">&nbsp;</a>
 
 
-                    {% else %}
+    <a href="{{ path('admin_dashboard') }}">&nbsp;</a>
+    <a href="{{ path('post_create') }}">&nbsp;</a>
+    <a href="{{ path('app_logout') }}">&nbsp;</a>
 
+    <a href="{{ path('user-create') }}">&nbsp;</a>
+    <a href="{{ path('user-create') }}">&nbsp;</a>
+    <a href="{{ path('app_login') }}">&nbsp;</a>
 
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">&nbsp;</a>
-                            <ul class="dropdown-menu">
-                                <a class="dropdown-item" href="{{ path('user-create') }}">&nbsp;</a>
-                                <a class="dropdown-item" href="{{ path('user-create') }}">&nbsp;</a>
-                                <a class="dropdown-item" href="{{ path('app_login') }}">&nbsp;</a>
-                                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                                    <a class="dropdown-item" href="{{ path('app_login') }}">&nbsp;</a>
-                                {% endif %}
-                            </ul>
-
-
-                    {% endif %}
-
-
-                </ul>
-            </div>
-
-        </nav>
-    </div>
-</header>
+</div>
 <!-- Header End -->
 {% block body %}
-
+    <h1> HELLO </h1>
 {% endblock %}
 </body>
 </html>
