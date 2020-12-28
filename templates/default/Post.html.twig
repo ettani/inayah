@@ -13,17 +13,7 @@
     <div class="py-5 bg-light mt-3">
         <div class="container">
             <div class="jumbotron">
-                <div class="row">
-                    <div class="col-12">
-                        {% for label, messages in app.flashes %}
-                            {% for message in messages %}
-                                <div class="alert alert-{{ label }}">
-                                    {{ message }}
-                                </div>
-                            {% endfor %}
-                        {% endfor %}
-                    </div>
-                </div>
+
                 <div class="row">
                     <div class="col">
                         <img class="img-fluid" src="{{ asset('uploads/images/' ~ post.image) }}" alt="{{ post.title }}">

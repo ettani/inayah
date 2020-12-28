@@ -20,6 +20,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
+use Gregwar\CaptchaBundle\Type\CaptchaType;
+
 
 class UserType extends AbstractType
 {
@@ -63,9 +65,12 @@ class UserType extends AbstractType
             ->add('description', TextareaType::class, [
                 'label' => 'Déscription'
             ])
+
             ->add('submit', SubmitType::class, [
                 'label' => 'Enregistrer'
-            ]);
+            ])
+            ->add('captcha', CaptchaType::class)
+        ;
 ////            POUR PDF
 //            ->add('brochure', FileType::class, [
 //                'label' => 'Brochure (PDF file)',
