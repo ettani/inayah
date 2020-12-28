@@ -13,6 +13,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
@@ -26,7 +28,7 @@ class UserController extends AbstractController
      * @param UserPasswordEncoderInterface $encoder
      * @return Response
      */
-    public function create(Request $request, UserPasswordEncoderInterface $encoder)
+    public function create(Request $request, UserPasswordEncoderInterface $encoder, MailerInterface $mailer)
     {
         #$post = new Post();
         $user = new User();
@@ -49,8 +51,22 @@ class UserController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
+//            $getEmail = $form["email"]->getData();
+            $mail = $user->getEmail();
+            $email = (new Email())
+                ->to($mail)
+                ->from('	elh3728@gmail.com ')
+                //->cc('cc@example.com')
+                //->bcc('bcc@example.com')
+                //->replyTo('fabien@example.com')
+                //->priority(Email::PRIORITY_HIGH)
+                ->subject('Inscription Inayah')
+                ->text('Sending emails is fun again! Yes again')
+                ->html('<p>Vous êtes bien inscrit!</p>');
 
-            $this->addFlash('success', 'Felicitation votre inscription a été prise en compte ');
+            $mailer->send($email);
+
+            $this->addFlash('success', 'Felicitation votre inscription a été prise en compte.');
 
             #Redirection vers accueil
             return $this->redirectToRoute('app_login');
