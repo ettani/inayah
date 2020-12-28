@@ -43,7 +43,7 @@ class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
             $user->setPassword(
-               $encoder->encodePassword(
+                $encoder->encodePassword(
                     $user, $user->getPassword()
                 )
             );
@@ -178,10 +178,6 @@ class UserController extends AbstractController
      */
     public function pdf(User $user)
     {
-
-
-
-        // Configure Dompdf according to your needs
         $pdfOptions = new Options();
         $pdfOptions->set('defaultFont', 'Arial');
         $pdfOptions->set('isRemoteEnabled', true);
@@ -209,9 +205,6 @@ class UserController extends AbstractController
 
         // Load HTML to Dompdf
         $dompdf->loadHtml($html);
-
-        $dompdf->output();
-
 
         // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
         $dompdf->setPaper('A4', 'portrait');
