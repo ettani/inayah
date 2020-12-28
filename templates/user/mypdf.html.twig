@@ -1,0 +1,65 @@
+{% extends 'basepdf.html.twig' %}
+    {% block stylesheets %}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous">
+    {% endblock %}
+
+{% block body %}
+
+        <style>
+
+            .saRace{
+                font-size: 0.1px;
+
+
+
+            }
+            .test{
+                max-width: 1px;
+                max-height: 1px;
+            }
+
+            .margin {
+                margin-top: 20px;
+            }
+
+            h1 {
+                text-align: center;
+                font-size: 30px;
+
+            }
+
+            .fiche{
+                font-size: 20px;
+            }
+
+
+
+
+        </style>
+
+        <h1 class="margin">Fiche de : {{ user.firstname }} {{ user.lastname }}</h1>
+
+
+        <div class="fiche">
+
+            <p class="margin"><strong> Prénom :</strong> {{ user.firstname }}  </p>
+            <p class="margin"><strong>Nom :</strong> {{ user.lastname }}  </p>
+            <p class="margin"><strong>Adresse :</strong> {{ user.adress }}  </p>
+            <p class="margin"><strong>Code postal :</strong> {{ user.cp }}  </p>
+            <p class="margin"><strong>Ville :</strong> {{ user.city }}  </p>
+            <p class="margin"><strong>Email :</strong> {{ user.email }}  </p>
+            <p class="margin"><strong>Téléphone :</strong> {{ user.tel }}  </p>
+            <p class="margin"><strong>Motif de la demande :</strong></p>
+            <p> {{ user.description }}</p>
+        </div>
+
+
+{% endblock %}
+
+{% block title %}
+
+{% endblock %}
+
