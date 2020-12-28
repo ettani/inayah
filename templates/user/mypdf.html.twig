@@ -2,29 +2,59 @@
 
 {% block body %}
 
-     <style>
-         a{
-             font-size: 0.1px;
-         }
-         h1{
-             text-align: center;
-         }
+    <style>
+        a {
+            font-size: 0.1px;
+        }
 
-     </style>
+        .align {
+            text-align: center;
+        }
 
+        hr {
+            border: 0;
+            height: 1px;
+            background-color: white;
+        }
+        h1{
+            font-size: 40px;
+        }
+        p{
+            font-size: 15px;
+        }
+    </style>
+    <h1 class="align"> ASOCIATION INAYAH</h1>
 
-    <h1 class="margin">Fiche de : {{ user.firstname }} {{ user.lastname }}</h1>
+    <p class="align">
+    {% for role in user.roles %}
+        {% if (role != 'ROLE_USER') %}
+            {% if role is same as 'ROLE_DEMANDEUR' %}
+                <h2 class="align"><strong>Demande d'aide</strong></h2>
+            {% elseif role is same as 'ROLE_BENEVOLE' %}
+                <h2 class="align"><strong> Proposition de bénévolat</strong></h2>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+    </p>
+    <br>
+    <br>
+    <h3>Fiche de : {{ user.firstname }} {{ user.lastname }}</h3>
 
     <div class="fiche">
-
-
-        <p class="margin"><strong> Prénom :</strong> {{ user.firstname }}  </p> <hr>
-        <p class="margin"><strong>Nom :</strong> {{ user.lastname }}  </p><hr>
-        <p class="margin"><strong>Adresse :</strong> {{ user.adress }}  </p><hr>
-        <p class="margin"><strong>Code postal :</strong> {{ user.cp }}  </p><hr>
-        <p class="margin"><strong>Ville :</strong> {{ user.city }}  </p><hr>
-        <p class="margin"><strong>Email :</strong> {{ user.email }}  </p><hr>
-        <p class="margin"><strong>Téléphone :</strong> {{ user.tel }}  </p><hr>
+        <p><strong> Prénom :</strong> {{ user.firstname }}  </p>
+        <hr>
+        <p><strong>Nom :</strong> {{ user.lastname }}  </p>
+        <hr>
+        <p><strong>Adresse :</strong> {{ user.adress }}  </p>
+        <hr>
+        <p><strong>Code postal :</strong> {{ user.cp }}  </p>
+        <hr>
+        <p><strong>Ville :</strong> {{ user.city }}  </p>
+        <hr>
+        <p><strong>Email :</strong> {{ user.email }}  </p>
+        <hr>
+        <p><strong>Téléphone :</strong> {{ user.tel }}  </p>
+        <hr>
         <p class="margin"><strong>Motif de la demande :</strong></p>
         <p> {{ user.description }}</p>
     </div>

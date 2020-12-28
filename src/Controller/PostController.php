@@ -158,7 +158,6 @@ class PostController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
 
             # Notification Flash / Confirmation
             $this->addFlash('success', "félicitation votre article est en ligne ! ");
-
             return $this->redirectToRoute('default_post', [
                 'id' => $post->getId(),
                 'title' => $post->getAlias()
