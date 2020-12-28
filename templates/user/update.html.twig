@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Inscrption{% endblock %}
+{% block title %}Modifier utilisateur{% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
@@ -13,63 +13,59 @@
 
 {% block body %}
     <img class="header-logo mb-5" src="{{ asset('uploads/images/' ~ identity.headerpic) }}"alt="logo-header">
-    {# FORMULAIRE D'INSCRIPTION #}
-    <div class="row">
-        <div class="col-md-6 mx-auto mt-5">
-            <div class=" mx-auto text-center">
-                <h1 class="">Mise à jour des données utilisaeur</h1>
-            </div>
-        </div>
-    </div>
-    <div class="py-3 bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col">
+    {# FORMULAIRE DE MODIFICATION #}
+    <div class="container mx-auto my-5">
+        <div class="row mt-5">
+            <div class="col-lg-9 mx-auto">
+                <h1 class="text-center">Mise à jour des données utilisaeur</h1>
+                <div class="p-5 mb-5 bg-light">
                     {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
                     <div class="row">
-                        <div class="col-md-5 mb-4">
+                        <div class="col-md-6 mb-4">
                             {{ form_label(form.lastname) }}
                             {{ form_widget(form.lastname) }}
                         </div>
-                        <div class="col-md-5 mb-4">
+                        <div class="col-md-6 mb-4">
                             {{ form_label(form.firstname) }}
                             {{ form_widget(form.firstname) }}
                         </div>
-                        <div class="col-md-2 mb-4 d-flex align-items-end">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            {{ form_label(form.adress) }}
+                            {{ form_widget(form.adress) }}
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            {{ form_label(form.city) }}
+                            {{ form_widget(form.city) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            {{ form_label(form.email) }}
+                            {{ form_widget(form.email) }}
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            {{ form_label(form.password) }}
+                            {{ form_widget(form.password) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            {{ form_label(form.cp) }}
+                            {{ form_widget(form.cp) }}
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            {{ form_label(form.tel) }}
+                            {{ form_widget(form.tel) }}
+                        </div>
+                        <div class="col-md-4 mb-4 d-flex align-items-end">
                             {{ form_label(form.roles) }}
                             {{ form_widget(form.roles) }}
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-5 mb-4">
-                            {{ form_label(form.adress) }}
-                            {{ form_widget(form.adress) }}
-                        </div>
-                        <div class="col-md-5 mb-4">
-                            {{ form_label(form.city) }}
-                            {{ form_widget(form.city) }}
-                        </div>
-                        <div class="col-md-2 mb-4">
-                            {{ form_label(form.cp) }}
-                            {{ form_widget(form.cp) }}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-5 mb-4">
-                            {{ form_label(form.email) }}
-                            {{ form_widget(form.email) }}
-                        </div>
-                        <div class="col-md-5 mb-4">
-                            {{ form_label(form.password) }}
-                            {{ form_widget(form.password) }}
-                        </div>
-                        <div class="col-md-2 mb-4">
-                            {{ form_label(form.tel) }}
-                            {{ form_widget(form.tel) }}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="mb-4">
+                        <div class="col-md-12 mb-4">
                             {{ form_label(form.description) }}
                             {{ form_widget(form.description) }}
                         </div>
@@ -80,9 +76,9 @@
                             {{ form_widget(form.submit) }}
                         </div>
                     </div>
+                    {{ form_end(form) }}
                 </div>
-                {{ form_end(form) }}
-            </div><!--fin row-->
+            </div>
         </div>
     </div>
 

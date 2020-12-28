@@ -40,7 +40,7 @@ class IdentityFormType extends AbstractType
                 ]
             ])
             ->add('headerpic', FileType::class, [
-                'label' => 'Illustration en fond du menu de navigation',
+                'label' => 'Illustration du menu de navigation',
                 'attr' => [
                     'class' => 'dropify'
                 ]

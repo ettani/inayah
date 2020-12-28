@@ -1,4 +1,14 @@
 /*-----------------------------------
+    Small devices (landscape phones, 576px and down)
+------------------------------------*/
+@media (max-width: 575px) {
+  .hero .slide-content {
+    padding-top: 165px;
+  }
+}
+
+
+/*-----------------------------------
     Small devices (landscape phones, 576px and up)
 ------------------------------------*/
 @media (min-width: 576px) {
