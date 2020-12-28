@@ -4,7 +4,6 @@
 
 {% block javascripts %}
     {{ parent() }}
-    <script src="https://cdn.ckeditor.com/ckeditor5/23.1.0/classic/ckeditor.js"></script>
     <script>
         ClassicEditor.create(document.querySelector('#form_content'));
     </script>
@@ -17,7 +16,7 @@
     <div class="container mx-auto my-5">
         <div class="row mt-5">
             <div class="col-lg-9 mx-auto">
-                <h1 class="text-center">Mise à jour des données utilisaeur</h1>
+                <h1 class="text-center">Mise à jour des données utilisateur</h1>
                 <div class="p-5 mb-5 bg-light">
                     {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
                     <div class="row">
@@ -44,10 +43,6 @@
                         <div class="col-md-6 mb-4">
                             {{ form_label(form.email) }}
                             {{ form_widget(form.email) }}
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            {{ form_label(form.password) }}
-                            {{ form_widget(form.password) }}
                         </div>
                     </div>
                     <div class="row">

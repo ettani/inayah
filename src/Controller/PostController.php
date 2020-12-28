@@ -84,7 +84,7 @@ class PostController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
             # Redirection vers l'article
             return $this->redirectToRoute('default_post', [
                 'id' => $post->getId(),
-                'title'=> $post->getTitle(),
+                'title'=> $post->getAlias(),
             ]);
         }
 
@@ -145,7 +145,11 @@ class PostController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
                 $post->setImage($newFilename);
             }
 
-
+            $post->setAlias(
+              $slugger->slug(
+                  $post->getTitle()
+              )
+            );
 
             # Sauvegarde dans la BDD
             $em = $this->getDoctrine()->getManager();
@@ -155,6 +159,10 @@ class PostController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
             # Notification Flash / Confirmation
             $this->addFlash('success', "félicitation votre article est en ligne ! ");
 
+            return $this->redirectToRoute('default_post', [
+                'id' => $post->getId(),
+                'title' => $post->getAlias()
+            ]);
 
         }
 
@@ -162,6 +170,7 @@ class PostController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
         return $this->render('post/create.html.twig', [
             'form' => $form->createView()
         ]);
+
     }
 
     /**

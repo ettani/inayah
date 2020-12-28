@@ -34,7 +34,7 @@ class IdentityFormType extends AbstractType
                 'label' => 'Téléphone'
             ])
             ->add('logo', FileType::class, [
-                'label' => 'Logo',
+                'label' => 'Logo (format optimal : 135 x 135 pixels)',
                 'attr' => [
                     'class' => 'dropify'
                 ]
