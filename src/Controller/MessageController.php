@@ -41,6 +41,8 @@ class MessageController extends AbstractController
             $em->persist($message);
             $em->flush();
 
+
+
             $mail = $message->getEmail();
             $mailMessage = $message->getDescription();
 
@@ -56,6 +58,8 @@ class MessageController extends AbstractController
                 ->html('<p>Nous avons bien reçu votre message!</p><br><p>Message : </p>' . $mailMessage);
 
             $mailer->send($email);
+
+            $this->addFlash('success', 'Votre message à été envoyé');
 
             #Redirection vers accueil
             return $this->redirectToRoute('default_index');
