@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Inscrption{% endblock %}
+{% block title %}Modifier utilisateur{% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
@@ -10,13 +10,14 @@
     </script>
 {% endblock %}
 
+
 {% block body %}
     <img class="header-logo mb-5" src="{{ asset('uploads/images/' ~ identity.headerpic) }}"alt="logo-header">
-    {# FORMULAIRE D'INSCRIPTION #}
+    {# FORMULAIRE DE MODIFICATION #}
     <div class="container mx-auto my-5">
         <div class="row mt-5">
             <div class="col-lg-9 mx-auto">
-                <h1 class="text-center">Inscription</h1>
+                <h1 class="text-center">Mise à jour des données utilisaeur</h1>
                 <div class="p-5 mb-5 bg-light">
                     {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
                     <div class="row">
@@ -80,4 +81,7 @@
             </div>
         </div>
     </div>
+
+
+
 {% endblock %}
