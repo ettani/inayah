@@ -33,16 +33,19 @@
                             </ul>
                         </li>
                     {% else %}
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
                                aria-expanded="false">Compte</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{{ path('user-create') }}">Demande d'aide</a></li>
-                                <li><a class="dropdown-item" href="{{ path('user-create') }}">Inscription</a></li>
-                                <li><a class="dropdown-item" href="{{ path('app_login') }}">Connexion</a></li>
                                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                    <li><a class="dropdown-item" href="{{ path('user-resetpassword') }}">Modification mot de passe</a></li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="{{ path('app_login') }}">Deconnexion</a></li>
+                                    <li><a class="dropdown-item" href="{{ path('app_logout') }}">Deconnexion</a></li>
+                                {% else %}
+                                    <li><a class="dropdown-item" href="{{ path('user-create') }}">Demande d'aide</a></li>
+                                    <li><a class="dropdown-item" href="{{ path('user-create') }}">Inscription</a></li>
+                                <li><a class="dropdown-item" href="{{ path('app_login') }}">Connexion</a></li>
                                 {% endif %}
                             </ul>
                         </li>
