@@ -38,8 +38,26 @@ class PostController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
         # Convertir mon image en objet "File"
         $currentImage = $post->getImage(); # On garde le nom de l'image dans la BDD
         $post->setImage(
-            new File($this->getParameter('images_directory').'/'.$post->getImage())
+            new File($this->getParameter('images_directory') . '/' . $post->getImage())
         );
+        #image2
+        $currentImage2 = $post->getImage2(); # On garde le nom de l'image dans la BDD
+        $post->setImage2(
+            new File($this->getParameter('images_directory') . '/' . $post->getImage2())
+        );
+
+        #image3
+        $currentImage3 = $post->getImage3(); # On garde le nom de l'image dans la BDD
+        $post->setImage3(
+            new File($this->getParameter('images_directory') . '/' . $post->getImage3())
+        );
+
+        #image4
+        $currentImage4 = $post->getImage4(); # On garde le nom de l'image dans la BDD
+        $post->setImage4(
+            new File($this->getParameter('images_directory') . '/' . $post->getImage4())
+        );
+
 
         # Création du Formulaire
         $form = $this->createForm(PostType::class, $post)->handleRequest($request);
@@ -49,6 +67,9 @@ class PostController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
 
             # Upload de l'image
             $post->setImage($currentImage);
+            $post->setImage2($currentImage2);
+            $post->setImage3($currentImage3);
+            $post->setImage4($currentImage4);
 
             /** @var UploadedFile $imageFile */
             $imageFile = $form->get('image')->getData();
@@ -56,9 +77,7 @@ class PostController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
             if ($imageFile) {
 
                 # Générer le nom de l'image | Sécurisation du nom de l'image
-                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
-                $safeFilename = $slugger->slug($originalFilename);
-                $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
+                $newFilename = $this->SecurisationImage($imageFile, $slugger);
 
                 # Upload de l'image
                 try {
@@ -67,24 +86,96 @@ class PostController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
                         $newFilename
                     );
                 } catch (FileException $e) {
-                    # TODO Notification, upload impossible.
+
                 }
 
                 # /!\ Permet de définir le nouveau nom de l'image dans la BDD /!\
                 $post->setImage($newFilename);
             }
 
+#image2
+            /** @var UploadedFile $imageFile2 */
+            $imageFile2 = $form->get('image2')->getData();
+
+            if ($imageFile2) {
+
+                # Générer le nom de l'image | Sécurisation du nom de l'image
+                $newFilename2 = $this->SecurisationImage($imageFile2, $slugger);
+
+                # Upload de l'image
+                try {
+                    $imageFile2->move(
+                        $this->getParameter('images_directory'),
+                        $newFilename2
+                    );
+                } catch (FileException $e) {
+                }
+
+                # /!\ Permet de définir le nouveau nom de l'image dans la BDD /!\
+                $post->setImage2($newFilename2);
+            }
+################################################
+# image3
+
+
+            /** @var UploadedFile $imageFile3 */
+            $imageFile3 = $form->get('image3')->getData();
+
+            if ($imageFile3) {
+
+                # Générer le nom de l'image | Sécurisation du nom de l'image
+                $newFilename3 = $this->SecurisationImage($imageFile3, $slugger);
+
+                # Upload de l'image
+                try {
+                    $imageFile3->move(
+                        $this->getParameter('images_directory'),
+                        $newFilename3
+                    );
+                } catch (FileException $e) {
+
+                }
+
+                # /!\ Permet de définir le nouveau nom de l'image dans la BDD /!\
+                $post->setImage3($newFilename3);
+            }
+#######################################################
+
+            # image4
+
+
+            /** @var UploadedFile $imageFile4 */
+            $imageFile4 = $form->get('image4')->getData();
+
+            if ($imageFile4) {
+
+                # Générer le nom de l'image | Sécurisation du nom de l'image
+                $newFilename4 = $this->SecurisationImage($imageFile4, $slugger);
+
+                # Upload de l'image
+                try {
+                    $imageFile4->move(
+                        $this->getParameter('images_directory'),
+                        $newFilename4
+                    );
+                } catch (FileException $e) {
+
+                }
+
+                # /!\ Permet de définir le nouveau nom de l'image dans la BDD /!\
+                $post->setImage4($newFilename4);
+            }
+####################################################
+
             # Sauvegarde dans la BDD
             $em = $this->getDoctrine()->getManager();
             $em->persist($post);
             $em->flush();
 
-            # TODO : Notification Flash / Confirmation
-
             # Redirection vers l'article
             return $this->redirectToRoute('default_post', [
                 'id' => $post->getId(),
-                'title'=> $post->getAlias(),
+                'title' => $post->getAlias(),
             ]);
         }
 
@@ -110,7 +201,6 @@ class PostController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
         $post->setCreatedAt(new \DateTime());
 
 
-
         # Création du Formulaire
         $form = $this->createForm(PostType::class, $post);
 
@@ -126,10 +216,7 @@ class PostController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
 
             if ($imageFile) {
 
-                # Générer le nom de l'image | Sécurisation du nom de l'image
-                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
-                $safeFilename = $slugger->slug($originalFilename);
-                $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
+                $newFilename = $this->SecurisationImage($imageFile, $slugger);
 
                 # Upload de l'image
                 try {
@@ -138,17 +225,83 @@ class PostController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
                         $newFilename
                     );
                 } catch (FileException $e) {
-                    # TODO Notification, upload impossible.
                 }
 
                 # /!\ Permet de définir le nouveau nom de l'image dans la BDD /!\
                 $post->setImage($newFilename);
             }
 
+            #######################################
+            # Upload de l'image2
+            /** @var UploadedFile $imageFile2 */
+            $imageFile2 = $form->get('image2')->getData();
+
+            if ($imageFile2) {
+
+                $newFilename2 = $this->SecurisationImage($imageFile2, $slugger);
+
+                # Upload de l'image2
+                try {
+                    $imageFile2->move(
+                        $this->getParameter('images_directory'),
+                        $newFilename2
+                    );
+                } catch (FileException $e) {
+                }
+
+                # /!\ Permet de définir le nouveau nom de l'image dans la BDD /!\
+                $post->setImage2($newFilename2);
+            }
+############################################
+
+            # Upload de l'image3
+            /** @var UploadedFile $imageFile3 */
+            $imageFile3 = $form->get('image3')->getData();
+
+            if ($imageFile3) {
+
+                $newFilename3 = $this->SecurisationImage($imageFile3, $slugger);
+
+                # Upload de l'image3
+                try {
+                    $imageFile3->move(
+                        $this->getParameter('images_directory'),
+                        $newFilename3
+                    );
+                } catch (FileException $e) {
+                }
+
+                # /!\ Permet de définir le nouveau nom de l'image dans la BDD /!\
+                $post->setImage3($newFilename3);
+            }
+############################################
+
+            # Upload de l'image4
+            /** @var UploadedFile $imageFile4 */
+            $imageFile4 = $form->get('image4')->getData();
+
+            if ($imageFile4) {
+
+                $newFilename4 = $this->SecurisationImage($imageFile4, $slugger);
+
+                # Upload de l'image4
+                try {
+                    $imageFile4->move(
+                        $this->getParameter('images_directory'),
+                        $newFilename4
+                    );
+                } catch (FileException $e) {
+                }
+
+                # /!\ Permet de définir le nouveau nom de l'image dans la BDD /!\
+                $post->setImage4($newFilename4);
+            }
+
+            #####################################################
             $post->setAlias(
-              $slugger->slug(
-                  $post->getTitle()
-              )
+                $slugger->slug(
+                    $post->getTitle()
+                )
             );
 
             # Sauvegarde dans la BDD
@@ -173,12 +326,28 @@ class PostController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
     }
 
     /**
+     * Générer le nom de l'image | Sécurisation du nom de l'image
+     * @param UploadedFile $imageFile
+     * @param SluggerInterface $slugger
+     * @return string
+     */
+    public function SecurisationImage(UploadedFile $imageFile, SluggerInterface $slugger): string
+    {
+        # Générer le nom de l'image2 | Sécurisation du nom de l'image
+        $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+        $safeFilename = $slugger->slug($originalFilename);
+        return $safeFilename . '-' . uniqid() . '.' . $imageFile->guessExtension();
+    }
+
+
+    /**
      * Supprimer un Article
      * @IsGranted("ROLE_ADMIN")
      * @Route("/{id}/delete", name="post_delete", methods={"GET"})
      * ex. http://localhost:8000/dashboard/post/1/delete
      * @param Post $post
      */
+
     public function delete(Post $post)
     {
         # suppression de la BDD

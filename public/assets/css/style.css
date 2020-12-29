@@ -35,7 +35,33 @@
   text-align: center;
 }
 
-
+.carousel-control-prev, .carousel-control-next {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15%;
+  text-align: center;
+  opacity:2 !important;
+  transition: opacity 0.15s ease;
+}
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: no-repeat 50% / 100% 100%;
+}
+#prev{
+  margin-right: 80px !important;
+  color: gray !important;
+}
+#next{
+  margin-left: 50px !important;
+  color: gray !important;
+}
 
 
 
