@@ -58,6 +58,15 @@ class UserType extends AbstractType
                     'Demandeur' => 'ROLE_DEMANDEUR',
                 ],
             ])
+            ->add('vehicule', ChoiceType::class, [
+                'label' => 'Vehicule',
+                'expanded' => true,
+                'multiple' => false,
+                'choices' => [
+                    'Véhiculé' => 'Véhiculé',
+                    'Non' => 'Non',
+                ],
+            ])
 
             ->add('tel', TelType::class, [
                 'label' => 'Téléphone'
@@ -65,11 +74,11 @@ class UserType extends AbstractType
             ->add('description', TextareaType::class, [
                 'label' => 'Déscription'
             ])
+            ->add('captcha', CaptchaType::class)
 
             ->add('submit', SubmitType::class, [
                 'label' => 'Enregistrer'
             ])
-            ->add('captcha', CaptchaType::class)
         ;
 ////            POUR PDF
 //            ->add('brochure', FileType::class, [

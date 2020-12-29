@@ -54,6 +54,15 @@ class UserUpdateType extends AbstractType
                     'Administrateur' => 'ROLE_ADMIN',
                 ],
             ])
+            ->add('vehicule', ChoiceType::class, [
+                'label' => 'Vehicule',
+                'expanded' => true,
+                'multiple' => false,
+                'choices' => [
+                    'Véhiculé' => 'Véhiculé',
+                    'Non' => 'Non',
+                ],
+            ])
             ->add('tel', TelType::class, [
                 'label' => 'Téléphone'
             ])

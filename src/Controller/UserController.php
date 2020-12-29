@@ -12,6 +12,8 @@ use Dompdf\Dompdf;
 use Dompdf\Options;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Asset\Package;
+use Symfony\Component\Asset\Packages;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -62,7 +64,9 @@ class UserController extends AbstractController
                 //->priority(Email::PRIORITY_HIGH)
                 ->subject('Inscription Inayah')
                 ->text('Sending emails is fun again! Yes again')
-                ->html('<p>Vous êtes bien inscrit!</p>');
+                ->html('<img src="../../public/uploads/images/logo.png"> <p> Votre demande d\'inscription a bien été prise en compte.  <br> Veuillez trouver ci-joint le formulaire à compléter et à nous renvoyer par email afin de finaliser votre demande.</p>')
+                ->attachFromPath($this->getParameter('pdf_directory') . '/formulaireBeneficiaire.pdf');
+
 
             $mailer->send($email);
 

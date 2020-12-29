@@ -11,7 +11,7 @@
 {% endblock %}
 
 {% block body %}
-    <img class="header-logo mb-5" src="{{ asset('uploads/images/' ~ identity.headerpic) }}"alt="logo-header">
+    <img class="header-logo mb-5" src="{{ asset('uploads/images/' ~ identity.headerpic) }}" alt="logo-header">
 
     <div class="col-12">
         {% for label, messages in app.flashes %}
@@ -61,17 +61,23 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4 mb-4">
+                        <div class="col-md-6 mb-4">
                             {{ form_label(form.cp) }}
                             {{ form_widget(form.cp) }}
                         </div>
-                        <div class="col-md-4 mb-4">
+                        <div class="col-md-6 mb-4">
                             {{ form_label(form.tel) }}
                             {{ form_widget(form.tel) }}
                         </div>
-                        <div class="col-md-4 mb-4 d-flex align-items-end">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5 mb-4 px-5 mr-auto ml-3 d-flex align-items-end">
                             {{ form_label(form.roles) }}
                             {{ form_widget(form.roles) }}
+                        </div>
+                        <div class="col-md-5 px-5 mb-4 d-flex align-items-end">
+                            {{ form_label(form.vehicule) }}
+                            {{ form_widget(form.vehicule) }}
                         </div>
                     </div>
                     <div class="row">
@@ -81,11 +87,17 @@
                         </div>
                     </div>
                     <div class="row">
+                        <div class="col-md-12 mb-4">
+                            {{ form_widget(form.captcha) }}
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="mb-4 mx-auto">
                             {{ form_label(form.submit) }}
                             {{ form_widget(form.submit) }}
                         </div>
                     </div>
+
                     {{ form_end(form) }}
                 </div>
             </div>

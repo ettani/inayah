@@ -91,6 +91,11 @@ class User implements UserInterface
      */
     private $description;
 
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $vehicule;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -268,6 +273,18 @@ class User implements UserInterface
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getVehicule(): ?string
+    {
+        return $this->vehicule;
+    }
+
+    public function setVehicule(string $vehicule): self
+    {
+        $this->vehicule = $vehicule;
 
         return $this;
     }

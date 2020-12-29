@@ -13,3 +13,10 @@ politique_confidentalite:
     controller:   Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
     defaults:
         template: default/politiqueconfidentialite.html.twig
+
+
+don:
+    path:         /don
+    controller:   Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+    defaults:
+        template: default/don.html.twig
