@@ -30,6 +30,23 @@ class PostType extends AbstractType
                     'class' => 'dropify'
                 ]
             ])
+            ->add('image2', FileType::class, [
+                'label' => "Illustration",
+                'attr' => [
+                    'class' => 'dropify'
+                ]
+          ])
+           ->add('image3', FileType::class, [
+               'label' => "Illustration",
+               'attr' => ['
+               class' => 'dropify'
+               ]])
+            ->add('image4', FileType::class, [
+                'label' => "Illustration",
+                'attr' => [
+                    'class' => 'dropify'
+                ]
+            ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Publier cet Article'
             ])

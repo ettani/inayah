@@ -6,8 +6,8 @@
 
 {% block body %}
     <img class="header-logo mb-5" src="{{ asset('uploads/images/' ~ identity.headerpic) }}" alt="logo-header">
-    <div class="p-3 mx-auto text-center mt-5" >
-        <h1 class="display-4" >{{ post.title }}</h1>
+    <div class="p-3 mx-auto text-center mt-5">
+        <h1 class="display-4">{{ post.title }}</h1>
     </div>
 
     <div class="py-5 bg-light mt-3">
@@ -16,7 +16,49 @@
 
                 <div class="row">
                     <div class="col">
-                        <img class="img-fluid" src="{{ asset('uploads/images/' ~ post.image) }}" alt="{{ post.title }}">
+                        {% if (post.image != null) %}
+                            <a><img class="img-fluid" src="{{ asset('uploads/images/' ~ post.image) }}"
+                                    alt="{{ post.title }}"></a>
+                        {% endif %}
+                        {% if (post.image != null) %}
+                            <div class="container-fluid">
+                                <div class="col-md-5 mx-auto mt-3">
+                                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                {% if (post.image2 != null) %}
+                                                    <img class="d-block w-100"
+                                                         src="{{ asset('uploads/images/' ~ post.image2) }}">
+                                                {% endif %}
+                                            </div>
+                                            <div class="carousel-item">
+                                                {% if (post.image3 != null) %}
+                                                    <img class="d-block w-100"
+                                                         src="{{ asset('uploads/images/' ~ post.image3) }}">
+                                                {% endif %}
+                                            </div>
+                                            <div class="carousel-item">
+                                                {% if (post.image4 != null) %}
+                                                    <img class="d-block w-100"
+                                                         src="{{ asset('uploads/images/' ~ post.image4) }}">
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                                       data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span id="prev" class="visually-hidden">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                                       data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span id="next" class="visually-hidden">Next</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                        {% endif %}
                         {% if  is_granted('ROLE_ADMIN') %}
                             <a class="btn btn-warning btn-block mt-2"
                                href="{{ path('post_update', { 'id' : post.id }) }}">
