@@ -6,7 +6,7 @@
     <div class="container-fluid my-5">
             {# LISTE DES DEMANDEURS #}
             <div class="col-md-12 my-5">
-                <h1> Liste des demandeurs</h1>
+                <h1> Liste des Bénéficaires</h1>
                 <table class="table table-bordered compact" id="myTable">
                     <thead>
                         <th class="text-center align-middle"> Prénom</th>
@@ -46,6 +46,9 @@
                                     <i class="fas fa-download"></i>
                                 </a>
                             </td>
+
+
+
                         </tr>
                     {% endfor %}
                     </tbody>
@@ -64,6 +67,7 @@
                         <th class="text-center align-middle"> Ville</th>
                         <th class="text-center align-middle"> Email</th>
                         <th class="text-center align-middle"> Telephone</th>
+                        <th class="text-center align-middle"> Véhicule</th>
                         <th class="text-center align-middle"> Description</th>
                         <th class="text-center align-middle"> Modifier</th>
                         <th class="text-center align-middle"> Supprimer</th>
@@ -79,6 +83,7 @@
                             <td> {{ user.city }} </td>
                             <td> {{ user.email }} </td>
                             <td> {{ user.tel }} </td>
+                            <td> {{ user.vehicule }} </td>
                             <td> {{ user.description }} </td>
                             <td class="text-center">
                                 <a class="px-4 btn btn-danger"

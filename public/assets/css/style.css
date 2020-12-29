@@ -205,14 +205,16 @@ form button.btn-primary:hover {
 body{
   overflow-x: hidden;
 }
+
+.top-header{
+  right: 100px;
+}
 /*-----------------------------------
     1 - Hero
 ------------------------------------*/
 
-
-
 .hero {
-  background: url("../images/1.jpg");
+  background: url("../images/solidaires.jpg");
   background-size: cover;
   overflow: hidden;
   position: relative;
@@ -618,9 +620,9 @@ body{
 /*-----------------------------------
     1 - Pricing Table
 ------------------------------------*/
-.pricing-table {
-  padding: 100px 0;
-}
+/*.pricing-table {*/
+/*  padding: 100px 0;*/
+/*}*/
 
 .single-pricing {
   padding: 65px 0 40px;
