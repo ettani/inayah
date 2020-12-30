@@ -23,7 +23,19 @@ A - Agir
 12 - Footer Widgets
 13 - Foot Note
 --------------------------------------------------------------------*/
+.tablep{
+  display: none;
+}
+/*---------------------------------------------
+          ACCORDION
+ -------------------------------------------*/
+.accordion-item{
+  padding: 0;
+}
 
+.dataTables_wrapper{
+  overflow-x: scroll !important;
+}
 
 .paypal{
   width: 50%;
@@ -560,6 +572,16 @@ body{
   height: 200px;
   object-fit: cover;
 }
+.actualite{
+  position: absolute;
+  top: 440px;
+  left: 0;
+  padding: 25px 25px 0 0;
+  background-color: #fafafa;
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+}
 
 /*-----------------------------------
     1 - Recent Posts
@@ -819,7 +841,8 @@ body{
     1 - Testimonials
 ------------------------------------*/
 .testimonial-and-clients {
-  background: url(../images/test-clients-bg.png) center center/cover no-repeat #ee1515;
+  /*background: url(../images/test-clients-bg.png) center center/cover no-repeat #ee1515;*/
+  background-color: #e79b9b;
 }
 
 .testimonials {
@@ -829,9 +852,9 @@ body{
 }
 
 .testimonials .test-img {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
+  width: 400px;
+  height: 300px;
+  /*border-radius: 50%;*/
   margin: 0 auto;
   overflow: hidden;
 }
@@ -840,7 +863,7 @@ body{
   -o-object-fit: cover;
   object-fit: cover;
   width: 100%;
-  height: 90px;
+  height: 100%;
 }
 
 .testimonials h5 {

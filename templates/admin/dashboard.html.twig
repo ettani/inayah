@@ -2,174 +2,235 @@
 
 {% block title %}ADMINISTRATION {% endblock %}
 {% block body %}
-    <img class="header-logo mb-5" src="{{ asset('uploads/images/' ~ identity.headerpic) }}"alt="logo-header">
+    <img class="header-logo mb-5" src="{{ asset('uploads/images/' ~ identity.headerpic) }}" alt="logo-header">
     <div class="container-fluid my-5">
+
+
+        <div class="accordion accordion-flush  col-12 text-center container" id="accordionFlushExample">
+
             {# LISTE DES DEMANDEURS #}
-            <div class="col-md-12 my-5">
-                <h1> Liste des Bénéficaires</h1>
-                <table class="table table-bordered compact" id="myTable">
-                    <thead>
-                        <th class="text-center align-middle"> Prénom</th>
-                        <th class="text-center align-middle"> Nom</th>
-                        <th class="text-center align-middle"> Adresse</th>
-                        <th class="text-center align-middle"> Code postal</th>
-                        <th class="text-center align-middle"> Ville</th>
-                        <th class="text-center align-middle"> Email</th>
-                        <th class="text-center align-middle"> Telephone</th>
-                        <th class="text-center align-middle"> Description</th>
-                        <th class="text-center align-middle"> Modifier</th>
-                        <th class="text-center align-middle"> Supprimer</th>
-                        <th class="text-center align-middle"> Telecharger la fiche</th>
-                    </thead>
-                    <tbody>
-                    {% for user in demandeurs %}
-                        <tr>
-                            <td> {{ user.firstname }} </td>
-                            <td> {{ user.lastname }} </td>
-                            <td> {{ user.adress }} </td>
-                            <td> {{ user.cp }} </td>
-                            <td> {{ user.city }} </td>
-                            <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
-                            <td> {{ user.tel }} </td>
-                            <td> {{ user.description }} </td>
-                            <td class="text-center"><a class="px-4 btn btn-danger"
-                                   href="{{ path('user-update', { 'id' : user.id }) }}">
-                                    <i class="far fa-edit"></i>
-                                </a></td>
-                            <td class="text-center"><a class="px-4 btn btn-danger"
-                                   href="{{ path('user_delete', { 'id' : user.id }) }}">
-                                    <i class="far fa-trash-alt"></i>
-                                </a></td>
-                            <td class="text-center">
-                                <a class="px-4 btn btn-danger"
-                                   href="{{ path('user_load', { 'id' : user.id }) }}">
-                                    <i class="fas fa-download"></i>
-                                </a>
-                            </td>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    LISTE DES BENEFICIAIRE
+                    </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                     data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <div class="col-md-12 my-5">
+                            <h1> Liste des Bénéficaires</h1>
+                            <table class="table table-bordered compact" id="myTable">
+                                <thead>
+                                <th class="text-center align-middle"> Prénom</th>
+                                <th class="text-center align-middle"> Nom</th>
+                                <th class="text-center align-middle"> Adresse</th>
+                                <th class="text-center align-middle"> Code postal</th>
+                                <th class="text-center align-middle"> Ville</th>
+                                <th class="text-center align-middle"> Email</th>
+                                <th class="text-center align-middle"> Telephone</th>
+                                <th class="text-center align-middle"> Description</th>
+                                <th class="text-center align-middle"> Modifier</th>
+                                <th class="text-center align-middle"> Supprimer</th>
+                                <th class="text-center align-middle"> Telecharger la fiche</th>
+                                </thead>
+                                <tbody>
+                                {% for user in demandeurs %}
+                                    <tr>
+                                        <td> {{ user.firstname }} </td>
+                                        <td> {{ user.lastname }} </td>
+                                        <td> {{ user.adress }} </td>
+                                        <td> {{ user.cp }} </td>
+                                        <td> {{ user.city }} </td>
+                                        <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
+                                        <td> {{ user.tel }} </td>
+                                        <td> {{ user.description }} </td>
+                                        <td class="text-center"><a class="px-4 btn btn-danger"
+                                                                   href="{{ path('user-update', { 'id' : user.id }) }}">
+                                                <i class="far fa-edit"></i>
+                                            </a></td>
+                                        <td class="text-center"><a class="px-4 btn btn-danger"
+                                                                   href="{{ path('user_delete', { 'id' : user.id }) }}">
+                                                <i class="far fa-trash-alt"></i>
+                                            </a></td>
+                                        <td class="text-center">
+                                            <a class="px-4 btn btn-danger"
+                                               href="{{ path('user_load', { 'id' : user.id }) }}">
+                                                <i class="fas fa-download"></i>
+                                            </a>
+                                        </td>
 
 
-
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
 
+
             {# #}{# LISTE DES BENEVOLES #}
-            <div class="col-md-12 my-5">
-                <h1> Liste des bénévoles</h1>
-                <table class="table table-bordered compact" id="myTable2">
-                    <thead>
-                        <th class="text-center align-middle"> Prénom</th>
-                        <th class="text-center align-middle"> Nom</th>
-                        <th class="text-center align-middle"> Adresse</th>
-                        <th class="text-center align-middle"> Code postal</th>
-                        <th class="text-center align-middle"> Ville</th>
-                        <th class="text-center align-middle"> Email</th>
-                        <th class="text-center align-middle"> Telephone</th>
-                        <th class="text-center align-middle"> Véhicule</th>
-                        <th class="text-center align-middle"> Description</th>
-                        <th class="text-center align-middle"> Modifier</th>
-                        <th class="text-center align-middle"> Supprimer</th>
-                        <th class="text-center align-middle"> Telecharger la fiche</th>
-                    </thead>
-                    <tbody>
-                    {% for user in benevoles %}
-                        <tr>
-                            <td> {{ user.firstname }} </td>
-                            <td> {{ user.lastname }} </td>
-                            <td> {{ user.adress }} </td>
-                            <td> {{ user.cp }} </td>
-                            <td> {{ user.city }} </td>
-                            <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
-                            <td> {{ user.tel }} </td>
-                            <td> {{ user.vehicule }} </td>
-                            <td> {{ user.description }} </td>
-                            <td class="text-center">
-                                <a class="px-4 btn btn-danger"
-                                   href="{{ path('user-update', { 'id' : user.id }) }}"><i class="far fa-edit"></i>
-                                </a>
-                            </td>
-                            <td class="text-center">
-                                <a class="px-4 btn btn-danger"
-                                   href="{{ path('user_delete', { 'id' : user.id }) }}"><i class="far fa-trash-alt"></i>
-                                </a>
-                            </td>
-                            <td class="text-center">
-                                <a class="px-4 btn btn-danger"
-                                   href="{{ path('user_load', { 'id' : user.id }) }}">
-                                    <i class="fas fa-download"></i>
-                                </a>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                        LISTE DES BÉNÉVOLES
+                    </button>
+                </h2>
+                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+                     data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <div class="col-md-12 my-5">
+                            <h1> Liste des bénévoles</h1>
+                            <table class="table table-bordered compact overflow" id="myTable2">
+                                <thead>
+                                <th class="text-center align-middle"> Prénom</th>
+                                <th class="text-center align-middle"> Nom</th>
+                                <th class="text-center align-middle"> Adresse</th>
+                                <th class="text-center align-middle"> Code postal</th>
+                                <th class="text-center align-middle"> Ville</th>
+                                <th class="text-center align-middle"> Email</th>
+                                <th class="text-center align-middle"> Telephone</th>
+                                <th class="text-center align-middle"> Véhicule</th>
+                                <th class="text-center align-middle"> Description</th>
+                                <th class="text-center align-middle"> Modifier  Suppimer</th>
+                                <th class="text-center align-middle"> Telecharger la fiche</th>
+                                </thead>
+                                <tbody>
+                                {% for user in benevoles %}
+                                    <tr>
+                                        <td> {{ user.firstname }} </td>
+                                        <td> {{ user.lastname }} </td>
+                                        <td> {{ user.adress }} </td>
+                                        <td> {{ user.cp }} </td>
+                                        <td> {{ user.city }} </td>
+                                        <td> {{ user.email }} </td>
+                                        <td> {{ user.tel }} </td>
+                                        <td> {{ user.vehicule }} </td>
+                                        <td> {{ user.description }} </td>
+                                        <td class="text-center">
+                                            <a class="px-4 btn btn-danger my-3"
+                                               href="{{ path('user-update', { 'id' : user.id }) }}"><i class="far fa-edit"></i>
+                                            </a>
+                                            <a class="px-4 btn btn-danger mb-3"
+                                               href="{{ path('user_delete', { 'id' : user.id }) }}"><i class="far fa-trash-alt"></i>
+                                            </a>
+                                        </td>
+                                        <td class="text-center" vertical="center">
+                                            <a class="px-4 btn btn-danger my-3"
+                                               href="{{ path('user_load', { 'id' : user.id }) }}">
+                                                <i class="fas fa-download"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
             </div>
 
             {# LISTE DES MESSAGES RECU #}
-            <div class="col-md-12 my-5">
-                <h1> Message recu</h1>
-                <table class="table table-bordered compact" id="myTable3">
-                    <thead>
-                        <th class="text-center align-middle"> Nom complet</th>
-                        <th class="text-center align-middle"> email</th>
-                        <th class="text-center align-middle"> description</th>
-                        <th class="text-center align-middle"> date de reception</th>
-                        <th class="text-center align-middle"> Supprimer</th>
-                    </thead>
-                    <tbody>
-                    {% for message in messages %}
-                        <tr>
-                            <td> {{ message.fullname }} </td>
-                            <td><a href="mailto:{{ message.email }}">{{ message.email }}</a></td>
-                            <td> {{ message.description }} </td>
-                            <td> {{ message.date | date('d/m/Y') }} </td>
-                            <td class="text-center">
-                                <a class="px-4 btn btn-danger" href="{{ path('message_delete', { 'id' : message.id })
-                                }}"><i class="far fa-trash-alt"></i></a>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseThree" aria-expanded="false"
+                            aria-controls="flush-collapseThree">
+                        LISTE DES MESSAGES RECU
+
+                    </button>
+                </h2>
+                <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
+                     data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <div class="col-md-12 my-5">
+                            <h1> Message recu</h1>
+                            <table class="table table-bordered compact" id="myTable3">
+                                <thead>
+                                <th class="text-center align-middle"> Nom complet</th>
+                                <th class="text-center align-middle"> email</th>
+                                <th class="text-center align-middle"> description</th>
+                                <th class="text-center align-middle"> date de reception</th>
+                                <th class="text-center align-middle"> Supprimer</th>
+                                </thead>
+                                <tbody>
+                                {% for message in messages %}
+                                    <tr>
+                                        <td> {{ message.fullname }} </td>
+                                        <td> {{ message.email }} </td>
+                                        <td> {{ message.description }} </td>
+                                        <td> {{ message.date | date('d/m/Y') }} </td>
+                                        <td class="text-center">
+                                            <a class="px-4 btn btn-danger" href="{{ path('message_delete', { 'id' : message.id }) }}"><i
+                                                        class="far fa-trash-alt"></i></a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             {# LISTE DES ARTICLES #}
-            <div class="col-md-12 my-5">
-                <h1> Articles Publiés</h1>
-                <table class="table table-bordered compact" id="myTable4">
-                    <thead>
-                        <th class="text-center align-middle"> Titre</th>
-                        <th class="text-center align-middle"> Contenu</th>
-                        <th class="text-center align-middle"> Image</th>
-                        <th class="text-center align-middle"> Date</th>
-                        <th class="text-center align-middle"> Modifier</th>
-                        <th class="text-center align-middle"> Supprimer</th>
-                    </thead>
-                    <tbody>
-                    {% for post in posts %}
-                        <tr>
-                            <td> {{ post.title }} </td>
-                            <td> {{ post.content | raw }} </td>
-                            <td>
-                                <img style="width:100px" class="img-fluid" src="{{ asset('uploads/images/' ~ post
-                                .image) }}" alt="{{ post.title }}">
-                            </td>
-                            <td> {{ post.createdAt | date('d/m/Y') }} </td>
-                            <td class="text-center">
-                                <a class="px-4 btn btn-danger" href="{{ path('post_update', { 'id' : post.id })
-                                }}"><i class="far fa-edit"></i></a>
-                            </td>
-                            <td class="text-center">
-                                <a class="px-4 btn btn-danger" href="{{ path('post_delete', {
-                                    'id' : post.id }) }}"><i class="far fa-trash-alt"></i></a>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseFour" aria-expanded="false"
+                            aria-controls="flush-collapseFour">
+                        LISTE DES ARTICLES PUBLIÉS
+                    </button>
+                </h2>
+                <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour"
+                     data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <div class="col-md-12 my-5">
+                            <h1> Articles Publiés</h1>
+                            <table class="table table-bordered compact" id="myTable4">
+                                <thead>
+                                <th class="text-center align-middle"> Titre</th>
+                                <th class="text-center align-middle"> Contenu</th>
+                                <th class="text-center align-middle"> Image</th>
+                                <th class="text-center align-middle"> Date</th>
+                                <th class="text-center align-middle"> Modifier</th>
+                                <th class="text-center align-middle"> Supprimer</th>
+                                </thead>
+                                <tbody>
+                                {% for post in posts %}
+                                    <tr>
+                                        <td> {{ post.title }} </td>
+                                        <td> {{ post.content | raw }} </td>
+                                        <td>
+                                            <img style="width:100px" class="img-fluid" src="{{ asset('uploads/images/' ~ post
+                                            .image) }}" alt="{{ post.title }}">
+                                        </td>
+                                        <td> {{ post.createdAt | date('d/m/Y') }} </td>
+                                        <td class="text-center">
+                                            <a class="px-4 btn btn-danger" href="{{ path('post_update', { 'id' : post.id }) }}"><i
+                                                        class="far fa-edit"></i></a>
+                                        </td>
+                                        <td class="text-center">
+                                            <a class="px-4 btn btn-danger" href="{{ path('post_delete', {
+                                                'id' : post.id }) }}"><i class="far fa-trash-alt"></i></a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+
+        </div>
     </div>
 
 {% endblock %}

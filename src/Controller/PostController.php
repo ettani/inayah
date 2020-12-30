@@ -173,6 +173,7 @@ class PostController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
                 # /!\ Permet de définir le nouveau nom de l'image dans la BDD /!\
                 $post->setImage4($newFilename4);
             }
+
 ####################################################
 
             # Sauvegarde dans la BDD
