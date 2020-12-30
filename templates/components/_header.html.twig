@@ -15,6 +15,7 @@
                 </ul>
             </div>
         </div>
+
         <nav class="navbar navbar-expand-md navbar-light">
             {% if app.request.get('_route') is same as 'identity_update' %}
             <a class="navbar-brand" href="{{ path('default_index') }}"><img src="{{ asset('uploads/images/' ~ identity.logo.filename) }}" alt="{{ identity.name }}"></a>
@@ -68,10 +69,12 @@
                 </ul>
             </div>
         </nav>
-{#        <div class="bg-white py-3">#}
-{#            <p>versidunvjker fverfv erqv12/12/21 v fqsdvn jv qsdv sdq jv</p>#}
-{#        </div>#}
 
     </div>
+    <div class="messagedefilant">
+        <p>{{ identity.banner }}</p>
+    </div>
+
 </header>
+
 <!-- Header End -->
