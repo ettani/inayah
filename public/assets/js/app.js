@@ -12,4 +12,15 @@ $(document).ready(function() {
     $('#myTable2').DataTable();
     $('#myTable3').DataTable();
     $('#myTable4').DataTable();
+
+
+    // $( "#click" ).click(function() {
+    //     alert( "Handler for .click() called." );
+    // });
+
+    //Dès qu'on clique sur #participer, on applique show() au titre
+    // $("#click").click(function(event){
+    //     event.preventDefault();
+    //     $(".tablep").show();
+    // });
 });
