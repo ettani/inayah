@@ -57,6 +57,11 @@ class Identity
      */
     private $headerpic;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $banner;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -154,6 +159,18 @@ class Identity
     public function setHeaderpic($headerpic): self
     {
         $this->headerpic = $headerpic;
+
+        return $this;
+    }
+
+    public function getBanner(): ?string
+    {
+        return $this->banner;
+    }
+
+    public function setBanner(?string $banner): self
+    {
+        $this->banner = $banner;
 
         return $this;
     }

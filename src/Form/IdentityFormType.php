@@ -33,6 +33,9 @@ class IdentityFormType extends AbstractType
             ->add('tel', TextType::class, [
                 'label' => 'Téléphone'
             ])
+            ->add('banner', TextType::class, [
+                'label' => 'Message de la bannière défilante'
+            ])
             ->add('logo', FileType::class, [
                 'label' => 'Logo (format optimal : 135 x 135 pixels)',
                 'attr' => [

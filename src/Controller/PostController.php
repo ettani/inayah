@@ -37,27 +37,35 @@ class PostController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
 
         # Convertir mon image en objet "File"
         $currentImage = $post->getImage(); # On garde le nom de l'image dans la BDD
-        $post->setImage(
-            new File($this->getParameter('images_directory') . '/' . $post->getImage())
-        );
+        if(!is_null($currentImage)) {
+            $post->setImage(
+                new File($this->getParameter('images_directory') . '/' . $post->getImage())
+            );
+        }
         #image2
         $currentImage2 = $post->getImage2(); # On garde le nom de l'image dans la BDD
-        $post->setImage2(
-            new File($this->getParameter('images_directory') . '/' . $post->getImage2())
-        );
+
+        if(!is_null($currentImage2)) {
+            $post->setImage2(
+                new File($this->getParameter('images_directory') . '/' . $post->getImage2())
+            );
+        }
 
         #image3
         $currentImage3 = $post->getImage3(); # On garde le nom de l'image dans la BDD
-        $post->setImage3(
-            new File($this->getParameter('images_directory') . '/' . $post->getImage3())
-        );
+        if(!is_null($currentImage3)) {
+            $post->setImage3(
+                new File($this->getParameter('images_directory') . '/' . $post->getImage3())
+            );
+        }
 
         #image4
         $currentImage4 = $post->getImage4(); # On garde le nom de l'image dans la BDD
-        $post->setImage4(
-            new File($this->getParameter('images_directory') . '/' . $post->getImage4())
-        );
-
+        if(!is_null($currentImage4)) {
+            $post->setImage4(
+                new File($this->getParameter('images_directory') . '/' . $post->getImage4())
+            );
+        }
 
         # Création du Formulaire
         $form = $this->createForm(PostType::class, $post)->handleRequest($request);

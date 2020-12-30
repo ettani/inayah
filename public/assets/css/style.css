@@ -7,6 +7,8 @@
 /*------------------------------------------------------------------
 [Table of styles content]
 
+A - Agir
+
 1 - Header
 2 - Hero
 3 - CTA
@@ -33,10 +35,17 @@
 
 .dataTables_wrapper{
   overflow-x: scroll !important;
-
 }
+
+.paypal{
+  width: 50%;
+  padding: 7px 34px;
+}
+
+
+
 /*-----------------------------------
-    0-1 - Agir
+    A - Agir
 ------------------------------------*/
 #don{
   font-size: 2rem;
@@ -88,7 +97,7 @@ header {
 
 .header-logo{
   width: 100%;
-  height: 163px;
+  height: 195px;
   object-fit: cover;
 }
 
@@ -247,6 +256,79 @@ body{
 .top-header{
   right: 100px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Texte défilant */
+.messagedefilant {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 30px;
+}
+
+.messagedefilant div {
+  position: absolute;
+  min-width: 100%; /* au minimum la largeur du conteneur */
+}
+
+.messagedefilant div span {
+  position: relative;
+  top:0; left:0;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.messagedefilant div span:first-child {
+  animation: defilement 25s infinite linear;
+  padding-right: 50px;
+}
+
+.messagedefilant div span:last-child {
+  position: absolute;
+  padding-right: 50px;
+  animation: defilement2 25s infinite linear;
+}
+
+@keyframes defilement {
+  0% { margin-left: 0; }
+  100% { margin-left: -100%; }
+}
+
+@keyframes defilement2 {
+  0% { margin-left: 100%; }
+  100% { margin-left: 0%; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*-----------------------------------
     1 - Hero
 ------------------------------------*/
