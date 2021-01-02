@@ -6,6 +6,7 @@ use App\Entity\Identity;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -33,20 +34,27 @@ class IdentityFormType extends AbstractType
             ->add('tel', TextType::class, [
                 'label' => 'Téléphone'
             ])
-            ->add('banner', TextType::class, [
-                'label' => 'Message de la bannière défilante'
-            ])
             ->add('logo', FileType::class, [
                 'label' => 'Logo (format optimal : 135 x 135 pixels)',
-                'attr' => [
-                    'class' => 'dropify'
-                ]
+                'attr' => ['class' => 'dropify']
             ])
             ->add('headerpic', FileType::class, [
                 'label' => 'Illustration du menu de navigation',
-                'attr' => [
-                    'class' => 'dropify'
-                ]
+                'attr' => ['class' => 'dropify']
+            ])
+
+            ->add('banner', TextType::class, [
+                'label' => 'Message de la bannière défilante'
+            ])
+            ->add('eventtitle', TextType::class, [
+                'label' => 'Titre de l\'évènement'
+            ])
+            ->add('eventcontent', TextareaType::class, [
+                'label' => 'Paragraphe de l\'évènement'
+            ])
+            ->add('eventpic', FileType::class, [
+                'label' => 'Illustration de l\'évènement',
+                'attr' => ['class' => 'dropify']
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Mettre à jour'

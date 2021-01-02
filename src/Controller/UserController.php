@@ -132,7 +132,7 @@ class UserController extends AbstractController
         $this->getDoctrine()->getManager()->flush();
 
         #redirection
-        return $this->redirectToRoute('default_index');
+        return $this->redirectToRoute('admin_dashboard');
     }
 
     /**

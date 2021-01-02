@@ -5,6 +5,7 @@ namespace App\Controller;
 
 
 use App\Entity\Evenement;
+use App\Entity\Post;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,14 +19,16 @@ class ActualiteController extends AbstractController
 
     public function actualite(): Response
     {
-        # Récupérer tous les evenements
-        $evenements = $this->getDoctrine()
-            ->getRepository(Evenement::class)
+        # Récupérer tous les articles
+        $posts = $this->getDoctrine()
+            ->getRepository(Post::class)
             ->findAll();
+        //->findBy([], ['id' => 'DESC', 10]);
 
+        # Grâce à render, je vais pouvoir effectuer le rendu d'une vue.
+        # return new Response("<h1>Page Accueil</h1>");
         return $this->render("actualite/actualite.html.twig", [
-            'evenements' => $evenements
-
+            'posts' => $posts
         ]);
     }
 }

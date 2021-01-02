@@ -20,32 +20,24 @@ class PostType extends AbstractType
             ->add('title', TextType::class, [
                 'label' => 'Titre de l\'article'
             ])
-
             ->add('content', TextareaType::class, [
                 'label' => "Contenu de l'article"
             ])
             ->add('image', FileType::class, [
-                'label' => "Illustration",
-                'attr' => [
-                    'class' => 'dropify'
-                ]
+                'label' => "Photo 1 (principale)",
+                'attr' => ['class' => 'dropify']
             ])
             ->add('image2', FileType::class, [
-                'label' => "Illustration",
-                'attr' => [
-                    'class' => 'dropify'
-                ]
-          ])
-           ->add('image3', FileType::class, [
-               'label' => "Illustration",
-               'attr' => ['
-               class' => 'dropify'
-               ]])
+                'label' => "Photo 2",
+                'attr' => ['class' => 'dropify']
+            ])
+            ->add('image3', FileType::class, [
+                'label' => "Photo 3",
+                'attr' => ['class' => 'dropify']
+            ])
             ->add('image4', FileType::class, [
-                'label' => "Illustration",
-                'attr' => [
-                    'class' => 'dropify'
-                ]
+                'label' => "Photo 4",
+                'attr' => ['class' => 'dropify']
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Publier cet Article'
