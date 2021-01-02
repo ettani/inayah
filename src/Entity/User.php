@@ -93,6 +93,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank (message="Entrez votre choix.")
      */
     private $vehicule;
 
