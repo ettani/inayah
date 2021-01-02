@@ -38,6 +38,10 @@ class IdentityController extends AbstractController
         $identity->setHeaderpic(
             new File($this->getParameter('images_directory') . '/' . $identity->getHeaderpic())
         );
+        $currentEventpic = $identity->getEventpic(); # On garde le nom de l'image dans la BDD
+        $identity->setEventpic(
+            new File($this->getParameter('images_directory') . '/' . $identity->getEventpic())
+        );
 
 
         # Création du Formulaire
@@ -49,16 +53,18 @@ class IdentityController extends AbstractController
             # Upload de l'image
             $identity->setLogo($currentLogo);
             $identity->setHeaderpic($currentHeaderPic);
+            $identity->setEventpic($currentEventpic);
 
             /** @var UploadedFile $imageFile */
             $logoFile = $form->get('logo')->getData();
             $headerFile = $form->get('headerpic')->getData();
+            $eventpicFile = $form->get('eventpic')->getData();
 
             if ($logoFile) {
                 # Générer le nom de l'image | Sécurisation du nom de l'image
                 $originalFilename = pathinfo($logoFile->getClientOriginalName(), PATHINFO_FILENAME);
                 $safeFilename = $slugger->slug($originalFilename);
-                $newFilename = 'logo-' . uniqid() . '.' . $logoFile->guessExtension();
+                $newFilename = 'logo' . '.' . $logoFile->guessExtension();
                 # Upload de l'image
                 try {
                     $logoFile->move(
@@ -75,7 +81,7 @@ class IdentityController extends AbstractController
                 # Générer le nom de l'image | Sécurisation du nom de l'image
                 $originalFilename = pathinfo($headerFile->getClientOriginalName(), PATHINFO_FILENAME);
                 $safeFilename = $slugger->slug($originalFilename);
-                $newFilename = 'header-' . uniqid() . '.' . $headerFile->guessExtension();
+                $newFilename = 'header' . '.' . $headerFile->guessExtension();
                 # Upload de l'image
                 try {
                     $headerFile->move(
@@ -88,13 +94,30 @@ class IdentityController extends AbstractController
                 $identity->setHeaderpic($newFilename);
             }
 
+            if ($eventpicFile) {
+                # Générer le nom de l'image | Sécurisation du nom de l'image
+                $originalFilename = pathinfo($eventpicFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = 'eventpic' . '.' . $eventpicFile->guessExtension();
+                # Upload de l'image
+                try {
+                    $eventpicFile->move(
+                        $this->getParameter('images_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                }
+                # /!\ Permet de définir le nouveau nom de l'image dans la BDD /!\
+                $identity->setEventpic($newFilename);
+            }
+
 
             # Sauvegarde dans la BDD
             $em = $this->getDoctrine()->getManager();
             $em->persist($identity);
             $em->flush();
             # Redirection vers l'article
-            return $this->redirectToRoute('admin_dashboard');
+            return $this->redirectToRoute('identity_update');
         }
         # Afficher le formulaire dans la vue
         return $this->render('admin/identity.html.twig', [

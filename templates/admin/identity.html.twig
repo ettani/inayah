@@ -6,7 +6,7 @@
     {{ parent() }}
     <script src="{{ asset('assets/js/ckeditor_24.0.0.js') }}"></script>
     <script>
-        ClassicEditor.create( document.querySelector( '#form_content' ) );
+        ClassicEditor.create( document.querySelector( '#identity_form_eventcontent' ) );
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"
             integrity="sha512-8QFTrG0oeOiyWo/VM9Y8kgxdlCryqhIxVeRpWSezdRRAvarxVtwLnGroJgnVW9/XBRduxO/z1GblzPrMQoeuew=="
@@ -20,6 +20,7 @@
                 error:   'Désolé; le fichier est trop volumineux'
             }
         });
+
     </script>
 
 {% endblock %}
@@ -46,11 +47,12 @@
     <img class="header-logo mb-5" src="{{ asset('uploads/images/' ~ identity.headerpic.filename) }}" alt="logo-header">
 
     {# FORMULAIRE D'UPDATE IDENTITY #}
-    <div class="container mx-auto my-5">
+    <div class="container-fluid mx-auto my-5">
+        <h1>Configuration</h1>
         <div class="row mt-5">
-            <div class="col-lg-9 mx-auto">
-                <h1 class="text-center">Modification des informations du propriétaire du site</h1>
-                <div class="p-5 mb-5 bg-light">
+            <div class="col-lg-7 mx-auto">
+                <h2 class="text-center">Informations du propriétaire du site</h2>
+                <div class="p-3 mb-5 bg-light">
                     {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
                     <div class="mb-4">
                         {{ form_label(form.name) }}
@@ -87,16 +89,13 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="mb-4 mx-auto">
-                            {{ form_label(form.banner) }}
-                            {{ form_widget(form.banner) }}
-                        </div>
-                    </div>
-                    <div class="row">
                         <div class="col-md-6 mb-4">
                             {{ form_label(form.logo) }}
                             {{ form_errors(form.logo) }}
                             {{ form_widget(form.logo) }}
+{#                            {{ form_widget(edit_form.fotoUsuario, { 'attr': {'data-default-file': '{{ asset('images/usuarios/'~ tUsuario.fotoUsuario) }}'} }) }}#}
+{#                            {{ form_widget(form.logo, { 'attr': {'data-default-file': '{{ asset('uploads/images/'~ identity.logo) }}'}}) }}#}
+
                         </div>
                         <div class="col-md-6 mb-4">
                             {{ form_label(form.headerpic) }}
@@ -104,14 +103,39 @@
                             {{ form_widget(form.headerpic) }}
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="mb-4 mx-auto">
-                            {{ form_label(form.submit) }}
-                            {{ form_widget(form.submit) }}
-                        </div>
-                    </div>
-                    {{ form_end(form) }}
                 </div>
+            </div>
+            <div class="col-lg-5 mx-auto">
+                <h2 class="text-center">Mise à jour de l'évènement</h2>
+                <div class="p-3 mb-5 bg-light">
+                    <div class="mb-4">
+                        {{ form_label(form.banner) }}
+                        {{ form_errors(form.banner) }}
+                        {{ form_widget(form.banner) }}
+                    </div>
+                    <div class="mb-4">
+                        {{ form_label(form.eventtitle) }}
+                        {{ form_errors(form.eventtitle) }}
+                        {{ form_widget(form.eventtitle) }}
+                    </div>
+                    <div class="mb-4">
+                        {{ form_label(form.eventcontent) }}
+                        {{ form_errors(form.eventcontent) }}
+                        {{ form_widget(form.eventcontent) }}
+                    </div>
+                    <div class="mb-4">
+                        {{ form_label(form.eventpic) }}
+                        {{ form_errors(form.eventpic) }}
+                        {{ form_widget(form.eventpic) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-4 mx-auto">
+                        {{ form_label(form.submit) }}
+                        {{ form_widget(form.submit) }}
+                    </div>
+                </div>
+                {{ form_end(form) }}
             </div>
         </div>
     </div>
