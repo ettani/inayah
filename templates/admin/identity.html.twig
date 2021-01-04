@@ -12,6 +12,11 @@
             integrity="sha512-8QFTrG0oeOiyWo/VM9Y8kgxdlCryqhIxVeRpWSezdRRAvarxVtwLnGroJgnVW9/XBRduxO/z1GblzPrMQoeuew=="
             crossorigin="anonymous"></script>
     <script>
+        $('#identity_form_logo').attr("data-default-file", "{{ asset('uploads/images/'~ identity.logo.filename) }}");
+        $('#identity_form_headerpic').attr("data-default-file", "{{ asset('uploads/images/'~ identity.headerpic.filename) }}");
+        $('#identity_form_eventpic').attr("data-default-file", "{{ asset('uploads/images/'~ identity.eventpic.filename) }}");
+
+
         $('.dropify').dropify({
             messages: {
                 default: 'Glissez-déposez un fichier ici ou cliquez',
@@ -20,6 +25,9 @@
                 error:   'Désolé; le fichier est trop volumineux'
             }
         });
+
+
+
 
     </script>
 
@@ -41,19 +49,18 @@
 {% endblock %}
 
 {% block body  %}
-{% dump identity %}
-<body>
+
     <!-- Loader End -->
     <img class="header-logo mb-5" src="{{ asset('uploads/images/' ~ identity.headerpic.filename) }}" alt="logo-header">
 
     {# FORMULAIRE D'UPDATE IDENTITY #}
     <div class="container-fluid mx-auto my-5">
         <h1>Configuration</h1>
+        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
         <div class="row mt-5">
             <div class="col-lg-7 mx-auto">
                 <h2 class="text-center">Informations du propriétaire du site</h2>
                 <div class="p-3 mb-5 bg-light">
-                    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
                     <div class="mb-4">
                         {{ form_label(form.name) }}
                         {{ form_errors(form.name) }}
@@ -93,9 +100,6 @@
                             {{ form_label(form.logo) }}
                             {{ form_errors(form.logo) }}
                             {{ form_widget(form.logo) }}
-{#                            {{ form_widget(edit_form.fotoUsuario, { 'attr': {'data-default-file': '{{ asset('images/usuarios/'~ tUsuario.fotoUsuario) }}'} }) }}#}
-{#                            {{ form_widget(form.logo, { 'attr': {'data-default-file': '{{ asset('uploads/images/'~ identity.logo) }}'}}) }}#}
-
                         </div>
                         <div class="col-md-6 mb-4">
                             {{ form_label(form.headerpic) }}
@@ -135,9 +139,9 @@
                         {{ form_widget(form.submit) }}
                     </div>
                 </div>
-                {{ form_end(form) }}
+
             </div>
         </div>
+        {{ form_end(form) }}
     </div>
-</body>
 {% endblock %}

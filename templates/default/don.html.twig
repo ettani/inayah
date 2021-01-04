@@ -3,8 +3,6 @@
 {% block title %}Don {% endblock %}
 
 {% block body %}
-
-    <body>
     <!-- Loader Start -->
     <div class="css-loader">
         <div class="loader-inner line-scale d-flex align-items-center justify-content-center"></div>
@@ -54,7 +52,6 @@
                         <p>Faire un don avec réduction fiscale</p>
                         <form action="https://www.helloasso.com/associations/association-inayah/formulaires/2" method="post" target="_top">
                             <input type="image" class="paypal btn btn-primary" src="{{ asset('assets/images/helloasso.png') }}"
-                                   border="0"
                                    name="submit" title="Faites un don via Helloasso !" alt="Bouton Faites un don avec Helloasso" />
                         </form>
 
@@ -73,9 +70,9 @@
                             <input type="hidden" name="business" value="KLGGE5GWH2RFN" />
                             <input type="hidden" name="item_name" value="money" />
                             <input type="hidden" name="currency_code" value="EUR" />
-                            <input type="image" class="paypal btn btn-primary" src="{{ asset('assets/images/paypal1.png') }}" border="0"
+                            <input type="image" class="paypal btn btn-primary" src="{{ asset('assets/images/paypal1.png') }}"
                                    name="submit" title="Faites un don via PayPal !" alt="Bouton Faites un don avec PayPal" />
-                            <img alt="" border="0" src="https://www.paypal.com/fr_FR/i/scr/pixel.gif" width="1" height="1" />
+                            <img alt="PayPal-link" src="https://www.paypal.com/fr_FR/i/scr/pixel.gif" width="1" height="1" />
                         </form>
 
                         <svg viewBox="0 0 170 193">
@@ -88,7 +85,6 @@
         </div>
     </section>
     <!-- Pricing End -->
-    </body>
 
 {% endblock %}
 

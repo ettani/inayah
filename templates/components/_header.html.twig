@@ -37,7 +37,7 @@
                     {% if is_granted('ROLE_ADMIN') %}
                         <li class="nav-item dropdown">
                             <a class="nav-link" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Administration</a>
-                            <ul class="dropdown-menu bg-dark">
+                            <ul class="dropdown-1 dropdown-menu bg-dark">
                                 <li class="nav-item"><a class="nav-link" href="{{ path('admin_dashboard') }}">Tableau de bord</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ path('post_create') }}">Rédiger un article</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ path('user-resetpassword') }}">modifier mot de passe</a></li>
@@ -50,9 +50,9 @@
 
                         <li class="nav-item dropdown">
                             <a class="nav-link" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Compte</a>
-                            <ul class="dropdown-menu bg-dark">
+                            <ul class="dropdown-2 dropdown-menu bg-dark">
                                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                                    <li class="nav-item"><a class="nav-link" href="{{ path('user-resetpassword') }}">Modification mot de passe</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ path('user-resetpassword') }}">Modifier mot de passe</a></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li class="nav-item"><a class="nav-link" href="{{ path('app_logout') }}">Deconnexion</a></li>
                                 {% else %}

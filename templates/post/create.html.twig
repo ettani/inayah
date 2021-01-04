@@ -13,6 +13,10 @@
                 crossorigin="anonymous"></script>
 
         <script>
+            {#$('#post_image').attr("data-default-file", "{{ asset('uploads/images/' ~ post.image.filename) }}");#}
+            {#$('#post_image2').attr("data-default-file", "{{ asset('uploads/images/' ~ post.image2.filename) }}");#}
+            {#$('#post_image3').attr("data-default-file", "{{ asset('uploads/images/' ~ post.image3.filename) }}");#}
+            {#$('#post_image4').attr("data-default-file", "{{ asset('uploads/images/' ~ post.image4.filename) }}");#}
             $('.dropify').dropify({
                 messages: {
                     default: 'Glissez-déposez un fichier ici ou cliquez',
@@ -42,7 +46,7 @@
 
 {% block body  %}
 
-    <img class="header-logo mb-5" src="{{ asset('uploads/images/' ~ identity.headerpic) }}"alt="logo-header">
+    <img class="header-logo mb-5" src="{{ asset('uploads/images/' ~ identity.headerpic) }}" alt="logo-header">
     <div class="p-3 my-5 mx-auto text-center">
         <h1 class="display-4">Créer un article</h1>
     </div>
@@ -91,11 +95,6 @@
                             {{ form_widget(form.submit) }}
                         </div>
                     </div>
-
-
-
-
-
                     {{ form_end(form) }}
                 </div>
             </div><!--fin row-->

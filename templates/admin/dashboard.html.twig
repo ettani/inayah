@@ -22,16 +22,18 @@
                         <div class="col-md-12 px-0">
                             <table class="table table-bordered compact" id="myTable">
                                 <thead>
-                                <th class="text-center align-middle px-0"> Prénom</th>
-                                <th class="text-center align-middle px-0"> Nom</th>
-                                <th class="text-center align-middle px-0"> Adresse</th>
-                                <th class="text-center align-middle px-0"> Code postal</th>
-                                <th class="text-center align-middle px-0"> Ville</th>
-                                <th class="text-center align-middle px-0"> Email</th>
-                                <th class="text-center align-middle px-0"> Telephone</th>
-                                <th class="text-center align-middle px-0"> Description</th>
-                                <th class="text-center align-middle px-0"> Modifier Supprimer</th>
-                                <th class="text-center align-middle px-0"> Telecharger la fiche</th>
+                                    <tr>
+                                        <th class="text-center align-middle px-0"> Prénom</th>
+                                        <th class="text-center align-middle px-0"> Nom</th>
+                                        <th class="text-center align-middle px-0"> Adresse</th>
+                                        <th class="text-center align-middle px-0"> Code postal</th>
+                                        <th class="text-center align-middle px-0"> Ville</th>
+                                        <th class="text-center align-middle px-0"> Email</th>
+                                        <th class="text-center align-middle px-0"> Telephone</th>
+                                        <th class="text-center align-middle px-0"> Description</th>
+                                        <th class="text-center align-middle px-0"> Modifier Supprimer</th>
+                                        <th class="text-center align-middle px-0"> Telecharger la fiche</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                 {% for user in demandeurs %}
@@ -81,17 +83,19 @@
                         <div class="col-md-12 px-0">
                             <table class="table table-bordered compact overflow" id="myTable2">
                                 <thead>
-                                <th class="text-center align-middle px-0"> Prénom</th>
-                                <th class="text-center align-middle px-0"> Nom</th>
-                                <th class="text-center align-middle px-0"> Adresse</th>
-                                <th class="text-center align-middle px-0"> Code postal</th>
-                                <th class="text-center align-middle px-0"> Ville</th>
-                                <th class="text-center align-middle px-0"> Email</th>
-                                <th class="text-center align-middle px-0"> Telephone</th>
-                                <th class="text-center align-middle px-0"> Véhicule</th>
-                                <th class="text-center align-middle px-0"> Description</th>
-                                <th class="text-center align-middle px-0"> Modifier  Suppimer</th>
-                                <th class="text-center align-middle px-0"> Telecharger la fiche</th>
+                                    <tr>
+                                        <th class="text-center align-middle px-0"> Prénom</th>
+                                        <th class="text-center align-middle px-0"> Nom</th>
+                                        <th class="text-center align-middle px-0"> Adresse</th>
+                                        <th class="text-center align-middle px-0"> Code postal</th>
+                                        <th class="text-center align-middle px-0"> Ville</th>
+                                        <th class="text-center align-middle px-0"> Email</th>
+                                        <th class="text-center align-middle px-0"> Telephone</th>
+                                        <th class="text-center align-middle px-0"> Véhicule</th>
+                                        <th class="text-center align-middle px-0"> Description</th>
+                                        <th class="text-center align-middle px-0"> Modifier  Suppimer</th>
+                                        <th class="text-center align-middle px-0"> Telecharger la fiche</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                 {% for user in benevoles %}
@@ -113,7 +117,7 @@
                                                href="{{ path('user_delete', { 'id' : user.id }) }}"><i class="far fa-trash-alt"></i>
                                             </a>
                                         </td>
-                                        <td class="text-center" vertical="center">
+                                        <td class="text-center">
                                             <a class="px-4 btn btn-danger my-2"
                                                href="{{ path('user_load', { 'id' : user.id }) }}">
                                                 <i class="fas fa-download"></i>
@@ -145,11 +149,13 @@
                         <div class="col-md-12 px-0">
                             <table class="table table-bordered compact" id="myTable3">
                                 <thead>
-                                <th class="text-center align-middle px-0"> Nom complet</th>
-                                <th class="text-center align-middle px-0"> email</th>
-                                <th class="text-center align-middle px-0"> description</th>
-                                <th class="text-center align-middle px-0"> date de reception</th>
-                                <th class="text-center align-middle px-0"> Supprimer</th>
+                                    <tr>
+                                        <th class="text-center align-middle px-0"> Nom complet</th>
+                                        <th class="text-center align-middle px-0"> email</th>
+                                        <th class="text-center align-middle px-0"> description</th>
+                                        <th class="text-center align-middle px-0"> date de reception</th>
+                                        <th class="text-center align-middle px-0"> Supprimer</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                 {% for message in messages %}
@@ -187,12 +193,14 @@
                         <div class="col-md-12 px-0">
                             <table class="table table-bordered compact" id="myTable4">
                                 <thead>
-                                <th class="text-center align-middle px-0"> Titre</th>
-                                <th class="text-center align-middle px-0"> Contenu</th>
-                                <th class="text-center align-middle px-0"> Image</th>
-                                <th class="text-center align-middle px-0"> Date</th>
-                                <th class="text-center align-middle px-0"> Modifier</th>
-                                <th class="text-center align-middle px-0"> Supprimer</th>
+                                    <tr>
+                                        <th class="text-center align-middle px-0"> Titre</th>
+                                        <th class="text-center align-middle px-0"> Contenu</th>
+                                        <th class="text-center align-middle px-0"> Image</th>
+                                        <th class="text-center align-middle px-0"> Date</th>
+                                        <th class="text-center align-middle px-0"> Modifier</th>
+                                        <th class="text-center align-middle px-0"> Supprimer</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                 {% for post in posts %}
@@ -220,8 +228,6 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
 

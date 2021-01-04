@@ -35,8 +35,12 @@ A - Agir
   border: 0 !important;
 }
 
-.navbar-expand-md .navbar-nav .dropdown-menu{
+.dropdown-1{
   left: -35px;
+}
+
+.dropdown-2{
+  left: -105px;
 }
 
 .dropdown-menu > li > a {
@@ -52,8 +56,10 @@ A - Agir
 }
 
 .modal-pic-first{
-  height: 200px;
+  width: 100%;
+  height: 300px;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .modal-pic-big{

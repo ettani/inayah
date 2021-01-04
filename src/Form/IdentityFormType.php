@@ -36,13 +36,13 @@ class IdentityFormType extends AbstractType
             ])
             ->add('logo', FileType::class, [
                 'label' => 'Logo (format optimal : 135 x 135 pixels)',
-                'attr' => ['class' => 'dropify']
+                'attr' => ['class' => 'dropify',
+                           'data-default-file' => '{{ identity.logo.realPath }}']
             ])
             ->add('headerpic', FileType::class, [
                 'label' => 'Illustration du menu de navigation',
                 'attr' => ['class' => 'dropify']
             ])
-
             ->add('banner', TextType::class, [
                 'label' => 'Message de la bannière défilante'
             ])
