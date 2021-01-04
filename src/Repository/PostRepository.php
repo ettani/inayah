@@ -25,17 +25,15 @@ class PostRepository extends ServiceEntityRepository
       * @return Post[] Returns an array of Post objects
       */
 
-//    public function findByExampleField($value)
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('p.id', 'ASC')
-//            ->setMaxResults(6)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    public function findLastPosts(int $limit)
+    {
+        return $this->createQueryBuilder($limit)
+            ->orderBy('id', 'ASC')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
 
     /*

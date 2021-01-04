@@ -22,6 +22,8 @@ use Symfony\Component\String\Slugger\SluggerInterface;
  */
 class PostController extends \Symfony\Bundle\FrameworkBundle\Controller\AbstractController
 {
+
+
     /**
      * Mettre à jour un Article
      * @Route("/{id}/update", name="post_update", methods={"GET|POST"})
@@ -367,7 +369,7 @@ class PostController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
         $this->getDoctrine()->getManager()->flush();
 
         #redirection
-        return $this->redirectToRoute('default_index');
+        return $this->redirectToRoute('admin_dashboard');
 
 
     }

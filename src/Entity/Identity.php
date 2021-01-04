@@ -77,6 +77,11 @@ class Identity
      */
     private $eventcontent;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $cagnotte;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -222,6 +227,18 @@ class Identity
     public function setEventcontent(string $eventcontent): self
     {
         $this->eventcontent = $eventcontent;
+
+        return $this;
+    }
+
+    public function getCagnotte(): ?string
+    {
+        return $this->cagnotte;
+    }
+
+    public function setCagnotte(string $cagnotte): self
+    {
+        $this->cagnotte = $cagnotte;
 
         return $this;
     }
