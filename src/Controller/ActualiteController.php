@@ -30,6 +30,5 @@ class ActualiteController extends AbstractController
         return $this->render("actualite/actualite.html.twig", [
             'posts' => $posts
         ]);
-
     }
 }
