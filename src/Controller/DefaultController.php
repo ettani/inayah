@@ -25,8 +25,8 @@ class DefaultController extends AbstractController
         # Récupérer tous les articles
         $posts = $this->getDoctrine()
             ->getRepository(Post::class)
-            ->findAll();
-            //->findBy([], ['id' => 'DESC', 10]);
+            ->findBy([], ['id' => 'desc'], 1);
+
 
         # Grâce à render, je vais pouvoir effectuer le rendu d'une vue.
         # return new Response("<h1>Page Accueil</h1>");
@@ -34,7 +34,6 @@ class DefaultController extends AbstractController
             'posts' => $posts
         ]);
     }
-
 
 
     /**

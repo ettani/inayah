@@ -52,6 +52,10 @@ class IdentityFormType extends AbstractType
             ->add('eventcontent', TextareaType::class, [
                 'label' => 'Paragraphe de l\'évènement'
             ])
+            ->add('cagnotte', TextType::class, [
+                'label' => 'Lien paypal de la cagnotte pour l\'action en cours'
+            ])
+
             ->add('eventpic', FileType::class, [
                 'label' => 'Illustration de l\'évènement',
                 'attr' => ['class' => 'dropify']
