@@ -25,7 +25,15 @@ A - Agir
 --------------------------------------------------------------------*/
 
 
+.donate{
+  width: max-content;
+  margin: auto;
+  padding: 8px 20px;
+}
 
+.btn::after{
+  background-color:#FFFFFF;
+}
 
 .tablep{
   display: none;
@@ -259,6 +267,8 @@ header::after {
 
 .navbar-brand img {
   width: 135px;
+  height: 135px;
+  object-fit: cover;
   max-width: 135px;
   max-height: 135px;
 }
