@@ -117,16 +117,18 @@
         <div class="container" >
             <div class="row">
                 {% for post in posts  %}
-                    <div class="col-md-4 mt-4">
-                        <div class="card text-white bg-light mb-3 mx-auto col-md-12 col-lg-12" style="max-width: 20rem;">
-                            <div class="card-body mx-auto">
-                                <img class="img-fluid " style="height: 300px; width: 300px; object-fit: cover" src="{{ asset('uploads/images/' ~ post.image) }}" alt="{{ post.title }}">
-                                <h4 class="card-title" style="color: #0a0a0a">{{ post.title }}</h4>
-                                <a class="btn btn-block btn-primary" href="{{ path('default_post', {
-                                    'id' : post.id,
-                                    'title' :post.alias
-                                }) }}">Lire la suite</a>
+                    <div class="col-md-6 col-lg-4 my-4 d-flex align-items-stretch">
+                        <div class="d-flex align-items-center card p-4 mx-auto w-100">
+                            <div class="d-flex" style="height:300px;">
+                                <img class="align-items-center justify-content-center img-fluid w-100"
+                                     style="object-fit: cover"
+                                     src="{{ asset('uploads/images/' ~ post.image) }}" alt="{{ post.title }}">
                             </div>
+                            <h4 class="card-title mt-4 mb-5 text-center" style="color: #0a0a0a">{{ post.title }}</h4>
+                            <a class="btn btn-primary mt-auto px-5" href="{{ path('default_post', {
+                                'id' : post.id,
+                                'title' :post.alias
+                            }) }}">Lire la suite</a>
                         </div>
                     </div> <!--fin col-md-4-->
                 {% endfor %}
