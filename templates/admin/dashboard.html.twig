@@ -13,27 +13,27 @@
                 <h2 class="accordion-header" id="flush-headingOne">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                    LISTE DES BENEFICIAIRE
+                    Liste des bénéficiaires
                     </button>
                 </h2>
                 <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
                      data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
-                        <div class="col-md-12 my-5">
-                            <h1> Liste des Bénéficaires</h1>
+                        <div class="col-md-12 px-0">
                             <table class="table table-bordered compact" id="myTable">
                                 <thead>
-                                <th class="text-center align-middle"> Prénom</th>
-                                <th class="text-center align-middle"> Nom</th>
-                                <th class="text-center align-middle"> Adresse</th>
-                                <th class="text-center align-middle"> Code postal</th>
-                                <th class="text-center align-middle"> Ville</th>
-                                <th class="text-center align-middle"> Email</th>
-                                <th class="text-center align-middle"> Telephone</th>
-                                <th class="text-center align-middle"> Description</th>
-                                <th class="text-center align-middle"> Modifier</th>
-                                <th class="text-center align-middle"> Supprimer</th>
-                                <th class="text-center align-middle"> Telecharger la fiche</th>
+                                    <tr>
+                                        <th class="text-center align-middle px-0"> Prénom</th>
+                                        <th class="text-center align-middle px-0"> Nom</th>
+                                        <th class="text-center align-middle px-0"> Adresse</th>
+                                        <th class="text-center align-middle px-0"> Code postal</th>
+                                        <th class="text-center align-middle px-0"> Ville</th>
+                                        <th class="text-center align-middle px-0"> Email</th>
+                                        <th class="text-center align-middle px-0"> Telephone</th>
+                                        <th class="text-center align-middle px-0"> Description</th>
+                                        <th class="text-center align-middle px-0"> Modifier Supprimer</th>
+                                        <th class="text-center align-middle px-0"> Telecharger la fiche</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                 {% for user in demandeurs %}
@@ -46,22 +46,20 @@
                                         <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
                                         <td> {{ user.tel }} </td>
                                         <td> {{ user.description }} </td>
-                                        <td class="text-center"><a class="px-4 btn btn-danger"
-                                                                   href="{{ path('user-update', { 'id' : user.id }) }}">
-                                                <i class="far fa-edit"></i>
-                                            </a></td>
-                                        <td class="text-center"><a class="px-4 btn btn-danger"
-                                                                   href="{{ path('user_delete', { 'id' : user.id }) }}">
-                                                <i class="far fa-trash-alt"></i>
-                                            </a></td>
                                         <td class="text-center">
-                                            <a class="px-4 btn btn-danger"
+                                            <a class="px-4 btn btn-danger my-2" href="{{ path('user-update', { 'id' : user.id }) }}">
+                                                <i class="far fa-edit"></i>
+                                            </a>
+                                            <a class="px-4 btn btn-danger" href="{{ path('user_delete', { 'id' : user.id }) }}">
+                                                <i class="far fa-trash-alt"></i>
+                                            </a>
+                                        </td>
+                                        <td class="text-center">
+                                            <a class="px-4 btn btn-danger my-2"
                                                href="{{ path('user_load', { 'id' : user.id }) }}">
                                                 <i class="fas fa-download"></i>
                                             </a>
                                         </td>
-
-
                                     </tr>
                                 {% endfor %}
                                 </tbody>
@@ -71,33 +69,33 @@
                 </div>
             </div>
 
-
             {# #}{# LISTE DES BENEVOLES #}
             <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-headingTwo">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                        LISTE DES BÉNÉVOLES
+                        Liste des bénévoles
                     </button>
                 </h2>
                 <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
                      data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
-                        <div class="col-md-12 my-5">
-                            <h1> Liste des bénévoles</h1>
+                        <div class="col-md-12 px-0">
                             <table class="table table-bordered compact overflow" id="myTable2">
                                 <thead>
-                                <th class="text-center align-middle"> Prénom</th>
-                                <th class="text-center align-middle"> Nom</th>
-                                <th class="text-center align-middle"> Adresse</th>
-                                <th class="text-center align-middle"> Code postal</th>
-                                <th class="text-center align-middle"> Ville</th>
-                                <th class="text-center align-middle"> Email</th>
-                                <th class="text-center align-middle"> Telephone</th>
-                                <th class="text-center align-middle"> Véhicule</th>
-                                <th class="text-center align-middle"> Description</th>
-                                <th class="text-center align-middle"> Modifier  Suppimer</th>
-                                <th class="text-center align-middle"> Telecharger la fiche</th>
+                                    <tr>
+                                        <th class="text-center align-middle px-0"> Prénom</th>
+                                        <th class="text-center align-middle px-0"> Nom</th>
+                                        <th class="text-center align-middle px-0"> Adresse</th>
+                                        <th class="text-center align-middle px-0"> Code postal</th>
+                                        <th class="text-center align-middle px-0"> Ville</th>
+                                        <th class="text-center align-middle px-0"> Email</th>
+                                        <th class="text-center align-middle px-0"> Telephone</th>
+                                        <th class="text-center align-middle px-0"> Véhicule</th>
+                                        <th class="text-center align-middle px-0"> Description</th>
+                                        <th class="text-center align-middle px-0"> Modifier  Suppimer</th>
+                                        <th class="text-center align-middle px-0"> Telecharger la fiche</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                 {% for user in benevoles %}
@@ -112,15 +110,15 @@
                                         <td> {{ user.vehicule }} </td>
                                         <td> {{ user.description }} </td>
                                         <td class="text-center">
-                                            <a class="px-4 btn btn-danger my-3"
+                                            <a class="px-4 btn btn-danger my-2"
                                                href="{{ path('user-update', { 'id' : user.id }) }}"><i class="far fa-edit"></i>
                                             </a>
-                                            <a class="px-4 btn btn-danger mb-3"
+                                            <a class="px-4 btn btn-danger"
                                                href="{{ path('user_delete', { 'id' : user.id }) }}"><i class="far fa-trash-alt"></i>
                                             </a>
                                         </td>
-                                        <td class="text-center" vertical="center">
-                                            <a class="px-4 btn btn-danger my-3"
+                                        <td class="text-center">
+                                            <a class="px-4 btn btn-danger my-2"
                                                href="{{ path('user_load', { 'id' : user.id }) }}">
                                                 <i class="fas fa-download"></i>
                                             </a>
@@ -141,22 +139,23 @@
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#flush-collapseThree" aria-expanded="false"
                             aria-controls="flush-collapseThree">
-                        LISTE DES MESSAGES RECU
+                        Liste des messages reçus
 
                     </button>
                 </h2>
                 <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
                      data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
-                        <div class="col-md-12 my-5">
-                            <h1> Message recu</h1>
+                        <div class="col-md-12 px-0">
                             <table class="table table-bordered compact" id="myTable3">
                                 <thead>
-                                <th class="text-center align-middle"> Nom complet</th>
-                                <th class="text-center align-middle"> email</th>
-                                <th class="text-center align-middle"> description</th>
-                                <th class="text-center align-middle"> date de reception</th>
-                                <th class="text-center align-middle"> Supprimer</th>
+                                    <tr>
+                                        <th class="text-center align-middle px-0"> Nom complet</th>
+                                        <th class="text-center align-middle px-0"> email</th>
+                                        <th class="text-center align-middle px-0"> description</th>
+                                        <th class="text-center align-middle px-0"> date de reception</th>
+                                        <th class="text-center align-middle px-0"> Supprimer</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                 {% for message in messages %}
@@ -185,22 +184,23 @@
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#flush-collapseFour" aria-expanded="false"
                             aria-controls="flush-collapseFour">
-                        LISTE DES ARTICLES PUBLIÉS
+                        Liste des articles publiés
                     </button>
                 </h2>
                 <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour"
                      data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
-                        <div class="col-md-12 my-5">
-                            <h1> Articles Publiés</h1>
+                        <div class="col-md-12 px-0">
                             <table class="table table-bordered compact" id="myTable4">
                                 <thead>
-                                <th class="text-center align-middle"> Titre</th>
-                                <th class="text-center align-middle"> Contenu</th>
-                                <th class="text-center align-middle"> Image</th>
-                                <th class="text-center align-middle"> Date</th>
-                                <th class="text-center align-middle"> Modifier</th>
-                                <th class="text-center align-middle"> Supprimer</th>
+                                    <tr>
+                                        <th class="text-center align-middle px-0"> Titre</th>
+                                        <th class="text-center align-middle px-0"> Contenu</th>
+                                        <th class="text-center align-middle px-0"> Image</th>
+                                        <th class="text-center align-middle px-0"> Date</th>
+                                        <th class="text-center align-middle px-0"> Modifier</th>
+                                        <th class="text-center align-middle px-0"> Supprimer</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                 {% for post in posts %}
@@ -228,8 +228,6 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
 

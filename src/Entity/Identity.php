@@ -62,6 +62,21 @@ class Identity
      */
     private $banner;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $eventtitle;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $eventpic;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $eventcontent;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -171,6 +186,42 @@ class Identity
     public function setBanner(?string $banner): self
     {
         $this->banner = $banner;
+
+        return $this;
+    }
+
+    public function getEventtitle(): ?string
+    {
+        return $this->eventtitle;
+    }
+
+    public function setEventtitle(string $eventtitle): self
+    {
+        $this->eventtitle = $eventtitle;
+
+        return $this;
+    }
+
+    public function getEventpic()
+    {
+        return $this->eventpic;
+    }
+
+    public function setEventpic($eventpic): self
+    {
+        $this->eventpic = $eventpic;
+
+        return $this;
+    }
+
+    public function getEventcontent(): ?string
+    {
+        return $this->eventcontent;
+    }
+
+    public function setEventcontent(string $eventcontent): self
+    {
+        $this->eventcontent = $eventcontent;
 
         return $this;
     }

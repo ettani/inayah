@@ -4,24 +4,28 @@
 
 {% block javascripts %}
     {{ parent() }}
-    <script src="https://cdn.ckeditor.com/ckeditor5/23.1.0/classic/ckeditor.js"></script>
-    <script>
-        ClassicEditor.create(document.querySelector('#post_content'));
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"
-            integrity="sha512-8QFTrG0oeOiyWo/VM9Y8kgxdlCryqhIxVeRpWSezdRRAvarxVtwLnGroJgnVW9/XBRduxO/z1GblzPrMQoeuew=="
-            crossorigin="anonymous"></script>
+    <script src="{{ asset('assets/js/ckeditor_24.0.0.js') }}"></script>
+        <script>
+            ClassicEditor.create( document.querySelector( '#post_content' ) );
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"
+                integrity="sha512-8QFTrG0oeOiyWo/VM9Y8kgxdlCryqhIxVeRpWSezdRRAvarxVtwLnGroJgnVW9/XBRduxO/z1GblzPrMQoeuew=="
+                crossorigin="anonymous"></script>
 
-    <script>
-        $('.dropify').dropify({
-            messages: {
-                default: 'Glissez-déposez un fichier ici ou cliquez',
-                replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
-                remove: 'Supprimer',
-                error: 'Désolé; le fichier est trop volumineux'
-            }
-        });
-    </script>
+        <script>
+            {#$('#post_image').attr("data-default-file", "{{ asset('uploads/images/' ~ post.image.filename) }}");#}
+            {#$('#post_image2').attr("data-default-file", "{{ asset('uploads/images/' ~ post.image2.filename) }}");#}
+            {#$('#post_image3').attr("data-default-file", "{{ asset('uploads/images/' ~ post.image3.filename) }}");#}
+            {#$('#post_image4').attr("data-default-file", "{{ asset('uploads/images/' ~ post.image4.filename) }}");#}
+            $('.dropify').dropify({
+                messages: {
+                    default: 'Glissez-déposez un fichier ici ou cliquez',
+                    replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                    remove:  'Supprimer',
+                    error:   'Désolé; le fichier est trop volumineux'
+                }
+            });
+        </script>
 
 {% endblock %}
 
@@ -55,74 +59,37 @@
                 <div class="col">
                     {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
                     <div class="row">
-                        <div class="col-md-12 mb-4">
+                        <div class="mb-4 mx-auto">
+
                             {{ form_label(form.title) }}
                             {{ form_widget(form.title) }}
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12 mb-4">
+                        <div class="col-md-6 mb-4 mx-auto">
                             {{ form_label(form.content) }}
                             {{ form_widget(form.content) }}
                         </div>
-                    </div>
-                    <div class="row mb-4">
-                        <div class="col-md-12">
-                            {{ form_label(form.image) }}
-                        </div>
-                        <div class="d-flex align-items-stretch justify-content-around">
-                            <div class="col-md-2">
-                                {% if (currentImage is defined and currentImage is not null) %}
-                                    <img src="{{ asset('uploads/images/' ~ currentImage) }}" style="height: 200px;width: 150px"/>
-                                {% endif %}
+                        <div class="col-md-6 mb-4 mx-auto">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    {{ form_label(form.image) }}
+                                    {{ form_widget(form.image) }}
+                                </div>
+                                <div class="col-sm-6">
+                                    {{ form_label(form.image2) }}
+                                    {{ form_widget(form.image2) }}
+                                </div>
                             </div>
-                            <div class="col-md-10">
-                                {{ form_widget(form.image) }}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mb-4">
-                        <div class="col-md-12">
-                            {{ form_label(form.image2) }}
-                        </div>
-                        <div class="d-flex align-items-stretch justify-content-around">
-                            <div class="col-md-2">
-                                {% if (currentImage2 is defined and currentImage2 is not null) %}
-                                    <img src="{{ asset('uploads/images/' ~ currentImage2) }}" style="height: 200px;width: 150px"/>
-                                {% endif %}
-                            </div>
-                            <div class="col-md-10">
-                                {{ form_widget(form.image2) }}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mb-4">
-                        <div class="col-md-12">
-                            {{ form_label(form.image3) }}
-                        </div>
-                        <div class="d-flex align-items-stretch justify-content-around">
-                            <div class="col-md-2">
-                                {% if (currentImage3 is defined and currentImage3 is not null) %}
-                                    <img src="{{ asset('uploads/images/' ~ currentImage3) }}" style="200px;width: 150px"/>
-                                {% endif %}
-                            </div>
-                            <div class="col-md-10">
-                                {{ form_widget(form.image3) }}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mb-4">
-                        <div class="col-md-12">
-                            {{ form_label(form.image4) }}
-                        </div>
-                        <div class="d-flex align-items-stretch justify-content-around">
-                            <div class="col-md-2">
-                                {% if (currentImage4 is defined and currentImage4 is not null) %}
-                                    <img src="{{ asset('uploads/images/' ~ currentImage4) }}" style="200px;width: 150px"/>
-                                {% endif %}
-                            </div>
-                            <div class="col-md-10">
-                                {{ form_widget(form.image4) }}
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    {{ form_label(form.image3) }}
+                                    {{ form_widget(form.image3) }}
+                                </div>
+                                <div class="col-sm-6">
+                                    {{ form_label(form.image4) }}
+                                    {{ form_widget(form.image4) }}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -132,7 +99,6 @@
                             {{ form_widget(form.submit) }}
                         </div>
                     </div>
-
                     {{ form_end(form) }}
                 </div>
             </div><!--fin row-->

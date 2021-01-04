@@ -3,12 +3,10 @@
 {% block title %}Actualite{% endblock %}
 
 {% block body %}
-
-    <body>
     <!-- Loader Start -->
-    <div class="css-loader">
-        <div class="loader-inner line-scale d-flex align-items-center justify-content-center"></div>
-    </div>
+{#    <div class="css-loader">#}
+{#        <div class="loader-inner line-scale d-flex align-items-center justify-content-center"></div>#}
+{#    </div>#}
     <!-- Loader End -->
     <img class="header-logo mb-5" src="{{ asset('uploads/images/' ~ identity.headerpic) }}" alt="logo-header">
 
@@ -17,74 +15,41 @@
             <div class="row">
                 <div class="col-md-6" data-aos="fade-right" data-aos-delay="400" data-aos-duration="800">
                     <div class="title">
-                        <h1 class="title-blue text-center">Notre prochain évènement</h1>
+                        <h1 class="title-blue text-center">{{ identity.eventtitle }}</h1>
                     </div>
-                    <p> Récolte de don devant le LEADER PRICE de Longjumeau de 10h a 18h.
-                        Si vous souhaiter participer à cette journée en tenant le stand a l'entrée du magasin n'hésitez
-                        pas à postuler.</p>
-
-                    {# <a href="{{ path('user-create') }}" style="margin-top: -30px;" class="btn btn-primary" id="click">Participer à #}
-                    {# cette action</a> #}
+                    {{ identity.eventcontent | raw }}
                     <a href="" style="margin-top: -30px;" class="btn btn-primary" id="click">Participer à
                         cette action</a>
-
-{#                    <div class="container-fluid my-5">#}
-{#                        #}{# LISTE DES DEMANDEURS #}
-{#                        <div class="col-md-12 my-5">#}
-{#                            <h1 class="tablep"> Participez a notre évènement </h1>#}
-{#                            <table class="table table-bordered compact tablep" id="">#}
-{#                                <thead>#}
-{#                                <th class="text-center align-middle"> Nom complet</th>#}
-{#                                <th class="text-center align-middle"> Adresse complète</th>#}
-{#                                <th class="text-center align-middle"> Email</th>#}
-{#                                <th class="text-center align-middle"> Merci d'indiquer vos disponibilite</th>#}
-{#                                <th class="text-center align-middle"> Modifier</th>#}
-{#                                <th class="text-center align-middle"> Supprimer</th>#}
-{#                                <th class="text-center align-middle"> Telecharger la fiche</th>#}
-{#                                </thead>#}
-{#                                <tbody>#}
-{#                                {% for evenement in evenements %}#}
-{#                                <tr>#}
-{#                                    <td> {{ evenement.fullName }} </td>#}
-{#                                    <td> {{ evenement.adresseComplete }} </td>#}
-{#                                    <td> {{ evenement.email }} </td>#}
-{#                                    <td><a href="mailto:{{ evenement.email }}">{{ evenement.email }}</a></td>#}
-{#                                    <td> {{ user.tel }} </td>#}
-{#                                    <td> {{ evenement.disponibilite }} </td>#}
-{#                                    <td class="text-center"><a class="px-4 btn btn-danger"#}
-{#                                                               href="{{ path('user-update', { 'id' : user.id }) }}">#}
-{#                                            <i class="far fa-edit"></i>#}
-{#                                        </a></td>#}
-{#                                    <td class="text-center"><a class="px-4 btn btn-danger"#}
-{#                                                               href="{{ path('user_delete', { 'id' : user.id }) }}">#}
-{#                                            <i class="far fa-trash-alt"></i>#}
-{#                                        </a></td>#}
-{#                                    <td class="text-center">#}
-{#                                        <a class="px-4 btn btn-danger"#}
-{#                                           href="{{ path('user_load', { 'id' : user.id }) }}">#}
-{#                                            <i class="fas fa-download"></i>#}
-{#                                        </a>#}
-{#                                    </td>#}
-{#                                    {% endfor %}#}
-
-{#                                </tbody>#}
-{#                            </table>#}
-{#                        </div>#}
-{#                    </div>#}
-
-
                 </div>
                 <div class="col-md-6" data-aos="fade-left" data-aos-delay="400" data-aos-duration="600">
                     <div class="featured-img">
-                        <img class="featured-big" src="assets/images/donation.jpg" alt="Featured 1">
+                        <img class="featured-big" src="{{ asset('uploads/images/' ~ identity.eventpic) }}" alt="Featured 1">
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-
-    </body>
-
+    <section class="featured mt-5">
+        <div class="container">
+            <div class="row">
+                {% for post in posts  %}
+                    <div class="col-md-6 col-lg-4 my-4 d-flex align-items-stretch">
+                        <div class="d-flex align-items-center card p-4 mx-auto w-100">
+                            <div class="d-flex" style="height:300px;">
+                                <img class="align-items-center justify-content-center img-fluid w-100"
+                                     style="object-fit: cover"
+                                     src="{{ asset('uploads/images/' ~ post.image) }}" alt="{{ post.title }}">
+                            </div>
+                            <h4 class="card-title mt-4 mb-5 text-center" style="color: #0a0a0a">{{ post.title }}</h4>
+                            <a class="btn btn-primary mt-auto px-5" href="{{ path('default_post', {
+                                'id' : post.id,
+                                'title' :post.alias
+                            }) }}">Lire la suite</a>
+                        </div>
+                    </div> <!--fin col-md-4-->
+                {% endfor %}
+            </div><!--fin row-->
+        </div>
+    </section>
 {% endblock %}
 

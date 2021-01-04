@@ -23,9 +23,67 @@ A - Agir
 12 - Footer Widgets
 13 - Foot Note
 --------------------------------------------------------------------*/
+
+
+
+
 .tablep{
   display: none;
 }
+
+.dropdown-toggle::after{
+  border: 0 !important;
+}
+
+.dropdown-1{
+  left: -35px;
+}
+
+.dropdown-2{
+  left: -105px;
+}
+
+.dropdown-menu > li > a {
+  margin: auto !important;
+}
+
+.modal-pic{
+  object-fit: cover;
+  cursor: pointer;
+  max-height: 200px;
+  width: 200px;
+  height: 200px;
+}
+
+.modal-pic-first{
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.modal-pic-big{
+  max-height: 90vh;
+}
+
+.modal-content{
+  width: 100%;
+  height: inherit;
+  max-width: max-content;
+  margin: auto;
+}
+
+.modal-dialog{
+  max-width: 95% !important;
+}
+
+.modal{
+  padding: 0 !important;
+}
+
+
+
+
 /*---------------------------------------------
           ACCORDION
  -------------------------------------------*/
@@ -33,8 +91,20 @@ A - Agir
   padding: 0;
 }
 
+.accordion-body{
+  padding: 1rem 0;
+}
+
+.accordion-button{
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  padding: 7px 50px;
+}
+
 .dataTables_wrapper{
   overflow-x: scroll !important;
+  padding: 2px;
 }
 
 .paypal{
@@ -175,7 +245,7 @@ header::after {
   width: 40px;
   height: 40px;
   border: 1px solid #ee1515;
-  border-radius: 4px;
+  border-radius: 4px 20px;
   line-height: 40px;
   text-align: center;
   background-color: transparent;
@@ -255,6 +325,8 @@ body{
 
 .top-header{
   right: 100px;
+  padding: 25px 0 15px;
+  z-index: 100;
 }
 
 
@@ -541,10 +613,6 @@ body{
 .featured .media h5 {
   text-transform: uppercase;
   color: #26264b;
-}
-
-.featured .btn {
-  margin-top: 80px;
 }
 
 .featured-img {

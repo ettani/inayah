@@ -34,7 +34,7 @@ class PostController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
      */
     public function update(Post $post, Request $request, SluggerInterface $slugger)
     {
-
+        dump($post);
         # Convertir mon image en objet "File"
         $currentImage = $post->getImage(); # On garde le nom de l'image dans la BDD
         if(!is_null($currentImage)) {
@@ -360,7 +360,6 @@ class PostController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
      * ex. http://localhost:8000/dashboard/post/1/delete
      * @param Post $post
      */
-
     public function delete(Post $post)
     {
         # suppression de la BDD
@@ -370,5 +369,9 @@ class PostController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
         #redirection
         return $this->redirectToRoute('default_index');
 
+
     }
 }
+
+
+

@@ -6,14 +6,12 @@
 
 
 
-        <div class="top-header d-none d-sm-flex justify-content-between align-items-center position-absolute">
-            <div class="d-flex aic">
-                <ul class="nav social d-none d-md-flex">
-                    <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="#"><i class="fab fa-snapchat-ghost"></i></a></li>
-                </ul>
-            </div>
+        <div class="top-header d-sm-flex justify-content-between align-items-center position-absolute">
+            <ul class="nav social d-md-flex">
+                <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-snapchat-ghost"></i></a></li>
+            </ul>
         </div>
 
         <nav class="navbar navbar-expand-md navbar-light">
@@ -29,7 +27,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
-            <div class="collapse navbar-collapse justify-content-end mr-5" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse justify-content-end pt-5" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="{{ path('default_index') }}">Accueil</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ path('agir_agir') }}">Agir</a></li>
@@ -38,30 +36,29 @@
                     <li class="nav-item"><a class="nav-link" href="{{ path('message-create') }}">Contact</a></li>
                     {% if is_granted('ROLE_ADMIN') %}
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Administration</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{{ path('admin_dashboard') }}">Administration</a></li>
-                                <li><a class="dropdown-item" href="{{ path('post_create') }}">Rédiger un article</a></li>
-                                <li><a class="dropdown-item" href="{{ path('user-resetpassword') }}">Modification mot de passe</a></li>
-                                <li><a class="dropdown-item" href="{{ path('identity_update') }}">Configuration</a></li>
+                            <a class="nav-link" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Administration</a>
+                            <ul class="dropdown-1 dropdown-menu bg-dark">
+                                <li class="nav-item"><a class="nav-link" href="{{ path('admin_dashboard') }}">Tableau de bord</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ path('post_create') }}">Rédiger un article</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ path('user-resetpassword') }}">modifier mot de passe</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ path('identity_update') }}">Configuration</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="{{ path('app_logout') }}">Deconnexion</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ path('app_logout') }}">Deconnexion</a></li>
                             </ul>
                         </li>
                     {% else %}
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                               aria-expanded="false">Compte</a>
-                            <ul class="dropdown-menu">
+                            <a class="nav-link" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Compte</a>
+                            <ul class="dropdown-2 dropdown-menu bg-dark">
                                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                                    <li><a class="dropdown-item" href="{{ path('user-resetpassword') }}">Modification mot de passe</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ path('user-resetpassword') }}">Modifier mot de passe</a></li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="{{ path('app_logout') }}">Deconnexion</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ path('app_logout') }}">Deconnexion</a></li>
                                 {% else %}
-                                    <li><a class="dropdown-item" href="{{ path('user-create') }}">Demande d'aide</a></li>
-                                    <li><a class="dropdown-item" href="{{ path('user-create') }}">Inscription</a></li>
-                                <li><a class="dropdown-item" href="{{ path('app_login') }}">Connexion</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ path('user-create') }}">Demande d'aide</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ path('user-create') }}">Inscription</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ path('app_login') }}">Connexion</a></li>
                                 {% endif %}
                             </ul>
                         </li>
@@ -72,7 +69,7 @@
 
     </div>
     <div class="messagedefilant">
-        <p>{{ identity.banner }}</p>
+        <a class="text-decoration-none" href="{{ path('actualite_actualite') }}">{{ identity.banner }}</a>
     </div>
 
 </header>
