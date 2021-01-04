@@ -190,7 +190,11 @@ class PostController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
 
         # Afficher le formulaire dans la vue
         return $this->render('post/create.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'currentImage' => $currentImage,
+            'currentImage2' => $currentImage2,
+            'currentImage3' => $currentImage3,
+            'currentImage4' => $currentImage4
         ]);
     }
 

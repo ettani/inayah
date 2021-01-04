@@ -33,10 +33,13 @@
     {{ parent() }}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css"
           integrity="sha512-EZSUkJWTjzDlspOoPSpUFR0o0Xy7jdzW//6qhUkoZ9c4StFkVsp9fbbd0O06p9ELS3H486m4wmrCELjza4JEog=="
-          crossorigin="anonymous" />
+          crossorigin="anonymous"/>
 
     <style>
-        .custom-file-label { display: none; }
+        .custom-file-label {
+            display: none;
+        }
+
         .dropify-wrapper .dropify-message p {
             font-size: 15px;
         }
@@ -44,19 +47,20 @@
 
 {% endblock %}
 
-{% block body  %}
+{% block body %}
 
     <img class="header-logo mb-5" src="{{ asset('uploads/images/' ~ identity.headerpic) }}" alt="logo-header">
     <div class="p-3 my-5 mx-auto text-center">
         <h1 class="display-4">Créer un article</h1>
     </div>
     <div class="py-5 bg-light">
-        <div class="container" >
+        <div class="container">
             <div class="row">
                 <div class="col">
                     {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
                     <div class="row">
                         <div class="mb-4 mx-auto">
+
                             {{ form_label(form.title) }}
                             {{ form_widget(form.title) }}
                         </div>

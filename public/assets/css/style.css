@@ -1061,6 +1061,10 @@ footer {
 
 span {
   color: #fff;
+
+}
+ span .form-error-message{
+  color:red;
 }
 
 .recent-post-widget .rcnt-img {
