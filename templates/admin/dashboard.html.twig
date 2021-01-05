@@ -105,7 +105,7 @@
                                         <td> {{ user.adress }} </td>
                                         <td> {{ user.cp }} </td>
                                         <td> {{ user.city }} </td>
-                                        <td> {{ user.email }} </td>
+                                        <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
                                         <td> {{ user.tel }} </td>
                                         <td> {{ user.vehicule }} </td>
                                         <td> {{ user.description }} </td>
@@ -161,7 +161,7 @@
                                 {% for message in messages %}
                                     <tr>
                                         <td> {{ message.fullname }} </td>
-                                        <td> {{ message.email }} </td>
+                                        <td><a href="mailto:{{ message.email }}">{{ message.email }}</a></td>
                                         <td> {{ message.description }} </td>
                                         <td> {{ message.date | date('d/m/Y') }} </td>
                                         <td class="text-center">

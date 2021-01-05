@@ -1,83 +1,96 @@
 <footer>
-    <!-- Widgets Start -->
-    <div class="footer-widgets top-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-xl-3 mx-auto">
-                    <div class="single-widget contact-widget" data-aos="fade-up" data-aos-delay="0">
-                        <h6 class="widget-tiltle">&nbsp;</h6>
-                        <p class="text-white "> CONTACT</p>
-                        <div class="media ">
-                            <i class="fa fa-map-marker"></i>
-                            <div class="media-body ml-3">
-                                <h6>Addresse</h6>
-                                {{ identity.adress }} <br> {{ identity.cp }} {{ identity.city }}
-                            </div>
-                        </div>
-                        <div class="media">
-                            <i class="fas fa-at"></i>
-                            <div class="media-body ml-3">
-                                <h6>Avez-vous des questions ?</h6>
-                                <a href="mailto:{{ identity.email }}">{{ identity.email }}</a>
-                            </div>
-                        </div>
-                        <div class="media d-none" >
-                            <i class="fa fa-phone"></i>
-                            <div class="media-body ml-3">
-                                <h6>Appellez-nous</h6>
-                                <a href="tel:+610791803458"> {{ identity.tel }}</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-xl-3 mx-auto">
-                    <div class="single-widget contact-widget" data-aos="fade-up" data-aos-delay="0">
-                        <h6 class="widget-tiltle">&nbsp;</h6>
-                        <p class="text-white ">NAVIGATION</p>
+	<!-- Widgets Start -->
+	<div class="footer-widgets top-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 col-xl-3 mx-auto">
+					<div class="single-widget contact-widget" data-aos="fade-up" data-aos-delay="0">
+						<h6 class="widget-tiltle">&nbsp;</h6>
+						<p class="text-white ">
+							CONTACT</p>
+						<div class="media ">
+							<i class="fa fa-map-marker"></i>
+							<div class="media-body ml-3">
+								<h6>Addresse</h6>
+								{{ identity.adress }}
+								<br>
+								{{ identity.cp }}
+								{{ identity.city }}
+							</div>
+						</div>
+						<div class="media">
+							<i class="fas fa-at"></i>
+							<div class="media-body ml-3">
+								<h6>Avez-vous des questions ?</h6>
+								<a href="mailto:{{ identity.email }}">{{ identity.email }}</a>
+							</div>
+						</div>
+						<div class="media d-none">
+							<i class="fa fa-phone"></i>
+							<div class="media-body ml-3">
+								<h6>Appellez-nous</h6>
+								<a href="tel:+610791803458">
+									+33{{ identity.tel }}</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 col-xl-3 mx-auto">
+					<div class="single-widget contact-widget" data-aos="fade-up" data-aos-delay="0">
+						<h6 class="widget-tiltle">&nbsp;</h6>
+						<p class="text-white ">NAVIGATION</p>
 
-                        <div class="media">
-                            <div class="media-body ml-3 ">
-                                <a class="text-white" href="{{ path('default_index') }}"> Accueil </a>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <div class="media-body ml-3">
-                                <a class="text-white" href="{{ path('agir_agir') }}"> Agir </a>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <div class="media-body ml-3">
-                                <a class="text-white" href="{{ path('user-create') }}"> Demande d'aide </a>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <div class="media-body ml-3">
-                                <a class="text-white" href="https://www.helloasso.com/associations/association-inayah">Faire un don</a>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <div class="media-body ml-3">
-                                <a class="text-white" href="{{ path('message-create') }}"> Contact </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Widgets End -->
-    <!-- Foot Note Start -->
-    <div class="foot-note">
-        <div class="container">
-            <div class="footer-content text-center text-lg-left d-lg-flex justify-content-between align-items-center">
-                <p class="mb-0 text-white" data-aos="fade-right" data-aos-offset="0">&copy; 2020 INAYAH Tout droits réservés.</p>
-                <p class="mb-0 text-white" data-aos="fade-left" data-aos-offset="0">
-                    <a class="text-white" href="{{ path('mentions_legales') }}">Mentions légales</a>
-                    <a class="text-white" href="{{ path('politique_confidentalite') }}">Politique de confidentialité</a>
-                </p>
-            </div>
-        </div>
-    </div>
-    <!-- Foot Note End -->
+						<div class="media">
+							<div class="media-body ml-3 ">
+								<a class="text-white" href="{{ path('default_index') }}">
+									Accueil
+								</a>
+							</div>
+						</div>
+						<div class="media">
+							<div class="media-body ml-3">
+								<a class="text-white" href="{{ path('agir_agir') }}">
+									Agir
+								</a>
+							</div>
+						</div>
+						<div class="media">
+							<div class="media-body ml-3">
+								<a class="text-white" href="{{ path('user-create') }}">
+									Demande d'aide
+								</a>
+							</div>
+						</div>
+						<div class="media">
+							<div class="media-body ml-3">
+								<a class="text-white" href="https://www.helloasso.com/associations/association-inayah">Faire un don</a>
+							</div>
+						</div>
+						<div class="media">
+							<div class="media-body ml-3">
+								<a class="text-white" href="{{ path('message-create') }}">
+									Contact
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Widgets End -->
+	<!-- Foot Note Start -->
+	<div class="foot-note">
+		<div class="container">
+			<div class="footer-content text-center text-lg-left d-lg-flex justify-content-between align-items-center">
+				<p class="mb-0 text-white" data-aos="fade-right" data-aos-offset="0">&copy; 2020 INAYAH Tout droits réservés.</p>
+				<p class="mb-0 text-white" data-aos="fade-left" data-aos-offset="0">
+					<a class="text-white" href="{{ path('mentions_legales') }}">Mentions légales</a>
+					<a class="text-white" href="{{ path('politique_confidentalite') }}">Politique de confidentialité</a>
+				</p>
+			</div>
+		</div>
+	</div>
+	<!-- Foot Note End -->
 </footer>
 <!-- Footer Endt -->
